@@ -83,8 +83,7 @@ class ApiDispatcher
         $this->logger->info('');
         $token = $this->auth->getBearerToken($customer->getStoreId());
         $this->customerControl->incrementAttempts($customer->getId());
-        $addressControl = $this->customerAddressControl->incrementAttempts($address->getId(), $addressType);
-        $addressType = $addressControl->getType();
+        $this->customerAddressControl->incrementAttempts($address->getId(), $addressType);
         $this->customerApi->dispatch($token, $customer, $address, $addressType);
         $this->customerAddressControl->markAsSynced($address->getId());
         $this->customerControl->markAsSynced($customer->getId());
