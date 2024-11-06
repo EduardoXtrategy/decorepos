@@ -5,6 +5,7 @@ namespace Uzer\Infor\Model\Api;
 use GuzzleHttp\Exception\GuzzleException;
 use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Customer\Model\Customer;
+use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Sales\Model\Order;
 use Uzer\Infor\Logger\Logger;
@@ -71,17 +72,20 @@ class ApiDispatcher
     /**
      * @param Customer $customer
      * @param AddressInterface $address
+     * @param string $addressType
      * @return void
      * @throws GuzzleException
      * @throws LocalizedException
+     * @throws AlreadyExistsException
      */
-    public function customer(Customer $customer, AddressInterface $address)
+    public function customer(Customer $customer, AddressInterface $address, string $addressType = 'B')
     {
         $this->logger->info('');
         $token = $this->auth->getBearerToken($customer->getStoreId());
         $this->customerControl->incrementAttempts($customer->getId());
-        $this->customerAddressControl->incrementAttempts($address->getId());
-        $this->customerApi->dispatch($token, $customer, $address);
+        $addressControl = $this->customerAddressControl->incrementAttempts($address->getId(), $addressType);
+        $addressType = $addressControl->getType();
+        $this->customerApi->dispatch($token, $customer, $address, $addressType);
         $this->customerAddressControl->markAsSynced($address->getId());
         $this->customerControl->markAsSynced($customer->getId());
     }

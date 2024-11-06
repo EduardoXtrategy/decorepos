@@ -20,6 +20,7 @@
     <table name="customer_address_control" resource="default" engine="innodb" comment="">
         <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"/>
         <column xsi:type="int" name="address_id" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="string" name="type" unsigned="true" nullable="false" identity="false"/>
         <column xsi:type="tinyint" name="save" unsigned="true" nullable="false" identity="false"/>
         <column xsi:type="int" name="attempts" unsigned="true" nullable="false" identity="false"/>
         <column xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false" name="created_at" nullable="false"

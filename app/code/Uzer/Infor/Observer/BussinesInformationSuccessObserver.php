@@ -46,7 +46,8 @@ class BussinesInformationSuccessObserver implements ObserverInterface
         /** @var AddressInterface $address */
         $address = $observer->getData('address');
         try {
-            $this->apiDispatcher->customer($customer, $address);
+            $this->apiDispatcher->customer($customer, $address, 'B');
+            $this->apiDispatcher->customer($customer, $address, 'S');
             $this->apiDispatcher->customerDocuments($customer);
         } catch (GuzzleException $e) {
             $this->logger->info('Error dispatch customer: ' . $customer->getId() . '; Error: ' . $e->getMessage());

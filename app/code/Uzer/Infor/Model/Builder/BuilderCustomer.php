@@ -31,6 +31,7 @@ class BuilderCustomer
     protected CustomerInterface $customerInterface;
     protected ?InformationBusiness $informationBusinessModel;
     protected AddressInterface $address;
+    private string $addressType = 'B';
 
 
     /**
@@ -67,13 +68,15 @@ class BuilderCustomer
      *
      * @param Customer $customer
      * @param AddressInterface $address
+     * @param string $addressType
      * @return RequestModelInterface
      * @throws LocalizedException
      */
-    public function build(Customer $customer, AddressInterface $address): RequestModelInterface
+    public function build(Customer $customer, AddressInterface $address, string $addressType = 'B'): RequestModelInterface
     {
         $this->customer = $customer;
         $this->address = $address;
+        $this->addressType = $addressType;
         $this->init();
         $customerModel = $this->customerModelFactory->create();
         $customerModel->setAction(1);
@@ -99,6 +102,7 @@ class BuilderCustomer
         $customerModel->appendProperty($this->buildShipToMagentoID());
         $customerModel->appendProperty($this->buildSalesContactEmail());
         $customerModel->appendProperty($this->buildSalesContactPhone());
+        $customerModel->appendProperty($this->buildAddressType());
         return $customerModel;
     }
 
@@ -278,7 +282,7 @@ class BuilderCustomer
         $customerItem->setModified(true);
         if ($this->informationBusinessModel) {
             $customerItem->setIsNull(false);
-            $customerItem->setValue($this->informationBusinessModel->getPaymentTerms() ? '1' : '0');
+            $customerItem->setValue('PRE');
         } else {
             $customerItem->setIsNull(true);
             $customerItem->setValue(null);
@@ -317,7 +321,7 @@ class BuilderCustomer
         $customerItem->setName('TaxException');
         $customerItem->setModified(true);
         $customerItem->setIsNull(false);
-        $customerItem->setValue($this->informationBusinessModel->getTaxException() ? '1' : '0');
+        $customerItem->setValue('PRE');
         return $customerItem;
     }
 
@@ -327,7 +331,7 @@ class BuilderCustomer
         $customerItem->setModified(true);
         $customerItem->setIsNull(false);
         $customerItem->setName('ShipToMagentoID');
-        $customerItem->setValue($this->customer->getId());
+        $customerItem->setValue($this->address->getId());
         return $customerItem;
     }
 
@@ -353,6 +357,16 @@ class BuilderCustomer
         $customerItem->setModified(true);
         $customerItem->setIsNull(false);
         $customerItem->setValue($this->address->getTelephone());
+        return $customerItem;
+    }
+
+    public function buildAddressType(): ModelItemInterface
+    {
+        $customerItem = $this->customerItemFactory->create();
+        $customerItem->setName('AddressType');
+        $customerItem->setModified(true);
+        $customerItem->setIsNull(false);
+        $customerItem->setValue($this->addressType);
         return $customerItem;
     }
 

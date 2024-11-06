@@ -23,6 +23,24 @@ class CustomerAddressControl extends AbstractModel implements CustomerAddressCon
         $this->_init(ResourceModel::class);
     }
 
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->getData(self::TYPE);
+    }
+
+    /**
+     * @param string $type
+     * @return void
+     */
+    public function setType(string $type): void
+    {
+        $this->setData(self::TYPE, $type);
+    }
+
     /**
      * Getter for AddressId.
      *

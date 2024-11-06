@@ -8,6 +8,7 @@ interface CustomerAddressControlInterface
      * String constants for property names
      */
     public const ADDRESS_ID = "address_id";
+    public const TYPE = "type";
     public const SAVED = "saved";
     public const ATTEMPTS = "attempts";
     public const CREATED_AT = "created_at";
@@ -17,6 +18,24 @@ interface CustomerAddressControlInterface
     public function getEntityId();
 
     public function setEntityId($entityId);
+
+
+    /**
+     * Getter for Type.
+     *
+     * @return string|null
+     */
+    public function getType(): string;
+
+
+    /**
+     * Setter for Type.
+     *
+     * @param string $type
+     *
+     * @return void
+     */
+    public function setType(string $type): void;
 
     /**
      * Getter for AddressId.

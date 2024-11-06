@@ -37,17 +37,19 @@ class CustomerApi
      * @param string $token
      * @param Customer $customer
      * @param AddressInterface $address
+     * @param string $addressType
      * @return mixed
+     * @throws GuzzleException
      * @throws LocalizedException
      */
-    public function dispatch(string $token, Customer $customer, AddressInterface $address)
+    public function dispatch(string $token, Customer $customer, AddressInterface $address, string $addressType = 'B')
     {
         $client = $this->client->create();
         $url = $this->helper->getApiUrl($customer->getStoreId());
         $tenantId = $this->helper->getTenantId($customer->getStoreId());
         $ido = $this->helper->getIdo($customer->getStoreId());
 
-        $customerModel = $this->builderCustomer->build($customer, $address);
+        $customerModel = $this->builderCustomer->build($customer, $address, $addressType);
         $data = $customerModel->toArray();
         $this->logger->info('Send Request: ' . json_encode($data));
         $uri = $url . $tenantId . '/CSI/IDORequestService/MGRestService.svc/json/' . $ido . '/additem';

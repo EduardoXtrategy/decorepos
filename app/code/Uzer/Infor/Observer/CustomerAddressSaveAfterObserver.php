@@ -54,7 +54,7 @@ class CustomerAddressSaveAfterObserver implements ObserverInterface
             }
             $dataModel = $address->getDataModel();
             if ($dataModel) {
-                $this->apiDispatcher->customer($customer, $dataModel);
+                $this->apiDispatcher->customer($customer, $dataModel, 'S');
             }
         } catch (GuzzleException|\Exception $ex) {
             $this->logger->error('Error saving updating address: ' . $ex->getMessage());
