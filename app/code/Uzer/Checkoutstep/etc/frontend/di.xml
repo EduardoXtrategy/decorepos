@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Tax\Block\Item\Price\Renderer">
+        <plugin
+            name="uzer_checkoutstep_item_price_render_wrapper"
+            type="Uzer\Checkoutstep\Plugin\Block\ItemPriceRenderWrapper"
+            disabled="false"/>
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="add_inkanta_fields" type="Uzer\Checkoutstep\Plugin\Checkout\LayoutProcessor"
+                disabled="false"
+                sortOrder="100"/>
+    </type>
+</config>

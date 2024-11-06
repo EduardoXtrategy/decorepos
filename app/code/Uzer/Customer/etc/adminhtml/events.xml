@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_save_after">
+        <observer name="uzer_decowraps_customer_save_after"
+                  instance="Uzer\Customer\Observer\Adminhtml\AfterSaveCustomer"/>
+    </event>
+    <event name="adminhtml_customer_save_after">
+        <observer name="uzer_decowraps_adminhtml_customer_save_after"
+                  instance="Uzer\Customer\Observer\Adminhtml\CustomerSaveAfterAction"/>
+    </event>
+</config>

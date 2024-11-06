@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/favorites</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Card/B2B-product/colors" transform="translate(-223.000000, -16.000000)">
+            <g id="Group-48" transform="translate(223.000000, 16.000000)">
+                <rect id="Rectangle" stroke="#D7D7D7" fill="#FFFFFF" x="0.5" y="0.5" width="41" height="41" rx="20.5"></rect>
+                <path d="M28.2319393,16.8356282 C27.3087616,15.6314059 26.226029,15.0136011 25.0136245,15 L24.9730687,15 C23.2174302,15 21.7051264,16.2915834 21.0012701,17.0087809 C20.2968802,16.2915834 18.7851101,15 17.0289379,15 L16.9889158,15 C15.7759777,15.0136011 14.6943123,15.6314059 13.7556594,16.856553 C12.5650533,18.5845813 12.8022702,20.8994759 14.3197049,22.360822 L20.62773,28.4504624 C20.8352281,28.6498459 21.1673122,28.6498459 21.3748102,28.4504624 L27.6823017,22.360822 C29.2040166,20.8915525 29.4354163,18.5654233 28.2319393,16.8356282 L28.2319393,16.8356282 Z" id="Path" stroke="#707070" stroke-width="1.5"></path>
+            </g>
+        </g>
+    </g>
+</svg>

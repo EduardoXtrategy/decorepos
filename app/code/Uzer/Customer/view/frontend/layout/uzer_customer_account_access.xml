@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <referenceContainer name="content">
+        <container name="register-step-account" htmlTag="div" htmlClass="row">
+            <container name="register-step-account-form" htmlTag="div" htmlClass="col-md-12 col-12">
+                <block class="Uzer\Customer\Block\Account\Access" name="uzer_register_step_account"
+                       template="Uzer_Customer::account/access.phtml"/>
+            </container>
+        </container>
+    </referenceContainer>
+</page>

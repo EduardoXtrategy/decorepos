@@ -1,0 +1,77 @@
+<?php
+
+/** @var \Uzer\Sales\Block\Order\Info\Buttons\ReturnProducts $block */ ?>
+<?php $order = $block->getOrder() ?>
+<?php
+/** @var \Magento\Framework\Data\Helper\PostHelper $helper */
+$helper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
+?>
+<?php if ($block->isEnable() && $block->isDisplay()) : ?>
+    <a href="#" data-return='<?= $helper->getPostData($block->getUrl('sales/order/restore'), $block->getPostData()) ?>'
+       class="action return">
+        <span><?= __('Return Products') ?></span>
+    </a>
+    <div id="return-popup" class="return-popup-content" style="display:none;">
+        <p><?= __('To start the return process, complete the following information below and a Customer Service Representative will contact you as soon as possible. For more information regarding our return Policy <a href="%1" target="_blank">click here.</a>', $block->escapeUrl($block->getUrl('return-and-refund-policy'))) ?></p>
+        <h2><?= __('Order #') ?><?= $order->getIncrementId() ?></h2>
+        <h3><?= __('Products to Return') ?></h3>
+        <form method="post" action="<?= $block->getUrl('sales/order/restore') ?>" id="return-form" class="return-form"
+              data-mage-init='{"validation": {}}'>
+            <input type="hidden" name="order_id" value="<?= $order->getId() ?>">
+            <?= $block->getBlockHtml('formkey') ?>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group required">
+                        <label for="full_name"><?= __('Full Name*') ?></label>
+                        <input type="text" id="full_name" name="name" class="form-control"
+                               data-validate="{required:true}">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group required">
+                        <label for="email"><?= __('Email Address*') ?></label>
+                        <input type="text" id="email" name="email" class="form-control"
+                               data-validate="{required:true,'validate-email':true}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group required">
+                        <label for="phone_number"><?= __('Phone Number*') ?></label>
+                        <input type="text" id="phone_number" name="phone" class="form-control"
+                               data-validate="{required:true}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group required">
+                        <label
+                            for="description"><?= __('Please confirm which products you would like to return and why.') ?></label>
+                        <textarea name="description" id="description" rows="10" class="form-control"
+                                  data-validate="{required:true}"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row custom-step-container input-return-image">
+                <p><?= __('In the unfortunate event there are any issues with your order such as damage, please upload a picture below.') ?></p>
+                <div class="input-return-image-container">
+                    <div class="box custom-step-container">
+                        <input type="file" name="picture" id="picture" class="inputfile inputfile-custom" accept="image/png, image/jpeg"/>
+                        <label class="inputfile-styles" for="picture"><span><?= __('Upload picture') ?></span><strong><?= __('Upload') ?></strong></label>
+                        <div class="notification__container">
+                        <small><?= __('JPG, PNG Format. Max. 5MB.') ?></small>
+                        <div for="picture" generated="true" class="mage-error" id="picture-error" style="display: none;"><?= __('This is a required field.') ?></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row return-actions-box">
+                <div class="col-lg-12">
+                    <button class="action" type="submit"><?= __('Submit Request') ?></button>
+                </div>
+            </div>
+        </form>
+    </div>
+<?php endif; ?>

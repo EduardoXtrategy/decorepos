@@ -1,0 +1,87 @@
+<?php
+
+namespace Uzer\Infor\Console\Command;
+
+use GuzzleHttp\Exception\GuzzleException;
+use Magento\Customer\Model\Customer;
+use Magento\Customer\Model\ResourceModel\CustomerFactory;
+use Magento\Framework\App\ObjectManager;
+use Magento\Framework\App\State;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Sales\Model\OrderFactory;
+use Magento\Sales\Model\ResourceModel\OrderFactory as OrderResourceFactory;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Uzer\Infor\Model\Api\ApiDispatcher;
+
+class DispatchOrderInfor extends Command
+{
+
+    protected OrderFactory $orderFactory;
+    protected OrderResourceFactory $resourceOrderFactory;
+
+    protected ApiDispatcher $apiDispatcher;
+    protected State $state;
+
+    /**
+     * @param OrderFactory $orderFactory
+     * @param OrderResourceFactory $resourceOrderFactory
+     * @param ApiDispatcher $apiDispatcher
+     * @param State $state
+     * @param string|null $name
+     */
+    public function __construct(
+        OrderFactory         $orderFactory,
+        OrderResourceFactory $resourceOrderFactory,
+        ApiDispatcher        $apiDispatcher,
+        State                $state,
+        string               $name = null
+    )
+    {
+        parent::__construct($name);
+        $this->orderFactory = $orderFactory;
+        $this->resourceOrderFactory = $resourceOrderFactory;
+        $this->apiDispatcher = $apiDispatcher;
+        $this->state = $state;
+    }
+
+    /**
+     * Initialization of the command.
+     */
+    protected function configure()
+    {
+        $this->setName('infor:order');
+        $this->setDescription('Send order information to InforErp');
+        $this->addArgument('order_id', InputArgument::REQUIRED, 'Order ID');
+        parent::configure();
+    }
+
+    /**
+     * CLI command description.
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     *
+     * @return void
+     * @throws GuzzleException
+     * @throws LocalizedException
+     */
+    protected function execute(InputInterface $input, OutputInterface $output): void
+    {
+        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_GLOBAL);
+        $orderId = $input->getArgument('order_id');
+        if (!$orderId) {
+            $output->writeln('Order ID is required');
+            return;
+        }
+        $output->writeln('Order ID: ' . $orderId);
+        $order = $this->orderFactory->create();
+        $this->resourceOrderFactory->create()->load($order, $orderId, 'increment_id');
+        $customer = ObjectManager::getInstance()->create(Customer::class);
+        ObjectManager::getInstance()->create(CustomerFactory::class)->create()->load($customer, $order->getCustomerId());
+        $this->apiDispatcher->orderV2($order);
+        $output->writeln('Order dispatched');
+    }
+}

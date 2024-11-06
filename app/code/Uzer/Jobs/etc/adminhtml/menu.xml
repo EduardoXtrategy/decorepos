@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Uzer_Jobs::jobs" sortOrder="40" title="Jobs" module="Uzer_Jobs" parent="Uzer_Contact::decowraps"
+             resource="Uzer_Jobs::management" translate="title" action="uzer_jobs/uzerjob/index"/>
+        <add id="Uzer_Jobs::requests" sortOrder="50" title="Request Jobs" module="Uzer_Jobs"
+             parent="Uzer_Contact::decowraps" resource="Uzer_Jobs::requests" translate="title"
+             action="request_job/requestjob/index"/>
+    </menu>
+</config>

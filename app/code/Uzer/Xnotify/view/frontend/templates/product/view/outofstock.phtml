@@ -1,0 +1,83 @@
+<?php
+/**
+ * @var \Uzer\Xnotify\Block\Product\View $block
+ */
+// @codingStandardsIgnoreStart
+/** @var Magento\Framework\Url\Helper\Data $urlHelper */
+
+/** @var Escaper $escaper */
+
+use Amasty\Xnotif\Model\Config\GdprXnotif;
+use Magento\Framework\App\ActionInterface;
+use Magento\Framework\Escaper;
+
+$urlHelper = $this->helper(\Magento\Framework\Url\Helper\Data::class);
+/** @var Amasty\Xnotif\Helper\Data $helper */
+$helper = $this->helper(\Amasty\Xnotif\Helper\Data::class);
+// @codingStandardsIgnoreEnd
+$productId = $helper->getOriginalProduct($block)->getId();
+$parentId = (int)$block->getData('parent_product_id');
+$url = $escaper->escapeHtml($helper->getEmailUrl('stock'));
+?>
+<?php if ($block->getCustomerSession()->isLoggedIn()): ?>
+    <div id="modal-inventory-stock-notification" style="display: none">
+        <div class="modal-inner-content">
+            <div class="row">
+                <div class="col-12 main-inventory-modal-title">
+                    <h3><?= __("We'll keep you posted!") ?></h3>
+                </div>
+                <div class="col-12 main-inventory-modal-subtitle">
+                    <p><?= __("Once this product comes back in stock, we'll notify you via email.") ?></p>
+                </div>
+                <div class="col-12 form-inventory-container">
+                    <form id="form-validate-stock" method="post" action="<?= /* @noEscape */
+                    $url; ?>">
+                        <?= $block->getBlockHtml('formkey') ?>
+                        <input type="hidden" name="product_id"
+                               id="child_stock_product_id"
+                               value="<?= /* @noEscape */
+                               $productId ?>"/>
+                        <input type="hidden" name="type" value="email"/>
+                        <?php if ($parentId): ?>
+                            <input type="hidden" name="parent_id"
+                                   value="<?= /* @noEscape */
+                                   $parentId ?>"/>
+                        <?php endif; ?>
+                        <input type="hidden"
+                               name="<?= /* @noEscape */
+                               ActionInterface::PARAM_NAME_URL_ENCODED ?>"
+                               value="<?= /* @noEscape */
+                               $urlHelper->getEncodedUrl(); ?>"/>
+                        <div class="form-group">
+                            <input name="guest_email" type="email" class="form-control"
+                                   placeholder="<?= __('customer@example.com') ?>">
+                            <button type="submit"><?= __('Submit') ?></button>
+                        </div>
+                        <?php if ($helper->isGDRPEnabled()): ?>
+                            <div class="field required">
+                                <input type="checkbox"
+                                       name="gdrp"
+                                       id="amxnotif-stock-gdrp-<?= /* @noEscape */
+                                       $productId ?>"
+                                       title="<?= $escaper->escapeHtml(__('GDRP')); ?>"
+                                       data-validate="{required:true}"
+                                       value="1">
+                                <label class="label" for="amxnotif-stock-gdrp-<?= /* @noEscape */
+                                $productId ?>">
+                                    <?= /* @noEscape */
+                                    $helper->getGDRPText(); ?>
+                                </label>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php $gdprCheckboxesHtml = $helper->getGdprCheckboxHtml(GdprXnotif::GDPR_XNOTIF_STOCK_FORM); ?>
+                        <?php if (!empty($gdprCheckboxesHtml)): ?>
+                            <?= /** @noEscape */
+                            $gdprCheckboxesHtml ?>
+                        <?php endif; ?>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

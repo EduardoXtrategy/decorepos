@@ -1,0 +1,166 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Checkout\Block\Cart\Item\Renderer */
+
+
+$_item = $block->getItem();
+$product = $_item->getProduct();
+$resourceModelProduct = \Magento\Framework\App\ObjectManager::getInstance()->create(\Magento\Catalog\Model\ResourceModel\Product::class);
+$productRepository = Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Catalog\Model\ProductRepository::class);
+$partialQuoteBox = \Magento\Framework\App\ObjectManager::getInstance()->create(\Uzer\Catalog\Api\PartialBoxQuoteInterface::class);
+$productObj = $productRepository->get($product->getSku());
+$stockProduct = Magento\Framework\App\ObjectManager::getInstance()->get(\Uzer\Catalog\Helper\StockProduct::class);
+$resourceModelProduct->load($product, $product->getId());
+$isVisibleProduct = $product->isVisibleInSiteVisibility();
+/** @var \Magento\Msrp\Helper\Data $helper */
+$helper = $this->helper('Magento\Msrp\Helper\Data');
+$canApplyMsrp = $helper->isShowBeforeOrderConfirm($product) && $helper->isMinimalPriceLessMsrp($product);
+
+$config_point2 = $this->helper('Rokanthemes\RokanBase\Helper\Data')->getConfigData('setting_categories/categories/point2');
+$arr_config_point2 = explode(',', $config_point2);
+$qty = 1;
+$categories = $product->getCategoryIds();
+
+if (count($categories) > 0 && count($arr_config_point2) > 0) {
+    foreach ($arr_config_point2 as $val1) {
+        if (in_array(trim($val1), $categories)) {
+            $qty = 3;
+            break;
+        }
+    }
+}
+?>
+<tr class="item-info">
+    <td data-th="<?php echo $block->escapeHtml(__('Article')); ?>" class="col item">
+        <?php if ($block->hasProductUrl()): ?>
+        <a href="<?php /* @escapeNotVerified */
+        echo $block->getProductUrl() ?>"
+           title="<?php echo $block->escapeHtml($block->getProductName()) ?>"
+           tabindex="-1"
+           class="product-item-photo">
+            <?php else: ?>
+            <span class="product-item-photo">
+            <?php endif; ?>
+            <?php echo $block->getImage($block->getProductForThumbnail(), 'cart_page_product_thumbnail')->toHtml(); ?>
+            <?php if ($block->hasProductUrl()): ?>
+        </a>
+    <?php else: ?>
+        </span>
+    <?php endif; ?>
+        <div class="product-item-details">
+            <strong class="product-item-name">
+                <?php if ($block->hasProductUrl()): ?>
+                    <a href="<?php /* @escapeNotVerified */
+                    echo $block->getProductUrl() ?>"><?php echo $block->escapeHtml($block->getProductName()) ?></a>
+                <?php else: ?>
+                    <?php echo $block->escapeHtml($block->getProductName()) ?>
+                <?php endif; ?>
+            </strong>
+            <?php if ($_options = $block->getOptionList()): ?>
+                <dl class="item-options">
+                    <?php foreach ($_options as $_option) : ?>
+                        <?php $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
+                        <dt><?php echo $block->escapeHtml($_option['label']) ?></dt>
+                        <dd>
+                            <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                                <?php /* @escapeNotVerified */
+                                echo $_formatedOptionValue['full_view'] ?>
+                            <?php else: ?>
+                                <?php /* @escapeNotVerified */
+                                echo $_formatedOptionValue['value'] ?>
+                            <?php endif; ?>
+                        </dd>
+                    <?php endforeach; ?>
+                </dl>
+            <?php endif; ?>
+            <?php if ($messages = $block->getMessages()): ?>
+                <?php foreach ($messages as $message): ?>
+                    <div class="cart item message <?php /* @escapeNotVerified */
+                    echo $message['type'] ?>">
+                        <div><?php echo $block->escapeHtml($message['text']) ?></div>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <?php $addInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+            <?php if ($addInfoBlock): ?>
+                <?php echo $addInfoBlock->setItem($_item)->toHtml() ?>
+            <?php endif; ?>
+            <?php if ($canApplyMsrp): ?>
+                <div class="price">
+                    <div class="pricing msrp">
+                        <span class="msrp notice"><?php /* @escapeNotVerified */
+                            echo __('See price before order confirmation.'); ?></span>
+                        <?php $helpLinkId = 'cart-msrp-help-' . $_item->getId(); ?>
+                        <a href="#" class="action help map" id="<?php /* @escapeNotVerified */
+                        echo($helpLinkId); ?>"
+                           data-mage-init='{"addToCart":{"helpLinkId": "#<?php /* @escapeNotVerified */
+                           echo $helpLinkId; ?>","productName": "<?php /* @escapeNotVerified */
+                           echo $product->getName(); ?>","showAddToCart": false}}'>
+                        <span><?php /* @escapeNotVerified */
+                            echo __("What's this?"); ?></span>
+                        </a>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="col price" data-th="<?php echo $block->escapeHtml(__('Price')); ?>">
+                    <span><?= __('Price per unit') ?>:</span><?php echo $block->getUnitPriceHtml($_item); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </td>
+    <td class="col boxes">
+        <?php
+        $info = $stockProduct->getQty($productObj);
+        $boxSize = $info['box_size'];
+        $info['id'] = $_item->getId();
+        $boxQty = $_item->getQty() / ($boxSize <= 0 ? 1 : $boxSize);
+        $boxQtyInt = (int)$boxQty;
+        $partialBox = $partialQuoteBox->getByQuiteIdAndProductId($block->getItem()->getQuote()->getId(), $productObj->getId());
+        $info['has_partial_box'] = false;
+        if ($partialBox) {
+            $info['has_partial_box'] = true;
+            $info['partial_box_qty'] = $partialBox->getQty();
+        }
+        $json = str_replace('"', "'", json_encode($info));
+        ?>
+        <div class="control qty">
+            <button type="button" class="qty-down" data-product="<?= $json ?>">-</button>
+            <input id="item-<?php echo $_item->getId() ?>-boxes" type="text" name="box_qty"
+                   value="<?= ceil($boxQty) ?>" readonly>
+            <button type="button" class="qty-up" data-product="<?= $json ?>">+</button>
+        </div>
+    </td>
+    <td class="col qty" data-th="<?php echo $block->escapeHtml(__('Units')); ?>">
+        <div class="field qty">
+            <span id="item-<?php echo $_item->getId() ?>-qty"><?= $block->getQty() ?></span>
+            <input id="cart-<?php echo $_item->getId() ?>-qty" type="hidden"
+                   name="cart[<?= $_item->getId() ?>][qty]" value="<?= $block->getQty() ?>">
+        </div>
+    </td>
+    <td class="col subtotal" data-th="<?php echo $block->escapeHtml(__('Subtotal')); ?>">
+        <input type="hidden" id="item-<?php echo $_item->getId() ?>-partial"
+               name="cart[<?= $_item->getId() ?>][partial]" value="0">
+        <?php if ($canApplyMsrp): ?>
+            <span class="cart msrp subtotal">--</span>
+        <?php else: ?>
+            <?php echo $block->getRowTotalHtml($_item); ?>
+        <?php endif; ?>
+        <div class="actions-toolbar">
+            <?php /* @escapeNotVerified */
+            echo $block->getActions($_item) ?>
+        </div>
+        <div data-item-update="<?= $_item->getId() ?>" class="item-update-cart" style="display: none">
+            <button type="submit" name="update_cart_action" value="update_qty"
+                    title="Update" class="items-conf">
+                <span><?= __('Update cart') ?></span>
+            </button>
+        </div>
+    </td>
+</tr>
+

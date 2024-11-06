@@ -1,0 +1,13 @@
+<?php /** @var Uzer\Search\Block\CatalogSearch\Search $block */ ?>
+<div class="row  catalog-search-banner">
+    <div class="col-md-12 col-12">
+        <?php $productBanner = $block->getContentFilter(); ?>
+        <?php if ($productBanner): ?>
+            <div class="row">
+                <div class="col-12">
+                    <?= $productBanner ?>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>

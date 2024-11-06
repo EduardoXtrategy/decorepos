@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 RokanThemes.com. All rights reserved.
+
+ * @author RokanThemes Team <contact@rokanthemes.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="decowraps" translate="label" sortOrder="310">
+            <label><![CDATA[Decowraps]]></label>
+        </tab>
+        <section id="samples" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Samples</label>
+            <tab>decowraps</tab>
+            <resource>Uzer_Samples::config</resource>
+            <group id="configuration" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Samples config</label>
+                <field id="emails" translate="label comment" type="text" sortOrder="4" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Emails to notify</label>
+                    <comment>Type emails separated by ,</comment>
+                </field>
+                <field id="template" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Template email samples order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <comment>Email template is chosen based on theme fallback when "Default" option is selected.
+                    </comment>
+                </field>
+                <field id="kit" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Template email samples kit request</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <comment>Email template is chosen based on theme fallback when "Default" option is selected.
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

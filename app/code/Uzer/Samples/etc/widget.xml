@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Uzer\Samples\Block\Widget\Form" id="request_sample">
+        <label>Samples Form</label>
+        <description>Request sample form</description>
+    </widget>
+</widgets>

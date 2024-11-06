@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="\Magento\ConfigurableProduct\Block\Cart\Item\Renderer\Configurable"
+                type="\Uzer\Catalog\Block\Cart\Item\Renderer"/>
+
+    <preference for="Magento\Catalog\Pricing\Render\FinalPriceBox"
+                type="Uzer\Catalog\Pricing\Render\FinalPriceBox"/>
+    <preference for="Magento\ConfigurableProduct\Pricing\Render\FinalPriceBox"
+                type="Uzer\Catalog\ConfigurableProduct\Pricing\Render\FinalPriceBox"/>
+    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+        <plugin name="decowraps_set_stock_product_detail"
+                sortOrder="10"
+                type="Uzer\Catalog\Plugin\ConfigurableProduct\Block\Product\View\Type\Configurable"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="decowraps_custom_addtocart"
+                sortOrder="10"
+                type="Uzer\Catalog\Plugin\Catalog\Block\Product\View"/>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Item\Processor">
+        <plugin name="uzerPrepareQuoteItemPlugin"
+                type="Uzer\Catalog\Plugin\Model\Quote\Item\Processor"/>
+    </type>
+    <type name="Magento\Checkout\Block\Cart\Grid">
+        <plugin name="uzerShowCartPlugin" type="Uzer\Catalog\Plugin\Block\Cart\Grid"/>
+    </type>
+    <type name="Uzer\Catalog\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Catalog\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">catalog</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Uzer\Catalog\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Meetanshi\HidePrice\Plugin\Catalog\Pricing\Render\FinalPriceBox"
+                type="Uzer\Catalog\Plugin\Catalog\Pricing\Render\FinalPriceBox"/>
+    <type name="Uzer\Catalog\Model\PartialBoxQuote">
+        <arguments>
+            <argument name="session" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <preference for="Uzer\Catalog\Api\PartialBoxQuoteInterface"
+                type="Uzer\Catalog\Model\PartialBoxQuote"/>
+    <preference for="Uzer\Catalog\Api\Data\PartialBoxInterface"
+                type="Uzer\Catalog\Model\PartialBox"/>
+    <preference for="Magento\Swatches\Block\Product\Renderer\Configurable"
+                type="Uzer\Catalog\Block\Product\Renderer\Configurable"/>
+
+
+    <type name="Uzer\Catalog\Plugin\Model\QuoteWrapper">
+        <arguments>
+            <argument name="session" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="uzerCatalogRemovePerforation"
+                      xsi:type="object">Uzer\Catalog\Console\Command\RemovePerforation</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

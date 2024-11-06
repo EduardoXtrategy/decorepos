@@ -1,0 +1,12 @@
+{
+  "uzer_ondemand_requests": {
+    "column": {
+      "description": true,
+      "name": true,
+      "email": true,
+      "customers_id": true,
+      "created_at": true,
+      "updated_at": true
+    }
+  }
+}

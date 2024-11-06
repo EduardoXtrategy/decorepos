@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="29px" viewBox="0 0 34 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 8</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="24" height="15" rx="1.6"></rect>
+        <filter color-interpolation-filters="auto" id="filter-3">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.509804 0 0 0 0 0.600000 0 0 0 0 0.184314 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="B2B:Product-Details-Selection--stage-01" transform="translate(-844.000000, -699.000000)">
+            <g id="Group-8" transform="translate(844.000000, 699.000000)">
+                <g id="Group-3">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
+                    <g mask="url(#mask-2)" id="Rectangle">
+                        <g transform="translate(0.000000, -0.750000)">
+                            <rect fill="#FFE470" x="0" y="0" width="24" height="7.58333333"></rect>
+                            <rect fill="#2682FF" transform="translate(12.000000, 9.625000) scale(1, -1) translate(-12.000000, -9.625000) " x="0" y="7.58333333" width="24" height="4.08333333"></rect>
+                            <rect fill="#FF6C6C" transform="translate(12.000000, 13.708333) scale(1, -1) translate(-12.000000, -13.708333) " x="0" y="11.6666667" width="24" height="4.08333333"></rect>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group-3" transform="translate(12.000000, 7.000000)">
+                    <circle id="Oval" fill="#FFFFFF" cx="11.5" cy="10.5" r="10.5"></circle>
+                    <g filter="url(#filter-3)" id="check-(1)">
+                        <g>
+                            <path d="M11,0 C4.93457422,0 0,4.93457422 0,11 C0,17.0654258 4.93457422,22 11,22 C17.0654258,22 22,17.0654258 22,11 C22,4.93457422 17.0654258,0 11,0 Z M11,20.625 C5.69275781,20.625 1.375,16.3072422 1.375,11 C1.375,5.69275781 5.69275781,1.375 11,1.375 C16.3072422,1.375 20.625,5.69275781 20.625,11 C20.625,16.3072422 16.3072422,20.625 11,20.625 Z M16.1980156,7.43604297 C16.4665273,7.70451172 16.4665273,8.13982813 16.1980156,8.40829688 L10.0423125,14.564 C9.91340625,14.6929492 9.73852344,14.7653945 9.55620703,14.7653945 C9.37389062,14.7653945 9.19900781,14.6929492 9.07005859,14.564 L5.80189844,11.2957969 C5.53342969,11.0273281 5.53342969,10.5920117 5.80189844,10.323543 C6.07036719,10.0550313 6.50564062,10.0550313 6.77415234,10.323543 L9.55616406,13.1055547 L15.2257188,7.43604297 C15.4942305,7.16757422 15.9295469,7.16757422 16.1980156,7.43604297 L16.1980156,7.43604297 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

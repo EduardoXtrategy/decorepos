@@ -1,0 +1,135 @@
+<?php
+
+/**
+ * @var Uzer\Customer\Block\Register\Step $block
+ */
+?>
+<?php if ($block->display()) : ?>
+    <div class="custom-step-container">
+        <div class="row">
+            <div class="col-12"> <?= $block->getLayout()->createBlock(Magento\Cms\Block\Block::class)->setBlockId('register_step_general_advertising_block')->toHtml() ?> </div>
+        </div>
+        <div class="row register-form-container-title">
+            <div class="col-12">
+                <h4 class="register-b2b-title double-title">
+                    <strong><?= __('1. Billing Address') ?></strong> <?= __('All fields are required') ?>*
+                </h4>
+            </div>
+        </div>
+        <div class="row register-form-container">
+            <div class="col-12">
+                <form action="
+				<?= $block->formAction() ?>" method="post" class="form" enctype="multipart/form-data" id="billing-addres-form" data-mage-init='{
+  "validation": {
+    "rules": {
+      "first_name": {
+        "required": true
+      },
+      "last_name": {
+        "required": true
+      },
+      "telephone": {
+        "required": true,
+        "minlength": 7,
+        "maxlength": 13,
+        "validate-number": true
+      },
+      "street": {
+        "required": true
+      },
+      "country": {
+        "required": true
+      },
+      "region-sa": {
+        "required": true
+      },
+       "region": {
+        "required": true
+      },
+      "city": {
+        "required": true
+      },
+      "zip_code": {
+        "required": true,
+        "validate-zip-international": true,
+        "minlength": 5,
+        "maxlength": 8
+      },
+      "company": {
+        "required": true
+      },
+      "account_email": {
+        "required": true
+      }
+    }
+  }
+}'>
+                    <?= $block->getBlockHtml('formkey') ?>
+
+                    <div class="row">
+                        <div class="register-b2b-form-container col-12">
+                            <fieldset class="fieldset">
+                                <input type="hidden" id="key_address" name="key_address" class="modal-input">
+                                <?php $childBlock = $block->getChildBlock('uzer_register_step_base_form'); ?>
+                                <?php if ($childBlock) : ?>
+                                    <?= $childBlock->toHtml(); ?>
+                                <?php endif; ?>
+                                <?php if ($block->displayText()) : ?>
+                                    <div class="note-2b2-register-eu"><?= __('By submitting this form I agree a Credit Review to receive Payment Terms.') ?>
+                                    </div>
+                                <?php endif; ?>
+                            </fieldset>
+                        </div>
+                        <?php $childBlock = $block->getChildBlock('uzer_register_step_custom_form'); ?>
+                        <?php if ($childBlock) : ?>
+                            <div class="custom-step-container">
+                                <div class="row">
+                                    <div class="col-md-12"> <?= $childBlock->toHtml(); ?> </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <div class="row register-b2b-form-btns">
+                            <div class="col-md-6 text-right">
+                                <a class="decowraps-button-outline" href="<?= $block->getUrl('product') ?>"> <?= __("Skip (I don't want to buy online)") ?> </a>
+                            </div>
+                            <div class="col-md-6 text-left">
+                                <button type="submit" class="btn decowraps-button btn-save-address" id="btn-save-address"> <?= __('Send request') ?> </button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'mage/mage'
+        ], function($) {
+            let btnSaveAddress = $('.btn-save-address');
+            let dataForm = $('#billing-addres-form');
+            dataForm.mage('validation', {
+                submitHandler: function(form) {
+                    btnSaveAddress.prop('disabled', true);
+                    form.submit();
+                }
+            });
+        });
+    </script>
+<?php else : ?>
+    <div class="custom-step-container">
+        <div class="row">
+            <div class="col-12"> <?= $block
+                                        ->getLayout()
+                                        ->createBlock(Magento\Cms\Block\Block::class)
+                                        ->setBlockId('register_step_general_advertising_block')
+                                        ->toHtml() ?> </div>
+        </div>
+        <div class="row">
+            <div class="col-12"> <?= $block
+                                        ->getLayout()
+                                        ->createBlock(Magento\Cms\Block\Block::class)
+                                        ->setBlockId('registered_step_general')
+                                        ->toHtml() ?> </div>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Uzer\Contact\Block\Widget\Contact" id="uzer_conctact_form">
+        <label>Contact Form</label>
+        <description>Contact form</description>
+        <parameters>
+            <parameter name="url_terms" sort_order="10" visible="true" xsi:type="text">
+                <label>Url terms and conditions</label>
+            </parameter>
+            <parameter name="url_privacy" sort_order="10" visible="true" xsi:type="text">
+                <label>Url privacy policy</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

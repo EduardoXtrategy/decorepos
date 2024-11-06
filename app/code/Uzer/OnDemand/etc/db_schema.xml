@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="uzer_ondemand_requests" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="varchar" name="description" nullable="true"/>
+        <column xsi:type="varchar" name="name" nullable="true"/>
+        <column xsi:type="varchar" name="email" nullable="true"/>
+        <column xsi:type="varchar" name="product_sku" nullable="false"/>
+        <column xsi:type="int" name="product_id" nullable="false"/>
+        <column xsi:type="varchar" name="product_name" nullable="true"/>
+        <column xsi:type="int" name="customers_id" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="timestamp" name="created_at" nullable="true" on_update="true"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="true" on_update="true"/>
+        <column xsi:type="int" name="store_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Store Id Column"/>
+        <column xsi:type="int" name="b_model_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="B model id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="ONDEMAND_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+</schema>

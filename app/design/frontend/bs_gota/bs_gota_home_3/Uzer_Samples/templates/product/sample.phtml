@@ -1,0 +1,95 @@
+<?php
+/** @var \Uzer\Samples\Block\Product\View $block */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$product = $block->getProduct();
+
+?>
+<?php if ($block->isSample() && $block->displayForm()): ?>
+    <div class="samples-cart-form">
+        <div class="row samples-cart-form-inner">
+            <div class="add-samples-form">
+                <button id="modal-btn" class="samples-button" type="button">
+                    <?= __('Add to Sample Cart') ?>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="modal-content-add-product" style="display: none">
+        <div class="modal-inner-content">
+            <form action="<?= $block->getUrl('samples/cart/add') ?>" method="post">
+                <?= $block->getBlockHtml('formkey') ?>
+                <input type="hidden" name="parent_product_sku" value="<?= $block->getProduct()->getSku() ?>">
+                <input type="hidden" name="parent_product_id" value="<?= $block->getProduct()->getId() ?>">
+                <div class="modal-product-add-form">
+                    <div class="col-12 tittle-product">
+                        <div class="product-title-samples">
+                            <?= $product->getName(); ?>
+                        </div>
+                        <div class="product-image-samples">
+                            <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                            $helperImport = $objectManager->get(\Magento\Catalog\Helper\Image::class);
+                            $imageUrl = $helperImport->init($block->getProduct(), 'product_page_image_small')
+                                ->setImageFile($block->getProduct()->getThumbnail()) // image,small_image,thumbnail
+                                ->getUrl();
+                            ?>
+                            <img src="<?= $imageUrl ?>" alt="<?= $product->getName() ?>">
+                        </div>
+                    </div>
+
+                    <?php foreach ($block->getAttributes() as $key => $value): ?>
+                        <?php if (isset($value['options']) && count($value['options']) > 0): ?>
+                            <div class="attributes-product">
+                                <div class="row">
+                                    <div class="col-md-12 col-12 attribute__container">
+                                        <div class="attr-sample-<?= $value['code'] ?> attr-genl">
+                                            <div class="col-12 attribute__detail">
+                                                <label class="tittle-attribute"><?= $value['label']; ?></label>
+                                            </div>
+                                            <div class="col-12 attribute__inner">
+                                                <?php foreach ($value['options'] as $optionKey => $optionValue): ?>
+                                                    <?php if (isset($optionValue['products']) && count($optionValue['products']) > 0): ?>
+                                                        <input type="checkbox"
+                                                               id="<?= $key ?>_<?= $optionValue['id'] ?>"
+                                                               data-attribute-item="<?= $key ?>"
+                                                               name="attribute[<?= $value['code'] ?>][<?= $optionValue['id'] ?>]"
+                                                               class="attr-color"
+                                                               value="<?= $optionValue['id'] ?>">
+                                                        <label
+                                                            for="<?= $key ?>_<?= $optionValue['id'] ?>"><?= $optionValue['label'] ?></label>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                                <span
+                                                    class="select-all select-all-sample check_all_attribute_<?= $value['label'] ?>"
+                                                    data-attribute="<?= $key ?>"><?= __('Select All') ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-12 samples-form">
+                            <button id="modal-btn" class="samples-button" type="submit">
+                                <?= __('Add to Sample Cart') ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            require(['jquery', 'jquery/ui'], function ($) {
+                $(document).ready(function () {
+                    $(`.select-all-sample`).click(function () {
+                        let attribute = $(this).data('attribute');
+                        $(`input[data-attribute-item="${attribute}"]:checkbox:not(:checked)`).attr("checked", "checked");
+                    });
+                });
+            });
+        </script>
+    </div>
+<?php endif; ?>

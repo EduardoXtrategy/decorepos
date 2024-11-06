@@ -1,0 +1,65 @@
+{
+    "amasty_storepick_method": {
+        "column": {
+            "id": true,
+            "is_active": true,
+            "name": true,
+            "comment": true,
+            "comment_img": true,
+            "stores": true,
+            "cust_groups": true,
+            "select_rate": true,
+            "min_rate": true,
+            "max_rate": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "amasty_storepick_rate": {
+        "column": {
+            "id": true,
+            "method_id": true,
+            "country": true,
+            "state": true,
+            "city": true,
+            "zip_from": true,
+            "zip_to": true,
+            "price_from": true,
+            "price_to": true,
+            "weight_from": true,
+            "weight_to": true,
+            "qty_from": true,
+            "qty_to": true,
+            "shipping_type": true,
+            "cost_base": true,
+            "cost_percent": true,
+            "cost_product": true,
+            "cost_weight": true,
+            "time_delivery": true,
+            "num_zip_from": true,
+            "num_zip_to": true
+        },
+        "index": {
+            "AMASTY_STOREPICK_RATE_METHOD_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_C59B98814241669C92863C8DC060F37F": true
+        }
+    },
+    "amasty_storepick_method_label": {
+        "column": {
+            "entity_id": true,
+            "method_id": true,
+            "store_id": true,
+            "label": true,
+            "comment": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_STOREPICK_METHOD_LABEL_STORE_ID_STORE_STORE_ID": true,
+            "FK_56B017C36ED51ADA26B14F94813828C6": true
+        }
+    }
+}

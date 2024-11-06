@@ -1,0 +1,55 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="\Magento\Customer\Controller\Account\LoginPost">
+        <plugin name="redirect_custom_url" type="\Uzer\Customer\Plugin\Controller\Account\LoginPost"
+                sortOrder="1"/>
+    </type>
+    <type name="\Magento\Customer\Controller\Account\CreatePost">
+        <plugin name="message_success" type="\Uzer\Customer\Plugin\Controller\Account\CreatePost"
+                sortOrder="1"/>
+    </type>
+    <type name="Magento\Payment\Model\MethodList">
+        <plugin sortOrder="5" name="disableCashondelivery"
+                type="Uzer\Customer\Plugin\Model\MethodListWrapper" disabled="false"/>
+    </type>
+
+    <type name="Uzer\Catalog\Block\Product\View">
+        <plugin name="decowraps_customer_view_wrapper"
+                sortOrder="10"
+                type="Uzer\Customer\Plugin\Block\Product\ViewWrapper"/>
+    </type>
+    <type name="Magento\Checkout\Controller\Cart\Index">
+        <plugin name="UzerCustomerWrapper" sortOrder="10"
+                type="Uzer\Customer\Plugin\Controller\Checkout\CartIndexWrapper"/>
+    </type>
+    <type name="Amasty\Shopby\Model\Layer\FilterList">
+        <plugin name="uzerLayerFilterListWrapper"
+                type="Uzer\Customer\Plugin\Model\Layer\FilterListWrapper"/>
+    </type>
+    <type name="Amasty\Shopby\Model\Layer\FilterList">
+        <plugin name="uzerLayerFilterListWrapper"
+                type="Uzer\Customer\Plugin\Model\Layer\FilterListWrapper"/>
+    </type>
+    <type name="Magedelight\Megamenu\Model\MegamenuManagement">
+        <plugin name="uzerCustomerMegamenuManagementWrapper"
+                type="Uzer\Customer\Plugin\Model\MegamenuManagementWrapper"/>
+    </type>
+    <type name="Uzer\Customer\Helper\SendEmail">
+        <plugin name="customer_send_email_wrapper" type="Uzer\Customer\Plugin\Helper\SendEmailWrapper"
+                sortOrder="10"/>
+    </type>
+    <type name="Uzer\Catalog\Block\Product\PartialBoxes">
+        <plugin name="customer_send_email_wrapper" type="Uzer\Customer\Plugin\Block\Product\PartialBoxesWrapper"
+                sortOrder="10"/>
+    </type>
+    <type name="Uzer\Customer\Plugin\Controller\Account\CreatePost">
+        <arguments>
+            <argument name="session" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Customer\Observer\CreatePostObserver">
+        <arguments>
+            <argument name="session" xsi:type="object">Magento\Customer\Model\Session</argument>
+        </arguments>
+    </type>
+</config>

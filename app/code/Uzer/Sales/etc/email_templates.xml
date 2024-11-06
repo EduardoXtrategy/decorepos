@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="sales_order_restore" label="Return products" file="sales_order_restore.html" type="html"
+              module="Uzer_Sales" area="frontend"/>
+</config>

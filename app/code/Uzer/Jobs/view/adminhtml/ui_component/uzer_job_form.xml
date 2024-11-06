@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">uzer_job_form.uzer_job_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Uzer Job</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <namespace>uzer_job_form</namespace>
+        <dataScope>data.general</dataScope>
+        <deps>
+            <dep>uzer_job_form.uzer_job_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="save" class="Uzer\Jobs\Block\Form\UzerJob\Save"/>
+            <button name="back" class="Uzer\Jobs\Block\Form\UzerJob\Back"/>
+            <button name="delete" class="Uzer\Jobs\Block\Form\UzerJob\Delete"/>
+        </buttons>
+    </settings>
+    <dataSource name="uzer_job_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="uzer_jobs/uzerjob/save"/>
+        </settings>
+        <dataProvider class="Uzer\Jobs\Ui\DataProvider\UzerJobDataProvider" name="uzer_job_form_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10" class="Uzer\Jobs\Ui\Component\Form\Fieldset">
+        <settings>
+            <label translate="true">General</label>
+        </settings>
+        <field name="entity_id" sortOrder="0" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Entity ID</label>
+                <dataScope>entity_id</dataScope>
+            </settings>
+        </field>
+        <field name="name" sortOrder="00" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">name</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+        <field name="location" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">location</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Location</label>
+                <dataScope>location</dataScope>
+            </settings>
+        </field>
+        <field name="description" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <!--item name="source" xsi:type="string">description</item-->
+                    <item name="formElement" xsi:type="string">wysiwyg</item>
+                    <item name="source" xsi:type="string">block</item>
+                    <item name="wysiwyg" xsi:type="boolean">true</item>
+                    <item name="dataScope" xsi:type="string">description</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Description</label>
+                <dataScope>description</dataScope>
+            </settings>
+        </field>
+        <field name="status" sortOrder="30" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">status</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>bool</dataType>
+                <label translate="true">Status</label>
+                <dataScope>status</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+<!--        <field name="store_id">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="options" xsi:type="object">Magento\Store\Model\System\Store</item>-->
+<!--                <item name="config" xsi:type="array">-->
+<!--&lt;!&ndash;                    <item name="dataType" xsi:type="string">int</item>&ndash;&gt;-->
+<!--                    <item name="label" xsi:type="string" translate="true">Store View</item>-->
+<!--                    <item name="formElement" xsi:type="string">multiselect</item>-->
+<!--                    <item name="source" xsi:type="string">block</item>-->
+<!--                    <item name="dataScope" xsi:type="string">store_id</item>-->
+<!--                    <item name="default" xsi:type="string">0</item>-->
+<!--                    <item name="validation" xsi:type="array">-->
+<!--                        <item name="required-entry" xsi:type="boolean">true</item>-->
+<!--                    </item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--        </field>-->
+    </fieldset>
+</form>

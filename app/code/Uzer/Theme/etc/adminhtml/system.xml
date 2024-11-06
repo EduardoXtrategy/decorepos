@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 RokanThemes.com. All rights reserved.
+
+ * @author RokanThemes Team <contact@rokanthemes.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="decowraps" translate="label" sortOrder="310">
+            <label><![CDATA[Decowraps]]></label>
+        </tab>
+        <section id="theme" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Header tootip content</label>
+            <tab>decowraps</tab>
+            <resource>Uzer_Theme::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Header tooltip content</label>
+                <field id="enable_frontend" translate="label comment" type="select" sortOrder="0" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <comment>Enable tooltip</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="header_tooltip" translate="label comment" sortOrder="1" type="editor" showInStore="1"
+                       showInDefault="1">
+                    <label>WYSIWYG Editor</label>
+                    <frontend_model>\Uzer\Theme\Block\Adminhtml\System\Config\Editor</frontend_model>
+                </field>
+                <field id="eu_url" translate="label comment" sortOrder="100" type="text" showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Europe Url</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,22 @@
+{
+    "name": "uzer/module-delivery-latam",
+    "version": "1.0.0",
+    "description": "Delivery method for latam",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-catalog": "104.0.*",
+        "magento/module-customer": "103.0.*"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Uzer\\CustomProducts\\": ""
+        }
+    }
+}

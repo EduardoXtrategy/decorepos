@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="decowraps" translate="label" sortOrder="310">
+            <label><![CDATA[Decowraps]]></label>
+        </tab>
+        <section id="uzer" translate="label" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Customers</label>
+            <tab>decowraps</tab>
+            <resource>Magento_Customers::config</resource>
+            <group id="customers" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <field id="parent_category" translate="label" type="text" sortOrder="100" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Primary category id</label>
+                    <comment>The parent categories for customer categories</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

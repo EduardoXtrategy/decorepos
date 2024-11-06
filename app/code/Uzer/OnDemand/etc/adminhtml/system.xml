@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 RokanThemes.com. All rights reserved.
+
+ * @author RokanThemes Team <contact@rokanthemes.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="decowraps" translate="label" sortOrder="310">
+            <label><![CDATA[Decowraps]]></label>
+        </tab>
+        <section id="ondemand" translate="label" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Business Model</label>
+            <tab>decowraps</tab>
+            <resource>Uzer_OnDemand::config</resource>
+            <group id="configuration" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Samples config</label>
+                <field id="emails" translate="label comment" type="text" sortOrder="4" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>On demand Emails to notify</label>
+                    <comment>Type emails separated by ,</comment>
+                </field>
+                <field id="emails_presale" translate="label comment" type="text" sortOrder="4" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Pre sale Emails to notify</label>
+                    <comment>Type emails separated by ,</comment>
+                </field>
+                <field id="template" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Template email for on demand business model</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <comment>Email template is chosen based on theme fallback when "Default" option is selected.
+                    </comment>
+                </field>
+                <field id="template_presale" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Template email for presale business model</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <comment>Email template is chosen based on theme fallback when "Default" option is selected.
+                    </comment>
+                </field>
+                <field id="presale" translate="label comment" type="textarea" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Pre sale text</label>
+                </field>
+                <field id="presale_id" translate="label comment" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Pre sale attribute value</label>
+                    <source_model>Uzer\OnDemand\Model\AttributeData</source_model>
+                </field>
+                <field id="ondemand" translate="label comment" type="textarea" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>On Demand text</label>
+                </field>
+                <field id="ondemand_id" translate="label comment" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>On Demand attribute value</label>
+                    <source_model>Uzer\OnDemand\Model\AttributeData</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

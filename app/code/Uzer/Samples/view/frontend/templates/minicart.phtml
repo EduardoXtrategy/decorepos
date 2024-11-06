@@ -1,0 +1,13 @@
+<?php /** @var \Uzer\Samples\Block\Minicart $block */ ?>
+<div data-block="minicart" class="minicart-wrapper header-minicart">
+    <a class="action showcart" href="<?= $block->getUrl('samples/cart') ?>"
+       data-bind="scope: 'minicart_content'">
+        <span class="samples-label"><?= __('Samples') ?></span>
+        <span class="counter qty empty minicart-icon"
+              data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading">
+            <span class="counter-number"><?= $block->getCartQty() ?></span>
+            <span class="counter-label">
+            </span>
+        </span>
+    </a>
+</div>

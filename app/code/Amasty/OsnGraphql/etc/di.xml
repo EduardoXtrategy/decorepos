@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+ * @package Out of stock Notifications GraphQL for Magento 2 (System)
+ */-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <virtualType name="uidWrapper" type="Amasty\OsnGraphql\Model\Di\Wrapper">
+        <arguments>
+            <argument name="name" xsi:type="string">Magento\Framework\GraphQl\Query\Uid</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\OsnGraphql\Model\Resolver\StockSubscribe">
+        <arguments>
+            <argument name="uidEncoder" xsi:type="object">uidWrapper</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\OsnGraphql\Model\Resolver\PriceSubscribe">
+        <arguments>
+            <argument name="uidEncoder" xsi:type="object">uidWrapper</argument>
+        </arguments>
+    </type>
+</config>

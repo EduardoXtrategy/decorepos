@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="block.success.container" htmlTag="div" htmlClass="block-success-container" before="-">
+                <block class="Magento\Cms\Block\Block" name="contact_form_success">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">contact_form_success</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="footer_newsletter" remove="true"/>
+    </body>
+</page>

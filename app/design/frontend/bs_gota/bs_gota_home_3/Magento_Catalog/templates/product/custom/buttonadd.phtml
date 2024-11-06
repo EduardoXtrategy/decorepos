@@ -1,0 +1,76 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Uzer\Catalog\Block\Product\View $block */
+$displayAddTocart = $block->displayAddToCart();
+$availableAddToCart = $block->availableAddToCart();
+$id = '';
+$additionalCss = '';
+if ($availableAddToCart) {
+    $id = 'product-addtocart-button';
+} else {
+    $additionalCss = 'disabled';
+}
+?>
+<?php if ($displayAddTocart): ?>
+    <?php $buttonTitle = __('Add to cart'); ?>
+    <div class="add-cart-form">
+        <div class="actions-add-cart">
+            <button type="button"
+                    title="<?php /* @escapeNotVerified */
+                    echo $buttonTitle ?>"
+                    class="action primary tocart <?= $additionalCss ?> disabled"
+                    id="<?= $id ?>" disabled>
+                    <span><?php /* @escapeNotVerified */
+                        echo $buttonTitle ?></span>
+            </button>
+        </div>
+    </div>
+    <?php if ($block->isRedirectToCartEnabled()) : ?>
+        <script type="text/x-magento-init">
+            {
+                "#product_addtocart_form": {
+                    "Magento_Catalog/product/view/validation": {
+                        "radioCheckboxClosest": ".nested"
+                    }
+                }
+            }
+
+        </script>
+    <?php else : ?>
+        <script>
+            require([
+                'jquery',
+                'mage/mage',
+                'Magento_Catalog/product/view/validation',
+                'Magento_Catalog/js/catalog-add-to-cart'
+            ], function ($) {
+                'use strict';
+                $('.tocart').click(function () {
+                    let validate = $(this).hasClass('disabled');
+                    if (!validate) {
+                        let qty = $('#qty').val();
+                        if (qty > 0) {
+                            $('#product_addtocart_form').submit();
+                        }
+                    }
+                });
+                $('#product_addtocart_form').mage('validation', {
+                    radioCheckboxClosest: '.nested',
+                    submitHandler: function (form) {
+                        let widget = $(form).catalogAddToCart({
+                            bindSubmit: false
+                        });
+                        widget.catalogAddToCart('submitForm', $(form));
+                        return false;
+                    }
+                });
+            });
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

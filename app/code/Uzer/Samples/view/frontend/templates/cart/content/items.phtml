@@ -1,0 +1,144 @@
+<?php /** @var \Uzer\Samples\Block\Cart\Content\Items $block */ ?>
+<?php if ($block->hasItems()): ?>
+    <div class="banner-sample">
+        <img src="<?= $block->getViewFileUrl('Uzer_Samples::images/sample-icon.svg'); ?>">
+        <span>
+        <?= __('Decowraps customers enjoy free samples on most stock products. Additional shipping fees may apply.') ?>
+    </span>
+    </div>
+    <div class="sample-cart-title">
+        <span><?= __('Samples Cart') ?></span>
+    </div>
+    <div class="title-items">
+        <div class="col-sm-6 col-md-6 article"><?= __('Article') ?></div>
+        <div class="col-sm-6 col-md-6 unit"><?= __('Qty Units') ?></div>
+    </div>
+<?php endif; ?>
+
+<?php if ($block->hasItems()): ?>
+    <form action="<?= $block->getUrl('samples/cart/edit') ?>" method="post">
+        <div class="products-samples-cart">
+            <?php $items = $block->getItems() ?>
+            <?php foreach ($items as $item): ?>
+                <?php if ($item->getIsParent() || is_null($item->getParent())): ?>
+                    <div class="products-samples-items">
+                        <div class="row">
+                            <div class="col-sm-4 col-md-3 col-lg-3 col-xl-3 image-product">
+                                <img
+                                    src="<?= $block->getProductImage($item->getProductId()) ?>">
+                            </div>
+                            <div class="title-product col-sm-8 col-md-9 col-lg-9 col-xl-9"><?= $item->getName() ?></div>
+                            <?php $children = $item->getChildren() ?>
+                            <?php if (count($children) > 0): ?>
+                                <div class="col-sm-8 col-md-9 col-lg-9 col-xl-9 configurable">
+                                    <table class="table">
+                                        <?php foreach ($children as $child): ?>
+                                            <?php $attribute = $block->getProduct($child->getProductId());
+                                            $multiple_attributes = $attribute->getResource()->getAttribute('material')->getFrontend()->getValue($attribute);
+                                            ?>
+                                            <tr>
+                                                <td class="simple"><?= __('Ref:') ?> <?= $child->getSku() ?>
+                                                    <?php if ($multiple_attributes): ?>
+                                                        | <?= $multiple_attributes ?>
+                                                    <?php endif; ?>
+                                                    <?php if ($attribute->getAttributeText('size')): ?>
+                                                        | <?= $attribute->getAttributeText('size'); ?>
+                                                    <?php endif; ?>
+                                                    <?php if ($attribute->getAttributeText('color')): ?>
+                                                        | <?= $attribute->getAttributeText('color'); ?>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td class="qty"><span class="title"><?= __('Qty') ?></span>
+                                                    <button type="button"
+                                                            class="btn btn-sm small-cart-button btn-sample-dismiss"
+                                                            data-update="<?= $item->getId() ?>"
+                                                            data-item="<?= $child->getId() ?>">-
+                                                    </button>
+                                                    <input
+                                                        type="text"
+                                                        id="item-<?= $child->getId() ?>"
+                                                        name="item[<?= $child->getId() ?>]"
+                                                        value="<?= $child->getQty() ?>"
+                                                        size="3"
+                                                        max="3">
+                                                    <button type="button"
+                                                            class="btn btn-sm small-cart-button btn-sample-plus"
+                                                            data-update="<?= $item->getId() ?>"
+                                                            data-item="<?= $child->getId() ?>">+
+                                                    </button>
+                                                </td>
+                                                <td class="options">
+                                                    <a href="<?= $block->getUrl('samples/cart/delete', array('item' => $child->getSku())) ?>"
+                                                       class="items-conf">
+                                                        <span><?= __('Delete') ?></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </table>
+                                </div>
+                            <?php elseif (is_null($item->getParent())): ?>
+
+                                <div class="col-sm-8 col-md-9 col-lg-9 col-xl-9 configurable">
+                                    <table class="table">
+                                        <tr>
+                                            <td class="simple">
+                                                <?php $attribute_simple = $block->getProduct($item->getProductId());
+
+                                                $multiple_attributes_simple = $attribute_simple->getResource()->getAttribute('material')->getFrontend()->getValue($attribute_simple);
+                                                ?>
+                                                <?= __('Ref:') ?> <?= $item->getSku() ?>
+                                                <?php if ($multiple_attributes_simple): ?>
+                                                    | <?= $multiple_attributes_simple ?>
+                                                <?php endif; ?>
+                                                <?php if ($attribute_simple->getAttributeText('size')): ?>
+                                                    | <?= $attribute_simple->getAttributeText('size'); ?>
+                                                <?php endif; ?>
+                                                <?php if ($attribute_simple->getAttributeText('color')): ?>
+                                                    | <?= $attribute_simple->getAttributeText('color'); ?>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td class="qty"><span class="title"><?= __('Qty') ?></span>
+                                                <button type="button"
+                                                        class="btn btn-sm small-cart-button btn-sample-dismiss"
+                                                        data-update="<?= $item->getId() ?>"
+                                                        data-item="<?= $item->getId() ?>">-
+                                                </button>
+                                                <input type="text"
+                                                       class="input-qty"
+                                                       data-update="<?= $item->getId() ?>"
+                                                       data-item="<?= $item->getId() ?>"
+                                                       id="item-<?= $item->getId() ?>"
+                                                       name="item[<?= $item->getId() ?>]"
+                                                       value="<?= $item->getQty() ?>">
+                                                <button type="button"
+                                                        class="btn btn-sm small-cart-button btn-sample-plus"
+                                                        data-update="<?= $item->getId() ?>"
+                                                        data-item="<?= $item->getId() ?>">+
+                                                </button>
+                                            </td>
+                                            <td class="options">
+                                                <a href="<?= $block->getUrl('samples/cart/delete', array('item' => $item->getSku())) ?>"
+                                                   class="items-conf">
+                                                    <span><?= __('Delete') ?></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            <?php endif ?>
+
+                            <div class="configuration btn-update-cart" id="update-cart-<?= $item->getId() ?>">
+                                <button class="items-conf">
+                                    <span><?= __('Update cart') ?></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    </form>
+<?php endif; ?>
+

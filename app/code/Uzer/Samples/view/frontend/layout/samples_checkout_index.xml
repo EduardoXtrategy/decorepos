@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Uzer_Samples::css/form-samples.css" rel="stylesheet" type="text/css"/>
+        <css src="Uzer_Samples::css/samples.css" rel="stylesheet" type="text/css"/>
+        <css src="Uzer_Samples::css/modal-form-samples.css" rel="stylesheet" type="text/css"/>
+        <css src="Uzer_Samples::css/checkout/samples-checkout-shipping-address.css" rel="stylesheet" type="text/css"/>
+        <css src="Uzer_Samples::css/checkout/samples-checkout-summary.css" rel="stylesheet" type="text/css"/>
+        <css src="Uzer_Samples::css/checkout/samples-checkout-delivery.css" rel="stylesheet" type="text/css"/>
+        <script src="Uzer_Samples::js/modal-form-adress.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content" >
+            <container name="samples-cart" htmlTag="div" htmlClass="row samples-checkout" >
+                <container name="samples-checkout-shipping" htmlTag="div"
+                           htmlClass="col-sm-12 col-md-8 col-lg-8 col-xl-8 samples-checkout-shipping">
+                    <block class="Uzer\Samples\Block\Checkout\ShippingAddress"
+                           cacheable="false"
+                           template="Uzer_Samples::checkout/shipping-address.phtml"
+                           name="samples-checkout-shipping-address"/>
+                </container>
+                <container name="samples-card-sidebar" htmlTag="div"
+                           htmlClass="col-sm-12 col-md-4 col-lg-4 col-xl-4 samples-card-sidebar">
+                    <block class="Uzer\Samples\Block\Checkout\Summary"
+                           cacheable="false"
+                           template="Uzer_Samples::checkout/summary.phtml" name="samples-checkout-sidebar-summary"/>
+                </container>
+                <container name="samples-checkout-delivery" htmlTag="div"
+                           htmlClass="col-sm-12 col-md-12 col-lg-8 col-xl-8 samples-checkout-delivery">
+                    <block class="Uzer\Samples\Block\Checkout\DeliveryMethod"
+                           cacheable="false"
+                           template="Uzer_Samples::checkout/delivery-method.phtml"
+                           name="samples-checkout-delivery-method"/>
+                </container>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="footer_newsletter" remove="true"/>
+    </body>
+</page>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Uzer_Sales::js/return.js"/>
+    </head>
+    <body>
+        <referenceBlock name="sales.order.info.buttons">
+            <block class="Uzer\Sales\Block\Order\Info\Buttons\ReturnProducts" name="order.info.buttons.return"
+                   template="Uzer_Sales::order/info/buttons/return.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Uzer\CustomProducts\Api\Data\CustomProductsInterface"
+                type="Uzer\CustomProducts\Model\Data\CustomProducts"/>
+    <preference for="Uzer\CustomProducts\Api\CustomProductsRepositoryInterface"
+                type="Uzer\CustomProducts\Model\CustomProductsRepository"/>
+    <preference for="Uzer\CustomProducts\Api\Data\CategoryCustomerInterface"
+                type="Uzer\CustomProducts\Model\CategoryCustomer"/>
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="add_custom_field_product_api" type="Uzer\CustomProducts\Plugin\Api\CustomProduct"/>
+    </type>
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="add_custom_field_customer_api" type="Uzer\CustomProducts\Plugin\Api\CustomCustomer"/>
+    </type>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="uzer_custom-products_factory_categories"
+                      xsi:type="object">Uzer\CustomProducts\Console\Command\FactoryCategories</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,128 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use ClassyLlama\AvaTax\Plugin\Model\Quote\GrandTotalDetailsSorter;
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+$customFormat = \Magento\Framework\App\ObjectManager::getInstance()->create(\Uzer\Checkoutstep\Model\CustomFormat::class);
+/** @var \Magento\Sales\Model\Order $_order */
+$_order = $block->getOrder();
+$_source = $block->getSource();
+$_fullInfo = $this->helper('Magento\Tax\Helper\Data')->getCalculatedTaxes($_source);
+global $taxIter;
+$taxIter++;
+$customDuty = false;
+$taxTitle = __('Tax');
+$taxIncluded = $this->helper('ClassyLlama\AvaTax\Helper\Config')->getTaxationPolicy();
+if ($taxIncluded)
+    $taxTitle .= " (" . __(\ClassyLlama\AvaTax\Helper\Config::XML_SUFFIX_AVATAX_TAX_INCLUDED) . ")";
+?>
+<?php if ($_fullInfo): ?>
+    <?php foreach ($_fullInfo as $info): ?>
+        <?php
+        $amount = $info['tax_amount'];
+        $title = $info['title'];
+        ?>
+        <?php if ($title === GrandTotalDetailsSorter::CUSTOMS_RATE_TITLE): ?>
+            <?php $customDuty = $info; ?>
+            <?php if ($block->displayFullSummary()): ?>
+                <tr class="totals tax details details-<?= /* @escapeNotVerified */
+                $taxIter ?> <?= ($block->getIsPlaneMode()) ? ' plane' : '' ?>">
+                    <td colspan="3" style="padding:11px;text-align:right">
+                    </td>
+                    <td <?= /* @escapeNotVerified */
+                    $block->getLabelProperties() ?> style="padding:8px;text-align:right">
+                        <?= $block->escapeHtml($title) ?>
+                        <br/>
+                    </td>
+                    <td <?= /* @escapeNotVerified */
+                    $block->getValueProperties() ?> rowspan="1">
+                        <?= /* @escapeNotVerified */
+                        $customFormat->format($amount) ?>
+                        <?php // $_order->formatPrice($amount) ?>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+
+<?php if ($block->displayFullSummary() && $_fullInfo && !$block->getIsPlaneMode()): ?>
+<tr class="totals-tax-summary">
+<?php elseif ($block->displayFullSummary() && $_fullInfo && $block->getIsPlaneMode()): ?>
+<tr class="totals-tax-summary plane">
+<?php else: ?>
+<tr class="totals-tax">
+    <?php endif; ?>
+    <td colspan="3" style="padding:11px;text-align:right">
+    </td>
+    <th <?= /* @escapeNotVerified */
+    $block->getLabelProperties() ?> scope="row" style="padding:8px;text-align:right">
+        <?php if ($block->displayFullSummary()): ?>
+            <div class="detailed">                <?= /* @escapeNotVerified */
+                __('VAT') ?></div>
+        <?php else: ?>
+            <?php if ($customDuty): ?>
+                <?= /* @escapeNotVerified */
+                __('VAT') ?>
+            <?php else: ?>
+                <?= /* @escapeNotVerified */
+                __('VAT') ?>
+            <?php endif; ?>
+        <?php endif; ?>
+    </th>
+    <td <?= /* @escapeNotVerified */
+    $block->getValueProperties() ?> data-th="<?= $block->escapeHtml($taxTitle) ?>" style="padding:8px;text-align:right">
+        <?php if ($block->displayFullSummary() && $customDuty): ?>
+            <?= /* @escapeNotVerified */
+            $customFormat->format($_source->getTaxAmount() - $customDuty['tax_amount']) ?>
+            <?php // $_order->formatPrice($_source->getTaxAmount() - $customDuty['tax_amount']) ?>
+        <?php else: ?>
+            <?= /* @escapeNotVerified */
+            $customFormat->format($_source->getTaxAmount()) ?>
+            <?php // $_order->formatPrice($_source->getTaxAmount()) ?>
+        <?php endif; ?>
+    </td>
+</tr>
+
+
+<?php if ($_fullInfo && $block->displayFullSummary()): ?>
+    <?php foreach ($_fullInfo as $info): ?>
+        <?php
+        $percent = $info['percent'];
+        $amount = $info['tax_amount'];
+        $baseAmount = $info['base_tax_amount'];
+        $title = $info['title'];
+        ?>
+        <?php if ($title !== GrandTotalDetailsSorter::CUSTOMS_RATE_TITLE): ?>
+            <tr class="totals tax details details-<?= /* @escapeNotVerified */
+            $taxIter ?> <?= ($block->getIsPlaneMode()) ? ' plane' : '' ?>">
+                <td colspan="3" style="padding:11px;text-align:right">
+                </td>
+                <td <?= /* @escapeNotVerified */
+                $block->getLabelProperties() ?>>
+                    <?= $block->escapeHtml($title) ?>
+                    <!-- BEGIN EDIT -->
+                    <?php if (!is_null($percent)): ?>
+                        <!-- END EDIT -->
+                        (<?= (float)$percent ?>%)
+                    <?php endif; ?>
+                    <br/>
+                </td>
+                <td <?= /* @escapeNotVerified */
+                $block->getValueProperties() ?> rowspan="1" style="padding:8px;text-align:right">
+                    <?= /* @escapeNotVerified */
+                    $customFormat->format($amount) ?>
+                    <?php $_order->formatPrice($amount) ?>
+                </td>
+            </tr>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php endif; ?>

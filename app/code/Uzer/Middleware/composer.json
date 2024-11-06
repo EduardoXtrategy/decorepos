@@ -1,0 +1,23 @@
+{
+  "name": "uzer/module-middleware",
+  "version": "1.0.0",
+  "description": "Middleware integration",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "uzer/core": "*",
+    "uzer/customer": "*",
+    "uzer/module-catalog": "*",
+    "magento/module-catalog": "*",
+    "magento/module-customer": "*",
+    "magento/module-sales": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Uzer\\Middleware\\": ""
+    }
+  }
+}

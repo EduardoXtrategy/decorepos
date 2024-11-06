@@ -1,0 +1,220 @@
+.banner-sample {
+    height: 50px;
+    left: 88px;
+    background: #f6f7f3;
+    border-radius: 3px;
+    margin-top: 2em;
+    padding-top: 10px;
+    text-align: center;
+    display: block;
+}
+
+.banner-sample img {
+    height: 31px;
+    width: 28px;
+}
+
+.banner-sample span {
+    font-size: 14px;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    color: #515151;
+}
+
+.sample-cart-title {
+    color: #151515;
+    font-size: 25px;
+    line-height: 48px;
+    display: block;
+}
+
+.title-items {
+    font-size: 13px;
+    color: #354052;
+    padding: 7px 0 13px 0;
+    display: block;
+    margin-bottom: 1.5em;
+    width: 100%;
+}
+
+.title-items .article {
+    text-align: left;
+    height: 19px;
+}
+
+.title-items .unit {
+    text-align: right;
+    height: 19px;
+    padding-right: 25px;
+}
+
+.products-samples-items {
+    border: 1px solid #f0f0f0;
+    width: 100%;
+    margin-bottom: 16px;
+}
+
+.products-samples-items .image-product img {
+    width: 108px;
+    height: 108px;
+    margin: 29px 0 0 5px;
+    float: right;
+}
+
+.products-samples-items .title-product {
+    font-size: 16px;
+    color: #4b4b4b;
+    margin-top: 29px;
+}
+
+.products-samples-items .configurable .qty span {
+    visibility: collapse;
+}
+
+.products-samples-items .configurable table,
+.products-samples-items .configurable table td {
+    border-color: #fff;
+    text-align: left;
+    padding: 1px;
+}
+
+.products-samples-items .configurable .table > tbody > tr > td,
+.configurable .table > tfoot > tr > td {
+    padding: 1px;
+}
+
+.products-samples-items .configurable .simple {
+    font-size: 12px;
+    color: #797979;
+    line-height: 2.5em;
+}
+
+.products-samples-items .configurable .qty {
+    text-align: center;
+}
+
+.products-samples-items .configurable .qty input[type="text"] {
+    height: 30px !important;
+    width: 63.28px;
+    margin-bottom: 7px;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 2px;
+}
+
+.configuration {
+    font-size: 13px;
+    color: #82992f;
+    width: 100%;
+    padding: 0 50px 25px 0px !important;
+}
+
+.configuration .items-conf {
+    margin-left: 10px;
+    text-decoration-line: underline;
+    float: right;
+    margin-bottom: 25px;
+}
+
+.products-samples-items .options a {
+    font-size: 13px;
+    color: #82992f;
+    text-decoration-line: underline;
+}
+
+.samples-cart-empity {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 3em;
+}
+
+.samples-cart-empity .description {
+    font-size: 18px;
+}
+
+.samples-cart-empity .description a {
+    color: #91a826;
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .configurable .simple {
+        padding-left: 40px !important;
+    }
+
+    .configurable .qty {
+        padding-right: 40px !important;
+    }
+
+    .image-product {
+        padding-left: 40px !important;
+    }
+
+    .configuration {
+        padding: 0 50px 15px 0px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-sample {
+        display: none;
+    }
+
+    .title-items {
+        display: none;
+    }
+
+    .title-product {
+        text-align: left;
+        margin-top: 2em;
+        left: 20px;
+    }
+
+    .sample-cart-title {
+        display: none;
+    }
+
+    .samples-card-content {
+        margin-top: 32em;
+    }
+
+    .products-samples-items .image-product img {
+        width: 70px;
+        height: 70px;
+        margin: 15px 0 0 2px;
+        float: left;
+    }
+
+    .products-samples-items .configurable .simple {
+        width: 50%;
+        font-size: 13px;
+        color: #4e4e4e;
+    }
+
+    .products-samples-items .configurable .qty {
+        width: 50%;
+        text-align: right;
+        padding-top: 7px;
+    }
+
+    .products-samples-items .configurable .qty span {
+        visibility: visible;
+        line-height: 3em;
+        font-size: 13px;
+        color: #4e4e4e;
+    }
+
+    .products-samples-items .configurable .qty input[type="text"] {
+        margin-left: 18px;
+        margin-bottom: 1px;
+    }
+
+    .configuration {
+        padding: 0 15px 15px 0px;
+        float: right;
+    }
+}
+
+.small-cart-button {
+
+}

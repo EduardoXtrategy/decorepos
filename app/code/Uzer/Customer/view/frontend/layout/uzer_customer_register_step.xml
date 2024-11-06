@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Uzer_Customer::js/customer.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container name="register-step-general" htmlTag="div" htmlClass="row">
+                <container name="register-step-general-form" htmlTag="div" htmlClass="col-md-12 col-12">
+                    <block class="Uzer\Customer\Block\Register\Step" name="uzer_register_step_general_form"
+                           template="Uzer_Customer::register/step.phtml">
+                        <block class="Uzer\Customer\Block\Register\BaseForm" name="uzer_register_step_base_form"/>
+                        <block class="Uzer\Customer\Block\Register\Custom" name="uzer_register_step_custom_form"/>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

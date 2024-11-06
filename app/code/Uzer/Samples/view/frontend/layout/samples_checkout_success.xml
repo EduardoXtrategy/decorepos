@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Uzer_Samples::css/checkout/samples-checkout-success.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container name="checkout-success" htmlTag="div" htmlClass="row checkout-success">
+                <block class="Uzer\Samples\Block\Checkout\Success"
+                       template="Uzer_Samples::checkout/success/content.phtml"
+                       name="samples-checkout-shipping-address"/>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="footer_newsletter" remove="true"/>
+    </body>
+</page>

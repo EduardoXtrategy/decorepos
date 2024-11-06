@@ -1,0 +1,15 @@
+{
+  "product_type_sizes": {
+    "column": {
+      "entity_id": true,
+      "size_id": true,
+      "product_type_id": true
+    },
+    "index": {
+      "PRODUCT_TYPE_SIZES_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

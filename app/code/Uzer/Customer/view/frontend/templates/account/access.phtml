@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var Uzer\Customer\Block\Account\Access $block
+ */
+?>
+<div class="row online-shopping-container">
+    <div class="col-md-7 col-12 online-shopping-information-box">
+        <?= $block->getLayout()->createBlock(Magento\Cms\Block\Block::class)->setBlockId('shopping_access_details')->toHtml() ?>
+        <?php if ($block->displaySubscription()): ?>
+            <a class="btn decowraps-button shopping_access"
+               href="<?= $block->getUrl('customers/register/complete') ?>"><?= __('Apply Now') ?></a>
+        <?php else: ?>
+            <p class="online-shopping-warning"><?= __('You already requested shopping options, if you have any further question please <a href="%1">contact us.</a>', $block->getContactUsUrl()) ?></p>
+        <?php endif; ?>
+    </div>
+    <div class="col-md-5 col-12 online-shopping-information-box">
+        <?= $block->getLayout()->createBlock(Magento\Cms\Block\Block::class)->setBlockId('shopping_access__features')->toHtml() ?>
+    </div>
+</div>

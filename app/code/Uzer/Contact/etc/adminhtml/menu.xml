@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!--add id="Uzer_Contact::contact" sortOrder="10" title="Contact Forms" module="Uzer_Contact"
+             parent="Uzer_Contact::decowraps" resource="Uzer_Contact::contact" translate="title"
+             action="contact_form/form/index"/>
+        <add id="Uzer_Contact::listing" sortOrder="50" title="Contact Form" module="Uzer_Contact"
+             parent="Uzer_Contact::contact" resource="Uzer_Contact::listing" translate="title"
+             action="Contact/index/index"/-->
+    </menu>
+</config>

@@ -1,0 +1,34 @@
+{
+  "customers_information_business": {
+    "column": {
+      "assistance_allowed": true,
+      "tax_exception": true,
+      "tax_exception_from": true,
+      "tax_exception_to": true,
+      "tax_exception_document": true,
+      "payment_terms": true,
+      "payment_terms_request_date": true,
+      "payment_terms_response_date": true,
+      "payment_terms_document": true,
+      "payment_terms_status": true,
+      "payment_terms_allowed_credit": true,
+      "payment_terms_allowed_credit_available": true,
+      "accepted_terms": true,
+      "ip": true,
+      "date": true,
+      "user_agent": true
+    }
+  },
+  "business_information": {
+    "column": {
+      "entity_id": true,
+      "assistance_allowed": true
+    },
+    "index": {
+      "BUSINESS_INFORMATION_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

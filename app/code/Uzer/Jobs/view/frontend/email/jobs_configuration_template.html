@@ -1,0 +1,29 @@
+<!--@subject {{trans "New job request"}} @-->
+<!--@vars {} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr>
+        <th>Full name</th>
+        <td>{{trans "%full_name." full_name=$full_name}}</td>
+    </tr>
+    <tr>
+        <th>Job title</th>
+        <td>{{trans "%job_title." job_title=$job_title}}</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>{{trans "%email." email=$email}}</td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td>{{trans "%phone." phone=$phone}}</td>
+    </tr>
+    <tr>
+        <th>Message</th>
+        <td>{{trans "%message." message=$message}}</td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

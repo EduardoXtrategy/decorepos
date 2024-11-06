@@ -1,0 +1,104 @@
+<?php /** @var \Uzer\Jobs\Block\Widget\Job $block */ ?>
+<?php $jobs = $block->getJobs(); ?>
+<div class="uzer-jobs">
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="jobs-accordion">
+                <?php foreach ($jobs as $job): ?>
+                    <div class="item-accordion">
+                        <button href="#"
+                                class="job-btn-accordion">
+                            <span class="btn-normal">
+                                <?= $block->getEscaper()->escapeHtml($job->getName()) ?>
+                            </span>
+                            <span class="btn-location">
+                                 <?php if ($job->getLocation()): ?>
+                                     | <?= $block->getEscaper()->escapeHtml($job->getLocation()) ?>
+                                 <?php endif; ?>
+                            </span>
+                        </button>
+                        <div class="job-panel">
+                            <p><?= $job->getDescription() ?></p>
+                            <a href="#job-form" class="job-btn-go"
+                               data-job="<?= $block->getEscaper()->escapeHtml($job->getName()) ?>"
+                               data-accordion="<?= $block->getEscaper()->escapeHtml($job->getName()) ?>">
+                                <span><?= __('Apply Now') ?></span>
+                            </a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="uzer-jobs-form">
+    <div id="job-form">
+        <div class="row">
+            <div class="col-md-12 col-12 job-section-block">
+                <?= $block->getLayout()->createBlock(Magento\Cms\Block\Block::class)
+                    ->setBlockId('job_block')
+                    ->toHtml(); ?>
+            </div>
+        </div>
+        <div class="row">
+            <form action="<?= $block->getUrl('jobs/form/save') ?>" method="POST" enctype="multipart/form-data">
+                <?= $block->getBlockHtml('formkey') ?>
+                <div class="col-md-12 col-12 job-section-form">
+                    <div class="row">
+                        <div class="col-md-6 col-12 form-group">
+                            <label for="full_name"><?= __('Full name') ?><span class="input-required">*</span></label>
+                            <input type="text" class="form-control" name="full_name" id="full_name" required>
+                        </div>
+                        <div class="col-md-6 col-12 form-group">
+                            <label for="job_title"><?= __('Job Title') ?><span class="input-required">*</span></label>
+                            <input type="text" class="form-control" name="job_title" id="job_title" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-12 form-group">
+                            <label for="email"><?= __('Email Address') ?><span class="input-required">*</span></label>
+                            <input type="email" class="form-control" name="email" id="email" required>
+                        </div>
+                        <div class="col-md-6 col-12 form-group">
+                            <label for="phone"><?= __('Phone Number ') ?><span class="input-required">*</span></label>
+                            <input type="text" class="form-control" name="phone" id="phone" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-12 form-group">
+                            <label for="message"><?= __('Message') ?><span class="input-required">*</span></label>
+                            <textarea name="message" id="message" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-12">
+                            <p><?= __('Please upload your resume here') ?>*</p>
+                            <input type="file" name="document" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-12 separator">
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-12">
+                            <label for="terms">
+                                <input type="checkbox" name="terms"
+                                       required
+                                       id="terms"> <?= __('I accept <a href="%1">Terms and conditions</a> and <a href="%2">Privacy policy</a>.', $block->getData('url_terms'), $block->getData('url_privacy')) ?>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="job-form-button">
+                                <?= __('Submit Your Application') ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

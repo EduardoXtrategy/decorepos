@@ -1,0 +1,130 @@
+.page-title-wrapper {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.page-title-wrapper h1 {
+    text-align: left !important;
+    color: #151515;
+}
+
+.page-title-wrapper .base {
+    text-transform: capitalize;
+}
+
+.post-tags-info label {
+    display: none;
+}
+
+.post-info-extra a, .post-date {
+    color: #82992f !important;
+    font-size: 13px !important;
+}
+
+.post-title a {
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #323232 !important;
+}
+
+.readmore a {
+    color: #82992f !important;
+    font-size: 13px !important;
+    text-transform: none !important;
+    border-bottom: 1px solid #82992f !important;
+}
+
+.item-post-full {
+    box-shadow: 0 2px 8px rgba(231, 231, 231, 0.5);
+    border: 1px solid #f0f0f0;
+    padding-left: 0 !important;
+    margin-bottom: 30px !important;
+}
+
+.post-info {
+    margin-top: 1rem !important;
+}
+
+.block-search-customcss {
+    margin-bottom: 0 !important;
+}
+
+.block-search-customcss .block-content {
+    background: #FFF !important;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+}
+
+.block-search-customcss .block-content .label {
+    display: none;
+}
+
+.blog-list-post {
+    margin-right: 2rem;
+}
+
+.sidebar-post {
+    margin-bottom: 0 !important;
+}
+
+.widget-post-cat a {
+    color: #718725 !important;
+    font-size: 14px;
+}
+
+.widget-post-cat h2 {
+    text-transform: capitalize !important;
+}
+
+@media (min-width: 992px) {
+    .post-list-wrapper .blog-list-post .blog-post-thumb {
+        float: left;
+        max-width: 46% !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .page-title-wrapper {
+        padding-left: 2rem;
+        padding-bottom: 0 !important;
+    }
+
+    .col-main {
+        padding-left: 2rem;
+        padding-right: .5rem;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 960px) {
+    .col-main {
+        padding-left: 4rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width: 719px) {
+    .page-title-wrapper {
+        padding-left: 2rem;
+        padding-bottom: 0 !important;
+    }
+
+    .item-post-full {
+        padding-right: 0 !important;
+    }
+
+    .post-info {
+        padding: 1.3rem;
+    }
+
+    .breadcrumbs {
+        display: none;
+    }
+
+    .page-title-wrapper h1 {
+        margin-bottom: 5px !important;
+    }
+
+    .page-title-wrapper .base {
+        font-size: 22px;
+    }
+}

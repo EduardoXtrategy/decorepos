@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var $block \Magento\Sales\Block\Order\Email\Items\DefaultItems */
+
+/** @var $_item \Magento\Sales\Model\Order\Item */
+$_item = $block->getItem();
+$_order = $_item->getOrder();
+?>
+<tr>
+    <td class="item-info<?= ($block->getItemOptions() ? ' has-extra' : '') ?>" colspan="3" style="padding:11px;border-top:1px solid #d1d1d1;vertical-align:top;">
+        <p class="product-name"><strong><?= $block->escapeHtml($_item->getName()) ?></strong></p>
+        <p class="sku"><strong><?= $block->escapeHtml(__('SKU')) ?>: </strong> <?= $block->escapeHtml($block->getSku($_item)) ?></p>
+
+        <?php if ($block->getItemOptions()) : ?>
+            <p class="item-options">
+            <?php foreach ($block->getItemOptions() as $option) : ?>
+                <span><strong><?= $block->escapeHtml($option['label']) ?></strong> <?= /* @noEscape */  nl2br($block->escapeHtml($option['value'])) ?></span>
+            <?php endforeach; ?>
+            </p>
+        <?php endif; ?>
+        <?php $addInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+        <?php if ($addInfoBlock) :?>
+            <?= $addInfoBlock->setItem($_item)->toHtml() ?>
+        <?php endif; ?>
+        <?= $block->escapeHtml($_item->getDescription()) ?>
+    </td>
+    <td class="item-qty" colspan="2" style="padding:11px;border-top:1px solid #d1d1d1;text-align:center;vertical-align:top;"><?= (float) $_item->getQtyOrdered() ?></td>
+    <td class="item-price" style="padding:11px;border-top:1px solid #d1d1d1;text-align:right;vertical-align:top;">
+        <?= /* @noEscape */ $block->getItemPrice($_item) ?>
+    </td>
+</tr>
+<?php if ($_item->getGiftMessageId()
+    && $_giftMessage = $this->helper(\Magento\GiftMessage\Helper\Message::class)
+        ->getGiftMessage($_item->getGiftMessageId())
+) : ?>
+    <tr>
+    <td colspan="3" class="item-extra">
+        <table class="message-gift">
+            <tr>
+                <td>
+                    <h3><?= $block->escapeHtml(__('Gift Message')) ?></h3>
+                    <strong><?= $block->escapeHtml(__('From:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getSender()) ?>
+                    <br /><strong><?= $block->escapeHtml(__('To:')) ?></strong> <?= $block->escapeHtml($_giftMessage->getRecipient()) ?>
+                    <br /><strong><?= $block->escapeHtml(__('Message:')) ?></strong>
+                    <br /><?= $block->escapeHtml($_giftMessage->getMessage()) ?>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<?php endif; ?>

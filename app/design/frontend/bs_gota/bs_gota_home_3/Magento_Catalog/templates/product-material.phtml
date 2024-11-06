@@ -1,0 +1,41 @@
+<?php /** @var Magento\Catalog\Block\Product\View $block */ ?>
+<?php
+$productMaterial = $block->getProduct()->getResource()->getAttribute('material');
+$displayMaterial = $block->getProduct()->getResource()->getAttribute('display_material');
+$productSustainable = $block->getProduct()->getResource()->getAttribute('sustainable');
+if ($productMaterial) {
+    $_attributeValue = $productMaterial->getFrontend()->getValue($block->getProduct());
+}
+if ($productSustainable) {
+    $_sustainableValue = $productSustainable->getFrontend()->getValue($block->getProduct());
+}
+if ($displayMaterial) {
+    $_displayMaterialValue = $displayMaterial->getFrontend()->getValue($block->getProduct());
+}
+$hasSeparator = isset($_attributeValue) && !empty($_attributeValue) && isset($_sustainableValue) && !empty($_sustainableValue);
+?>
+<?php if (isset($_attributeValue) || isset($_sustainableValue)): ?>
+    <p class="decowraps-product-material-container">
+        <?php if (isset($_attributeValue) && !empty($_attributeValue) || (isset($_displayMaterialValue) && !empty($_displayMaterialValue))): ?>
+            <span class="decowraps-product-material">
+           <span class="label-material"><?= __('Material:') ?></span> <span
+                    class="value-material">
+                    <?php if (isset($_displayMaterialValue) && !empty($_displayMaterialValue)): ?>
+                        <?= $block->escapeHtml($_displayMaterialValue); ?>
+                    <?php else: ?>
+                        <?= $block->escapeHtml($_attributeValue); ?>
+                    <?php endif; ?>
+                </span>
+        </span>
+        <?php endif; ?>
+        <?php if ($hasSeparator): ?>
+            <!--span class="info-separator label-material">-</span-->
+        <?php endif; ?>
+        <?php if (isset($_sustainableValue) && !empty($_sustainableValue)): ?>
+            <!--span class="decowraps-product-material">
+           <span class="label-material"><?= __('Sustainable:') ?></span> <span
+                    class=""><?= $block->escapeHtml(ucfirst(strtolower($_sustainableValue))); ?></span>
+        </span-->
+        <?php endif; ?>
+    </p>
+<?php endif; ?>

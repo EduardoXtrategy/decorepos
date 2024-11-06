@@ -1,0 +1,36 @@
+<?php
+/**
+ * @var \Uzer\Customer\Block\Register\Custom $block
+ */
+?>
+<div class="row divider-item responsibilityAgreementDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('2. Copy of the Appointment / Copia del Nombramiento') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('Please upload a copy of the appointment.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="responsibility_agreement_doc" id="responsibilityAgreementDoc" class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                    for="responsibilityAgreementDoc"><span><?= __('Upload Copy of the Appointment') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>
+<div class="row divider-item rutDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('3. RUC / Registro Único de Contribuyentes') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('Please upload a copy of your RUC.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="rut_doc" id="rutDoc" class="inputfile inputfile-custom"
+                       accept="application/pdf" required
+                    aria-required="true" />
+                <label class="inputfile-styles"
+                    for="rutDoc"><span><?= __('Upload RUC Document') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<?php /** @var \Uzer\Customer\Block\Adminhtml\Customer\Edit\CreditTerms $block */ ?>
+<?php if ($block->canShowTab()): ?>
+    <?= $block->getFormHtml() ?>
+    <input type="hidden" name="select_products"
+           id="<?= $block->getFieldId() ?>"
+           data-form-part='customer_form'
+           value=""
+    />
+<?php endif; ?>

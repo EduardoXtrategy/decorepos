@@ -1,0 +1,46 @@
+<?php /** @var \Uzer\Blog\Block\Widget\Widget $block */ ?>
+<?php $counter = 0; ?>
+
+
+<div class="row news-trends-container" id="uzer-categories-tab<?= $block->getData('id') ?>">
+    <div class="text-center news-trends-title">
+        <h2><?= __($block->getData('title')) ?></h2>
+    </div>
+    <div class="row md-12 news-trends-list text-center ">
+        <div class="">
+            <ul class="">
+                <?php foreach ($block->getCategories() as $category): ?>
+                    <li class="category" tab="<?= $category->getId() ?>">
+                        <?= $category->getTitle() ?></li>
+                    <?php $counter++; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+    <?php foreach ($block->getCategories() as $category): ?>
+        <?php $posts = $block->getPosts(); ?>
+        <div class="row new-trends-box-container" id="uzer-tab-<?= $category->getId() ?>">
+            <?php /** @var \Rokanthemes\Blog\Model\Post $post */ ?>
+            <?php foreach ($posts[$category->getId()] as $post): ?>
+                <div class="news-trends-box">
+                    <div class="news-trends-box-container">
+                        <div class="image">
+                            <a href="<?= $post->getPostUrl() ?>">
+                                <img class="" src="<?= $block->getMediaFolder() . $post->getThumbnailimage() ?>"
+                                     alt="<?= $post->getTitle() ?>">
+                                <small
+                                    class="post-date"><?= date('d, M, Y', strtotime($post->getPublishTime())) ?></small>
+                            </a>
+                        </div>
+                        <h3><a href="<?= $post->getPostUrl() ?>"><?= $post->getTitle() ?></a></h3>
+                        <p class="news-trends-h2-p"><?= $post->getShortContent() ?></p>
+                        <a class="blog-read-more" href="<?= $post->getPostUrl() ?>"><?= __('Read more') ?></a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endforeach; ?>
+    <div class="text-center news-trends-button-div">
+        <a href="<?= $block->getAllPost() ?>" class="news-trends-button" type="button">View all news</a>
+    </div>
+</div>

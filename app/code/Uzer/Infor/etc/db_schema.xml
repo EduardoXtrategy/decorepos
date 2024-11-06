@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="customer_control" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="tinyint" name="saved" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="int" name="attempts" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false" name="created_at" nullable="false"
+                comment="Created At Column"/>
+        <column xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="true" name="updated_at" nullable="false"
+                comment="Updated At Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="CUSTOMER_CONTROL_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+    <table name="customer_address_control" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="int" name="address_id" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="tinyint" name="save" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="int" name="attempts" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false" name="created_at" nullable="false"
+                comment="Created At Column"/>
+        <column xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="true" name="updated_at" nullable="false"
+                comment="Updated At Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="CUSTOMER_ADDRESS_CONTROL_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+</schema>

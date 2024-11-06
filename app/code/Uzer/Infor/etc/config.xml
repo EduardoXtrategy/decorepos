@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <uzer>
+            <infor>
+                <enable>1</enable>
+                <access_token_url>https://mingle-sso.inforcloudsuite.com:443/VLVBF9Y44VSV496G_TST/as/token.oauth2</access_token_url>
+                <client_id>VLVBF9Y44VSV496G_TST~g1OrO3OsWsLwchyEjdaWcnSIxlJDMHjjiDqfXZagYtY</client_id>
+                <client_secret>cP49BW1xxQXqZekg-95FDeMqYwUGt7DWqOn90g9lNUteLDCKajdVVboTqe8MBP_xpbDGCVyi_2hy2akcgXtYOw</client_secret>
+                <username>VLVBF9Y44VSV496G_TST#zk3eNTmNZfp767kfexRZpwqgIyRnw6CWNprNz5oQr2z9g15ArRzLtB5qxhSijTQYQn3Rd5KMtsOBsJcLUlHEgQ</username>
+                <password>okukVUKFdU00rR9iCGCvK5QXoONt1F1PeLdxROmSNrBWFNQwDdnNK4X1L0M1vCm0Ec9ii3rP2YX8x-WSwv3Vow</password>
+                <api_url>https://mingle-ionapi.inforcloudsuite.com/</api_url>
+                <tenant_id>VLVBF9Y44VSV496G_TST</tenant_id>
+                <ido>ue_DWP_CustAppWrkBnchs</ido>
+                <moongoose_config>VLVBF9Y44VSV496G_TST_SDWCOL</moongoose_config>
+            </infor>
+        </uzer>
+    </default>
+</config>

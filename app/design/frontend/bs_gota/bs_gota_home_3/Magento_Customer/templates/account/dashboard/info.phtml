@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Info $block */
+$customInfo = \Magento\Framework\App\ObjectManager::getInstance()->create(\Uzer\Customer\Model\CustomerCustomInfo::class);
+$companyName = $customInfo->getByData($block->getCustomer(), 'company_data');
+?>
+<div class="block block-dashboard-info customer-information-content">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Account Settings')) ?></strong></div>
+    <div class="block-content">
+        <div class="box box-information">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Account Information')) ?></span>
+            </strong>
+            <div class="box-content">
+                <?php if ($companyName): ?>
+                    <span
+                        class="label-info-account"><?= __('Company:') ?> </span>
+                    <span> <?= $block->escapeHtml($companyName) ?></span>
+                <?php endif; ?>
+                <p>
+                    <span
+                        class="label-info-account"><?= __('Name: ') ?></span><?= $block->escapeHtml($block->getName()) ?>
+                    <br>
+                    <span
+                        class="label-info-account"><?= __('Email: ') ?></span><?= $block->escapeHtml($block->getCustomer()->getEmail()) ?>
+                    <br>
+                </p>
+                <?= $block->getChildHtml('customer.account.dashboard.info.extra'); ?>
+                <?= $block->getChildHtml('additional_blocks'); ?>
+            </div>
+            <div class="box-actions">
+                <a class="action edit" href="<?= $block->escapeUrl($block->getUrl('customer/account/edit')) ?>">
+                    <span><?= $block->escapeHtml(__('Edit')) ?></span>
+                </a>
+                <a href="<?= $block->escapeUrl($block->getChangePasswordUrl()) ?>" class="action change-password">
+                    <?= $block->escapeHtml(__('Change Password')) ?>
+                </a>
+            </div>
+        </div>

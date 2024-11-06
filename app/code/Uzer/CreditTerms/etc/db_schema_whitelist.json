@@ -1,0 +1,17 @@
+{
+  "customer_balance": {
+    "column": {
+      "entity_id": true,
+      "customersId": true,
+      "value": true,
+      "createdAt": true,
+      "updatedAt": true
+    },
+    "index": {
+      "CUSTOMER_BALANCE_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "name": "uzer/advanced-filter",
+    "version": "1.0.0",
+    "description": "Advanced view layered navigation",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-layered-navigation": "100.4.*"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Uzer\\AdvancedFilter\\": ""
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Futura Std';
+    src: url('../fonts/FuturaStd-Book.eot');
+    src: url('../fonts/FuturaStd-Book.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FuturaStd-Book.woff2') format('woff2'),
+        url('../fonts/FuturaStd-Book.woff') format('woff'),
+        url('../fonts/FuturaStd-Book.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

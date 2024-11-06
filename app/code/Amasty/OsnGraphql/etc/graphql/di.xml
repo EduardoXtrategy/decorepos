@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+ * @package Out of stock Notifications GraphQL for Magento 2 (System)
+ */-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="amxnotif_general_show_out_of_stock_only" xsi:type="string">amxnotif/general/show_out_of_stock_only</item>
+
+                <item name="amxnotif_stock_customer_group" xsi:type="string">amxnotif/stock/customer_group</item>
+                <item name="amxnotif_stock_subscribe_category" xsi:type="string">amxnotif/stock/subscribe_category</item>
+                <item name="amxnotif_stock_with_popup" xsi:type="string">amxnotif/stock/with_popup</item>
+                <item name="amxnotif_stock_placeholder" xsi:type="string">amxnotif/stock/placeholder</item>
+
+                <item name="amxnotif_price_customer_group" xsi:type="string">amxnotif/price/customer_group</item>
+
+                <item name="amxnotif_gdrp_enabled" xsi:type="string">amxnotif/gdrp/enabled</item>
+                <item name="amxnotif_gdrp_text" xsi:type="string">amxnotif/gdrp/text</item>
+
+                <item name="catalog_productalert_allow_stock" xsi:type="string">catalog/productalert/allow_stock</item>
+                <item name="catalog_productalert_allow_price" xsi:type="string">catalog/productalert/allow_price</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

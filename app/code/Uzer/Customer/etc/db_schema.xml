@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="business_information" resource="default" engine="innodb" comment="BusinessInformation">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="boolean" name="assistance_allowed" nullable="false" comment="Assistance Allowed Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="BUSINESS_INFORMATION_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+    <table name="customers_information_business" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="boolean" name="allow_purchases" nullable="false"/>
+        <column xsi:type="boolean" name="request_allow_purchases" nullable="false"/>
+        <column xsi:type="boolean" name="tax_exception" nullable="false"/>
+        <column xsi:type="boolean" name="request_tax_exception" nullable="false"/>
+        <column xsi:type="date" name="tax_exception_from" nullable="true"/>
+        <column xsi:type="date" name="tax_exception_to" nullable="true"/>
+        <column xsi:type="varchar" name="tax_exception_document" nullable="true"/>
+        <column xsi:type="varchar" name="new_customer_form_document" nullable="true"/>
+        <column xsi:type="varchar" name="credit_application_document" nullable="true"/>
+        <column xsi:type="varchar" name="wp9_document" nullable="true"/>
+        <column xsi:type="varchar" name="account_email" nullable="true"/>
+        <column xsi:type="boolean" name="payment_terms" nullable="false"/>
+        <column xsi:type="boolean" name="request_payment_terms" nullable="false"/>
+        <column xsi:type="date" name="payment_terms_request_date" nullable="true"/>
+        <column xsi:type="date" name="payment_terms_response_date" nullable="true"/>
+        <column xsi:type="varchar" name="payment_terms_document" nullable="true"/>
+        <column xsi:type="varchar" name="payment_terms_status" nullable="true"/>
+        <column xsi:type="int" name="customers_id" unsigned="true" nullable="true"/>
+        <column xsi:type="int" name="addresses_id" unsigned="true" nullable="true"/>
+        <column xsi:type="double" name="payment_terms_allowed_credit" unsigned="true" nullable="true"/>
+        <column xsi:type="double" name="payment_terms_allowed_credit_available" unsigned="true" nullable="true"/>
+        <column xsi:type="boolean" name="accepted_terms" nullable="true"/>
+        <column xsi:type="varchar" name="ip" nullable="true"/>
+        <column xsi:type="date" name="date" nullable="true"/>
+        <column xsi:type="longtext" name="user_agent" nullable="true"/>
+        <column xsi:type="boolean" name="saved_middleware" nullable="false" default="true"/>
+        <column xsi:type="int" name="attempts" nullable="true" default="0"/>
+        <column xsi:type="varchar" name="responsibility_agreement_doc" nullable="true"/>
+        <column xsi:type="varchar" name="circular_format_170_doc" nullable="true"/>
+        <column xsi:type="varchar" name="personal_data_processing_doc" nullable="true"/>
+        <column xsi:type="varchar" name="chamber_commerce_certificate_doc" nullable="true"/>
+        <column xsi:type="varchar" name="rut_doc" nullable="true"/>
+        <column xsi:type="varchar" name="copy_legal_representative_doc" nullable="true"/>
+        <column xsi:type="varchar" name="commercial_reference_doc" nullable="true"/>
+        <column xsi:type="varchar" name="bank_reference_doc" nullable="true"/>
+        <column xsi:type="varchar" name="financial_statements_doc" nullable="true"/>
+        <column xsi:type="varchar" name="basc_certification" nullable="true"/>
+        <column xsi:type="varchar" name="shareholding_comp_cert_doc" nullable="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="CUSTOEMRS_INFORMATION_BUSINESS_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+</schema>

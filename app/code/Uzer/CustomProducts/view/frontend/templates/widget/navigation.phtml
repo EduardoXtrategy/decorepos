@@ -1,0 +1,9 @@
+<?php /** @var \Uzer\CustomProducts\Block\Customer\Widget\MainNavigation $block */ ?>
+<div class="row main-menu">
+    <ul>
+        <li><a href="<?= $block->getUrl('custom-packaging') ?>"><?= __('Custom') ?></a></li>
+        <?php if ($block->hasCustomProducts()): ?>
+            <li><a href="<?= $block->getUrl('custom') ?>"><?= __('My Custom Products') ?></a></li>
+        <?php endif; ?>
+    </ul>
+</div>

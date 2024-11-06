@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="ondemand_configuration_template" label="On Demand request" file="ondemand_request.html" type="html"
+              module="Uzer_OnDemand" area="frontend"/>
+    <template id="ondemand_configuration_template_presale" label="Pre sale request" file="presale_request.html" type="html"
+              module="Uzer_OnDemand" area="frontend"/>
+</config>

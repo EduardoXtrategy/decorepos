@@ -1,0 +1,11 @@
+<?php /** @var \Sensei\SortingPro\Block\Direction $block */ ?>
+
+<script type="text/x-magento-init">
+        {
+            "[data-role='sorter']": {
+                "Sensei_SortingPro/js/direction": {
+                    "permanentDirectionMethods": <?= /** @noEscape */ $block->getPermanentDirectionAttributesJson() ?>
+                }
+            }
+        }
+</script>

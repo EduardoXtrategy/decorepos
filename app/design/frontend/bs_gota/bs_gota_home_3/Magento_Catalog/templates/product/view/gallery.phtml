@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Product media data template
+ *
+ * @var  \Magento\Catalog\Block\Product\View\Gallery $block
+ */
+?>
+
+<?php
+$images = $block->getGalleryImages()->getItems();
+$mainImage = current(array_filter($images, function ($img) use ($block) {
+    return $block->isMainImage($img);
+}));
+
+if (!empty($images) && empty($mainImage)) {
+    $mainImage = $block->getGalleryImages()->getFirstItem();
+}
+
+$helper = $block->getData('imageHelper');
+$mainImageData = $mainImage ?
+    $mainImage->getData('medium_image_url') :
+    $helper->getDefaultPlaceholderUrl('image');
+
+$sustainable = $block->getProduct()->getData('sustainable');
+
+$onDemand = null;
+$preSale = null;
+if (class_exists('\Uzer\OnDemand\Helper\Data')) {
+    $data = Magento\Framework\App\ObjectManager::getInstance()->create(\Uzer\OnDemand\Helper\Data::class);
+    $onDemand = $data->getOnDemandAttribute();
+    $preSale = $data->getPreSaleAttribute();
+}
+$preSaeProduct = $block->getProduct()->getBModel();
+$onDemandProduct = $block->getProduct()->getBModel();
+?>
+
+
+<div class="gallery-placeholder _block-content-loading uzer-product-view" data-gallery-role="gallery-placeholder">
+    <div class="product-label">
+        <?php $todayDate = time();
+        $timeStartNew = strtotime($block->getProduct()->getData('news_from_date'));
+        $timeEndNew = strtotime($block->getProduct()->getData('news_to_date')); ?>
+        <div class="label-newlabel" style="display: none;">
+            <span class="span-label newlabel">
+                <span><?php echo __('New') ?></span>
+            </span>
+        </div>
+        <div class="label-onsale" style="display: none;">
+            <span class="span-label onsale">
+                <span class="sale-bg"></span>
+                <span class="sale-text"><?php echo __('Sale') ?></span>
+            </span>
+        </div>
+        <div class="label-sustainable" <?= !$sustainable ? 'style="display: none;"' : '' ?>>
+            <span class="span-label sustainable">
+            <span class="sustainable-bg">
+            <img src="/media/icons/sustainable-shape.png" alt="Sustainable">
+            </span>
+        </span>
+        </div>
+        <?php if (!is_null($preSale) && $preSale == $preSaeProduct): ?>
+            <div class="label-ondemand label-presale">
+            <span class="span-label presale">
+                <span class="sale-bg"></span>
+                <span class="sale-text"><?php echo __('Pre Sale') ?></span>
+            </span>
+            </div>
+        <?php endif; ?>
+        <?php if (!is_null($onDemand) && $onDemand == $onDemandProduct): ?>
+            <div class="label-ondemand ondemand">
+            <span class="span-label onsale">
+                <span class="sale-bg"></span>
+                <span class="sale-text"><?php echo __('On Demand') ?></span>
+            </span>
+            </div>
+        <?php endif; ?>
+    </div>
+    <img alt="main product photo" class="gallery-placeholder__image" src="<?= /* @noEscape */
+    $mainImageData ?>"/>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "mage/gallery/gallery": {
+                "mixins":["magnifier/magnify"],
+                "magnifierOpts": <?= /* @noEscape */
+    $block->getMagnifier() ?>,
+                "data": <?= /* @noEscape */
+    $block->getGalleryImagesJson() ?>,
+                "options": <?= /* @noEscape */
+    $block->getGalleryOptions()->getOptionsJson() ?>,
+                "fullscreen": <?= /* @noEscape */
+    $block->getGalleryOptions()->getFSOptionsJson() ?>,
+                 "breakpoints": <?= /* @noEscape */
+    $block->getBreakpoints() ?>
+            }
+        }
+    }
+</script>

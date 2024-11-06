@@ -1,0 +1,17 @@
+{
+  "quote": {
+    "column": {
+      "purchase_order": true
+    }
+  },
+    "sales_order": {
+        "column": {
+            "purchase_order": true
+        }
+    },
+  "uzer_sales_purchase_order": {
+    "column": {
+      "quote_id": true
+    }
+  }
+}

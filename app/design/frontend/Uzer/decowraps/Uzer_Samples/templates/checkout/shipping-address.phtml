@@ -1,0 +1,240 @@
+<?php /** @var \Uzer\Samples\Block\Checkout\ShippingAddress $block */ ?>
+<div class="sample-back col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <img src="<?= $block->getViewFileUrl('Uzer_Samples::images/back.svg'); ?>" class="btn-back">
+    <span class="btn-back"> <?= __('Back') ?></span>
+</div>
+
+<div class="sample-checkout-title col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <span><?= __('Shipping Address') ?></span>
+    <img src="<?= $block->getViewFileUrl('Uzer_Samples::images/top_arrow.svg'); ?>" class="icon-down">
+</div>
+<div class="row">
+    <?php $addresses = $block->getCustomerAddresses() ?>
+    <?php foreach ($addresses as $address): ?>
+        <?php
+        $isDefaultAddress = $block->isDefaultShipping($address);
+        $defaultSelected = $block->getDefaultSelected();
+        $selected = $defaultSelected > 0 && $defaultSelected == $address->getId() || $defaultSelected <= 0 && $isDefaultAddress;
+        ?>
+        <div
+            class="address-container col-sm-12 col-md-6  col-lg-6  col-xl-6 <?= $selected ? 'address-active' : '' ?>"
+            id="address-<?= $address->getId() ?>">
+            <div class="shipping-item ">
+                <div class="row">
+                    <div class="shipping-menu-title">
+                        <div class="item col-sm-10 col-md-10  col-lg-10  col-xl-10">
+                            <div class="shipping-item-title">
+                                <?= $address->getFirstname() . ' ' . $address->getLastname() ?>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="col-sm-1 col-md-1  col-lg-1  col-xl-1 checkbox-content-address">
+                            <div class="shipping-item-title-check">
+                                <label class="label--checkbox">
+                                    <input type="checkbox"
+                                           id="address-checkbox-<?= $address->getId() ?>"
+                                           name="address_id"
+                                           value="<?= $address->getId() ?>"
+                                           class="checkbox-default checkbox-address" <?= $selected ? 'checked' : '' ?>>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attributes">
+                        <div class="str-cus col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <?= $address->getCompany() ?>
+                        </div>
+                        <div class="str-cus col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <?= $address->getStreetFull() ?>
+                        </div>
+                        <div class="str-cus col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <?= $address->getPostcode() ?>
+                        </div>
+                        <div class="str-cus col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <?= $address->getCity() ?>
+                        </div>
+                        <?php if ($address->getCountryModel()): ?>
+                            <div class="str-cus col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <?= $address->getCountryModel()->getName() ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="str-cus col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <?= $address->getTelephone() ?>
+                        </div>
+                    </div>
+                    <div class="configuration">
+                        <div class="items-conf col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                            <a href="#" class="shipping_id" data-id="<?= $address->getId() ?>">
+                                <span><?= __('Edit Address') ?></span>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 container-ship-here">
+                            <button class="shipping-default samples-button btn-ship-her" type="button"
+                                    data-id="<?= $address->getId() ?>">
+                                <?= __('Ship Here') ?>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+<div class="row">
+    <div class="pnl-shipping col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <button id="modal-btn-shipping" class="samples-button" type="button">
+            <?= __('New Address') ?>
+        </button>
+    </div>
+</div>
+
+<div id="modal-content-add-shipping" class="modal-content-edit-shipping">
+    <hr>
+    <form action="<?= $block->getUrl('samples/address/add'); ?>" method="post" class="form"
+          id="shipping-address-form"
+          data-mage-init='{
+  "validation": {
+    "rules": {
+      "first_name": {
+        "required": true
+      },
+      "last_name": {
+        "required": true
+      },
+      "telephone": {
+        "required": true,
+        "minlength": 7,
+        "maxlength": 13,
+        "validate-number": true
+      },
+      "street": {
+        "required": true
+      },
+      "country": {
+        "required": true
+      },
+      "region-sa": {
+        "required": <?= $block->showState() ? 'true' : 'false'; ?>
+      },
+       "region": {
+        "required": <?= $block->showState() ? 'true' : 'false' ?>
+      },
+      "city": {
+        "required": true
+      },
+      "zip_code": {
+        "required": true,
+        "validate-zip-international": true,
+        "minlength": 5,
+        "maxlength": 8
+      },
+      "company": {
+        "required": true
+      }
+    }
+  }
+}
+'>
+        <div class="modal-inner-content-">
+            <div class="modal-shipping-add-form">
+                <fieldset class="fieldset">
+                    <?= $block->getBlockHtml('formkey') ?>
+                    <input type="hidden" id="key_address" name="key_address" class="modal-input">
+                    <div class="row item">
+                        <div class="col-md-6 required">
+                            <label><?= __('First name') ?></label>
+                            <input type="text" id="first_name" name="first_name" class="modal-input"
+                                   required>
+                        </div>
+                        <div class="col-md-6 required">
+                            <label><?= __('Last name') ?></label>
+                            <input type="text" id="last_name" name="last_name" class="modal-input"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="row item required">
+                        <div class="col-md-12">
+                            <label><?= __('Company') ?></label>
+                            <input type="text" id="company" name="company" class="modal-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row item required">
+                        <label for="street_1"
+                               class="col-sm-12 col-md-4 col-lg-4 col-xl-4"><?= __('Street Address') ?></label>
+                        <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 address">
+                            <label for="street_1"><?= __('Street Address: Line 1') ?></label>
+                            <input type="text" id="street_1" name="street[]" class="modal-input"
+                                   data-validate="{required:true}" required>
+                            <label for="street_2" class="adrress-optional"><?= __('Street Address: Line 2') ?></label>
+                            <input type="text" id="street_2" name="street[]" class="modal-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group row item required">
+                        <label for="zip_code" class="col-sm-4"><?= __('Zip Code') ?></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control-plaintext modal-input validate-zip-international"
+                                   id="zip_code" name="zip_code"
+                                   required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row item required">
+                        <label for="city" class="col-sm-4"><?= __('City') ?></label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control-plaintext modal-input" id="city" name="city"
+                                   required>
+                        </div>
+                    </div>
+
+                    <?php if ($block->showState()): ?>
+                        <div class="form-group row item required">
+                            <label for="inputPassword" class="col-sm-4 "><?= __('State/Province') ?></label>
+                            <div class="col-sm-8">
+                                <input type="text" id="region" name="region"
+                                       class="form-control-plaintext modal-input">
+                                <select id="region-sa" name="region-sa" class="form-control-plaintext modal-input">
+                                </select>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+
+
+                    <div class="form-group row item required">
+                        <?php $countries = $block->getAllowedCountries(); ?>
+                        <label for="country" class="col-sm-4"><?= __('Country') ?></label>
+                        <div class="col-sm-8">
+                            <select name="country" id="country" class="form-control-plaintext modal-input"
+                                    title="Country"
+                                    required
+                                    aria-required="true">
+                                <?php foreach ($countries as $country): ?>
+                                    <option value="<?= $country->getId() ?>"><?= $country->getName() ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row item required">
+                        <label for="telephone" class="col-sm-4"><?= __('Phone Number') ?></label>
+                        <div class="col-sm-8">
+                            <input type="text" id="telephone" name="telephone" class="modal-input"
+                                   required>
+                        </div>
+                    </div>
+
+                </fieldset>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <button id="btn-edit-address" class="samples-button-md" type="button">
+                            <?= __('Add Address') ?>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,133 @@
+.block-search-customcss {
+    margin-bottom: 0 !important;
+}
+
+.block-search-customcss .block-content {
+    background: #FFF !important;
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+}
+
+.block-search-customcss .block-content .label {
+    display: none;
+}
+
+.blog-header .post-tags-info label {
+    display: none;
+}
+
+.post-meta-data .post-tags-info {
+    border-radius: 4px;
+    background-color: #82992f;
+    opacity: 0.86;
+    width: auto;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.post-meta-data .post-tags-info a {
+    color: #FFF !important;
+}
+
+.widget-post-cat {
+    margin-bottom: 30px !important;
+}
+
+.widget-post-cat a {
+    color: #718725 !important;
+    font-size: 14px;
+}
+
+.widget-post-cat h2 {
+    text-transform: capitalize !important;
+}
+
+.widget-post-tab {
+    border-top: 1px solid #ccc;
+    padding-top: 2rem;
+}
+
+.widget-post-tab .title-post-tab .title {
+    text-transform: capitalize !important;
+}
+
+.sidebar-post .post-tab-info h3 {
+    text-transform: capitalize;
+    color: #363636 !important;
+}
+
+.sidebar-post .post-tab-info span {
+    color: #6F6F6F;
+}
+
+.page-footer {
+    padding-top: 0 !important;
+    border-top: 1px solid;
+}
+
+.uzer-related-products {
+    background: #fff;
+}
+
+.uzer-related-posts .block-content {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.uzer-related-posts .block-title {
+    text-align: center;
+}
+
+.uzer-related-posts .block-content .item {
+    padding: 0;
+    width: 30%;
+    box-shadow: 0 2px 8px rgba(231, 231, 231, 0.5);
+    border-radius: 3px;
+    background-color: #ffffff;
+    margin-right: 3%;
+}
+
+@media (max-width: 600px) {
+    .uzer-related-posts .block-content .item {
+        width: 100% !important;
+        margin-bottom: 1rem;
+    }
+
+    .uzer-related-posts .block-content {
+        display: block;
+        margin: 1rem;
+    }
+}
+
+.uzer-related-posts .block-content .item img {
+    max-width: 100%;
+    height: 294px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.uzer-related-item-content {
+    padding-top: 1rem;
+    margin-bottom: 5rem;
+}
+
+.uzer-related-posts .post-item-link {
+    padding: 2rem;
+}
+
+.uzer-related-posts .post-date {
+    position: absolute;
+    bottom: 1.7rem;
+    left: 0;
+    background: #82992fa8;
+    padding-left: .3rem;
+    padding-right: .3rem;
+}
+
+.uzer-related-posts .post-date span, .uzer-related-posts .post-date strong {
+    color: #FFF;
+}
+
+.page-footer {
+    margin-top: 0 !important;
+}

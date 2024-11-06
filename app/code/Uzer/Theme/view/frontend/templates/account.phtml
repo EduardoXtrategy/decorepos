@@ -1,0 +1,64 @@
+<?php
+/** @var \Uzer\Theme\Block\Account $block  */
+$session = \Magento\Framework\App\ObjectManager::getInstance()->get(Magento\Customer\Model\Session::class);
+?>
+<div <?php if ($this->helper('Rokanthemes\Themeoption\Helper\Data')->isLoggedIn()): ?> class="menu-login-customer" <?php endif; ?>>
+    <div
+        class="register-login <?php if ($this->helper('Rokanthemes\Themeoption\Helper\Data')->isLoggedIn()): ?> register-login-menu <?php endif; ?>">
+        <div class="login-icon">
+            <img src="/media/icons/user.svg" alt="login"
+                <?php if ($this->helper('Rokanthemes\Themeoption\Helper\Data')->isLoggedIn()): ?> class="user-icon"
+                <?php else: ?> class="user-icon-login" <?php endif; ?>>
+            <div class="dropdown-list" style="display:none">
+                <div class="dropdown-menu">
+                    <a class="dropdown-item"
+                       href="<?php echo $block->getUrl('customer/account/'); ?>"><?= __('My Account') ?></a>
+                    <a class="dropdown-item"
+                       href="<?php echo $block->getUrl('samples/customer/index/'); ?>"><?= __('Sample Orders') ?></a>
+                    <a class="dropdown-item"
+                       href="<?php echo $block->getUrl('sales/order/history/'); ?>"><?= __('Online Orders') ?></a>
+                    <a class="dropdown-item"
+                       href="<?php echo $block->getUrl('wishlist'); ?>"><?= __('My wishlist') ?></a>
+                    <div class="dropdown-divider"></div>
+                    <a id="log-out" class="dropdown-item" class="out"
+                       href="<?php echo $block->getUrl('customer/account/logout'); ?>"><?= __('Log out') ?></a>
+                </div>
+            </div>
+        </div>
+        <div class="login-logout">
+            <?php
+            $resourceModel = \Magento\Framework\App\ObjectManager::getInstance()->create(\Magento\Customer\Model\ResourceModel\Customer::class);
+            $customer = $session->getCustomer();
+            ?>
+            <?php if (!$this->helper('Rokanthemes\Themeoption\Helper\Data')->isLoggedIn() || is_null($session->getCustomerId())): ?>
+                <a href="<?php echo $this->getUrl('customer/account/create'); ?>"> <?php echo __('Sign Up'); ?></a>
+                <a class="link-button-login"
+                   href="<?php echo $this->getUrl('customer/account/login'); ?>"><?php echo __('Login'); ?></a>
+            <?php else: ?>
+                <div class="authenticated">
+                    <?php
+                    $resourceModel->load($customer, $session->getCustomerId());
+                    ?>
+                    <span
+                        class="customer-name"><?php echo $customer->getName(); ?></span>
+                    <p class="customer-company">
+                        <?php
+                        $resourceConnection = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\App\ResourceConnection::class);
+                        $table = $resourceConnection->getTableName('customer_entity_varchar');
+                        $connection = $resourceConnection->getConnection();
+                        $attributeId = $resourceModel->getAttribute('company_data')->getId();
+                        $result = $connection->fetchAll('SELECT * FROM ' . $table . ' WHERE attribute_id = ' . $attributeId . ' AND entity_id = ' . $customer->getId(), ['value']);
+                        if (count($result) > 0) {
+                            echo $result[0]['value'];
+                        }
+                        ?>
+                    </p>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php if ($this->helper('Rokanthemes\Themeoption\Helper\Data')->isLoggedIn()): ?>
+        <div><img src="<?= $block->getViewFileUrl('Uzer_Theme::images/back_down.svg'); ?>"
+                  class="dowm-menu-list"></div>
+    <?php endif; ?>
+</div>

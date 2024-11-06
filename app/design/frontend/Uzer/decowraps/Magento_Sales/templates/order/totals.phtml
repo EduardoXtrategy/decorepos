@@ -1,0 +1,73 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Magento\Sales\Block\Order\Totals
+ * @see \Magento\Sales\Block\Order\Totals
+ */
+$customFormat = \Magento\Framework\App\ObjectManager::getInstance()->create(\Uzer\Checkoutstep\Model\CustomFormat::class);
+?>
+<?php /** @var \Magento\Framework\DataObject $_total */ ?>
+<?php $grandTotal = null; ?>
+<?php foreach ($block->getTotals() as $_code => $_total) : ?>
+    <?php if ($_code == 'grand_total'): ?>
+        <?php $grandTotal = $_total; ?>
+    <?php endif; ?>
+    <?php if ($_total->getBlockName()) : ?>
+        <?= $block->getChildHtml($_total->getBlockName(), false) ?>
+    <?php else : ?>
+        <?php if ($_code != 'base_grandtotal' && $_code != 'grand_total'): ?>
+            <tr class="order-total-container <?= $block->escapeHtmlAttr($_code) ?>">
+                <td colspan="3" style="padding:11px;text-align:right">
+                </td>
+                <th <?= /* @noEscape */
+                $block->getLabelProperties() ?> scope="row" style="padding:8px;text-align:right">
+                    <?php if ($_total->getStrong()) : ?>
+                        <strong><?= $block->escapeHtml($_total->getLabel()) ?></strong>
+                    <?php else : ?>
+                        <?= $block->escapeHtml($_total->getLabel()) ?>
+                    <?php endif ?>
+                </th>
+                <td <?= /* @noEscape */
+                $block->getValueProperties() ?> data-th="<?= $block->escapeHtmlAttr($_total->getLabel()) ?>"
+                                                style="padding:8px;text-align:right">
+                    <?php if ($_total->getStrong()) : ?>
+                        <strong><?= /* @noEscape */
+                            $customFormat->format($_total->getValue()); ?></strong>
+                    <?php else : ?>
+                        <?= /* @noEscape */
+                        $customFormat->format($_total->getValue()); ?>
+                    <?php endif ?>
+                </td>
+            </tr>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endforeach ?>
+<?php if ($grandTotal): ?>
+    <tr class="order-total-container <?= $block->escapeHtmlAttr('grand_total') ?>">
+        <td colspan="3" style="padding:11px;text-align:right">
+        </td>
+        <th <?= /* @noEscape */
+        $block->getLabelProperties() ?> scope="row" style="padding:8px;text-align:right">
+            <?php if ($grandTotal->getStrong()) : ?>
+                <strong><?= $block->escapeHtml($grandTotal->getLabel()) ?></strong>
+            <?php else : ?>
+                <?= $block->escapeHtml($grandTotal->getLabel()) ?>
+            <?php endif ?>
+        </th>
+        <td <?= /* @noEscape */
+        $block->getValueProperties() ?> data-th="<?= $block->escapeHtmlAttr($grandTotal->getLabel()) ?>"
+                                        style="padding:8px;text-align:right">
+            <?php if ($grandTotal->getStrong()) : ?>
+                <strong><?= /* @noEscape */
+                    $customFormat->format($grandTotal->getValue()); ?></strong>
+            <?php else : ?>
+                <?= /* @noEscape */
+                $customFormat->format($grandTotal->getValue()); ?>
+            <?php endif ?>
+        </td>
+    </tr>
+<?php endif; ?>

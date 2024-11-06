@@ -1,0 +1,21 @@
+{
+    "name": "uzer/contact",
+    "version": "1.0.0",
+    "description": "Contact module",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "uzer/core": "1.0.*"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Uzer\\Contact\\": ""
+        }
+    }
+}

@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">sample_order_form.sample_order_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Sample Order Form</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <namespace>sample_order_form</namespace>
+        <dataScope>data.general</dataScope>
+        <deps>
+            <dep>sample_order_form.sample_order_form_data_source</dep>
+        </deps>
+        <buttons>
+<!--            <button name="save" class="Uzer\Samples\Block\Form\SampleOrder\Save"/>-->
+            <button name="back" class="Uzer\Samples\Block\Form\SampleOrder\Back"/>
+            <button name="delete" class="Uzer\Samples\Block\Form\SampleOrder\Delete"/>
+        </buttons>
+    </settings>
+    <dataSource name="sample_order_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="sample_order/sampleorder/save"/>
+        </settings>
+        <dataProvider class="Uzer\Samples\Ui\DataProvider\SampleOrderDataProvider" name="sample_order_form_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label translate="true">General</label>
+        </settings>
+        <field name="entity_id" sortOrder="0" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Entity ID</label>
+                <dataScope>entity_id</dataScope>
+            </settings>
+        </field>
+        <field name="sample_quote_id" sortOrder="00" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">sample_quote_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Sample Quote Id</label>
+                <dataScope>sample_quote_id</dataScope>
+            </settings>
+        </field>
+        <field name="date_purchase" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">date_purchase</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Date Purchase</label>
+                <dataScope>date_purchase</dataScope>
+            </settings>
+        </field>
+        <field name="customers_id" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">customers_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Customers Id</label>
+                <dataScope>customers_id</dataScope>
+            </settings>
+        </field>
+        <field name="full_name" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">full_name</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Full Name</label>
+                <dataScope>full_name</dataScope>
+            </settings>
+        </field>
+        <field name="email" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">email</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Email</label>
+                <dataScope>email</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="address"  sortOrder="20" class="Uzer\Samples\Ui\Component\Form\SampleOrderFieldset">
+        <settings>
+            <collapsible>false</collapsible>
+            <label translate="true">Shipping address</label>
+        </settings>
+        <field name="first_name" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">first_name</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">First name</label>
+                <dataScope>first_name</dataScope>
+            </settings>
+        </field>
+        <field name="last_name" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">last_name</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Last name</label>
+                <dataScope>last_name</dataScope>
+            </settings>
+        </field>
+        <field name="phone" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">phone</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Phone</label>
+                <dataScope>phone</dataScope>
+            </settings>
+        </field>
+        <field name="country" sortOrder="40" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">country</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Country</label>
+                <dataScope>country</dataScope>
+            </settings>
+        </field>
+        <field name="region" sortOrder="50" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">region</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Region</label>
+                <dataScope>region</dataScope>
+            </settings>
+        </field>
+        <field name="city" sortOrder="60" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">city</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">City</label>
+                <dataScope>city</dataScope>
+            </settings>
+        </field>
+        <field name="address" sortOrder="70" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">address</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Address</label>
+                <dataScope>address</dataScope>
+            </settings>
+        </field>
+        <field name="company" sortOrder="80" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">company</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Company</label>
+                <dataScope>company</dataScope>
+            </settings>
+        </field>
+        <field name="zip_code" sortOrder="90" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">zip_code</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Zip Code</label>
+                <dataScope>zip_code</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+    <fieldset name="products"  sortOrder="30">
+        <settings>
+            <collapsible>false</collapsible>
+            <label translate="true">Products</label>
+        </settings>
+        <container name="products_container" sortOrder="160">
+            <htmlContent name="html_content">
+                <block name="gallery" class="Uzer\Samples\Block\Adminhtml\Samples\Products"/>
+            </htmlContent>
+        </container>
+    </fieldset>
+</form>

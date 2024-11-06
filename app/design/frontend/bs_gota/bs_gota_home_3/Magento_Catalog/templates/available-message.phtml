@@ -1,0 +1,27 @@
+<?php
+
+/** @var Magento\Catalog\Block\Product\View $block */ ?>
+<?php
+$availableMessage = $block->getProduct()->getResource()->getAttribute('available_message');
+$_attributeValue = null;
+if ($availableMessage) {
+    $_attributeValue = $availableMessage->getFrontend()->getValue($block->getProduct());
+}
+?>
+<?php if ($_attributeValue) : ?>
+    <div class="available-message-container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <p class="availabe-message-text"><?= $block->escapeHtml($_attributeValue); ?></p>
+            </div>
+        </div>
+    </div>
+<?php else : ?>
+    <div class="available-message-container" style="display: none;">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <p class="availabe-message-text"><?= $block->escapeHtml($_attributeValue); ?></p>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

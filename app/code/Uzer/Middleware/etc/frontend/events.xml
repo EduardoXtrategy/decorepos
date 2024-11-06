@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="bussines_information_success">
+        <observer name="middleware_bussines_information_success"
+                  instance="\Uzer\Middleware\Observer\CustomerSave"/>
+    </event>
+    <event name="customer_account_edited">
+        <observer name="uzer_middleware_customer_account_edited_observer"
+                  instance="Uzer\Middleware\Observer\CustomerAccountEditedObserver"/>
+    </event>
+    <event name="sales_order_invoice_pay">
+        <observer name="sales_order_invoice_pay_inkanta" instance="Uzer\Middleware\Observer\SalesInvoicePayObserver"/>
+    </event>
+</config>

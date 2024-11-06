@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="sensei_sortingpro_bestseller" view_id="sensei_sortingpro_bestseller" class="Sensei\SortingPro\Model\Indexer\Bestsellers\BestsellersIndexer">
+        <title translate="true">Sensei Commerce Catalog Sorting - Bestsellers</title>
+        <description translate="true">Index Bestsellers. 'Update on Save' - to execute once a day by cron</description>
+    </indexer>
+    <indexer id="sensei_sortingpro_most_viewed" view_id="sensei_sortingpro_most_viewed" class="Sensei\SortingPro\Model\Indexer\MostViewed\MostViewedIndexer">
+        <title translate="true">Sensei Commerce Catalog - Most Viewed</title>
+        <description translate="true">Index Product Views. 'Update on Save' - to execute once a day by cron</description>
+    </indexer>
+    <indexer id="sensei_sortingpro_wished" view_id="sensei_sortingpro_wished" class="Sensei\SortingPro\Model\Indexer\Wished\WishedIndexer">
+        <title translate="true">Sensei Commerce Catalog - Wishlists</title>
+        <description translate="true">Index Wishlists. 'Update on Save' - to execute once a day by cron</description>
+    </indexer>
+</config>

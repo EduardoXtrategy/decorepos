@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="bussines_information_success">
+        <observer name="uzer_infor_bussines_information_success_observer"
+                  instance="Uzer\Infor\Observer\BussinesInformationSuccessObserver"/>
+    </event>
+    <event name="checkout_submit_all_after">
+        <observer name="uzer_infor_checkout_submit_all_after_observer"
+                  instance="Uzer\Infor\Observer\CheckoutSubmitAllAfterObserver"/>
+    </event>
+    <event name="customer_address_save_after">
+        <observer name="uzer_infor_customer_address_save_after_observer"
+                  instance="Uzer\Infor\Observer\CustomerAddressSaveAfterObserver"/>
+    </event>
+</config>

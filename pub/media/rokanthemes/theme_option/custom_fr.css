@@ -1,0 +1,23 @@
+/**
+ * custom theme 2020-04-27 09:52:59 */
+
+#newsletter_pop_up{
+width: 600px;height: 700px;background-color: #FFFFFF;}
+#newsletter_pop_up .col-img{ 
+	background-image: url(http://159.89.228.143/gota/pub/media/rokanthemes/newsletter/background/default/img_popup.jpg);}
+.blog-custom-wrapper{        
+	background-image: url(http://159.89.228.143/gota/pub/media/rokanthemes/blog/bannerbackground/default/img-blog1_1.jpg); padding: 27vh 0; color: #fff; margin-bottom: 100px; max-height: 600px;}
+.contact-index-index .page-title-wrapper{       
+	background-image: url(http://159.89.228.143/gota/pub/media/rokanthemes/contactusbackground/default/Contact1.jpg); padding: 30vh 0; color: #fff; margin-bottom: 100px; max-height: 600px;}
+@media screen and ( max-width: 991px ){ 
+	.contact-index-index .page-title-wrapper{ 
+	padding: 10vh 0; margin-bottom: 50px;	}
+	.blog-custom-wrapper{ 
+		padding: 10vh 0; margin-bottom: 50px;	}
+}
+
+.block.newsletter.newsletter-form{       
+	background-image: url(http://159.89.228.143/gota/pub/media/rokanthemes/newsletterformbackground/default/banner-footer-home2-3_1.jpg);}
+.page-main, .content-top-home {
+	background-color:#FFFFFF !important;
+}

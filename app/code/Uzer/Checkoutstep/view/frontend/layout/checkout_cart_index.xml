@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- /**
+ * Vendor Desc.
+ *
+ * @category Vendor
+ * @package Vendor_CustomModule
+ * @author Vendor
+ * @copyright Copyright (c) Vendor
+ * @license https://example.com/license.html
+ */ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Uzer\Checkoutstep\Block\Cart" name="custom_cart_block"
+                template="Uzer_Checkoutstep::checkout/cart.phtml" before="-" />
+        </referenceContainer>
+        <referenceBlock name="page.main.title" remove="true" />
+        <referenceBlock name="checkout.cart.totals">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="block-totals" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="grand-total" xsi:type="array">
+                                    <item name="component" xsi:type="string">
+                                        Magento_Tax/js/view/checkout/summary/subtotal
+                                    </item>
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">
+                                            Uzer_Checkoutstep/cart/totals/subtotal
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="checkout.cart.totals.container">
+            <block class="Magento\Framework\View\Element\Template"
+                name="checkout.cart.custom.block"
+                after="checkout.cart.totals"
+                template="Uzer_Checkoutstep::customblock.phtml" />
+        </referenceContainer>
+    </body>
+</page>

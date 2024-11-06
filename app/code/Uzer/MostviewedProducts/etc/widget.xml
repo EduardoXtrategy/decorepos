@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Uzer\MostviewedProducts\Block\Widget\SliderProducts" id="uzer_mostviewed_products">
+        <label>Uzer slider products</label>
+        <description>Show mostviewd products</description>
+        <parameters>
+            <parameter name="title" sort_order="10" visible="true" xsi:type="text">
+                <label>Title widget</label>
+            </parameter>
+            <parameter name="widget_type" xsi:type="select" visible="true"
+                       source_model="Uzer\MostviewedProducts\Model\WidgetType">
+                <label translate="true">Type</label>
+            </parameter>
+            <parameter name="max_products" sort_order="20" visible="true" xsi:type="text">
+                <label>Max load products</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Uzer_OnDemand::listing" sortOrder="50" title="On demand requests" module="Uzer_OnDemand"
+             parent="Uzer_Contact::decowraps" resource="Uzer_OnDemand::listing" translate="title"
+             action="ondemand/index/index"/>
+    </menu>
+</config>

@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var Uzer\Checkoutstep\Block\Adminhtml\Sales\Orde\View\PurchaseOrder $block
+ */
+?>
+
+<?php if ($block->getPurchaseOrder()): ?>
+    <br>
+    <div><strong><?= __('Purchase order') ?>:</strong></div>
+    <div><?= $block->getPurchaseOrder() ?></div>
+<?php endif; ?>

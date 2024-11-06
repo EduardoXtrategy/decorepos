@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Uzer_Xnotify::js/product.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Uzer\Xnotify\Block\Product\View" name="product.info.price.qty.stock.notification"
+                   before="product.price.final"
+                   template="Uzer_Xnotify::product/view/outofstock.phtml">
+            </block>
+        </referenceContainer>
+    </body>
+</page>

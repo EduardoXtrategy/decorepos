@@ -1,0 +1,21 @@
+{
+  "name": "uzer/newsletter",
+  "version": "1.0.0",
+  "description": "Customization newsletter module",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "magento/module-newsletter": "100.4.*"
+  },
+  "license": [
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Uzer\\Newsletter\\": ""
+    }
+  }
+}

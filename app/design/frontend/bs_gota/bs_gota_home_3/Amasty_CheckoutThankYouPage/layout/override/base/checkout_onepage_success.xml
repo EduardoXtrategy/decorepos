@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+ * @package One Step Checkout Thank you Page 2 for Magento 2 (System)
+ */-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="sales_order_item_renderers"/>
+    <update handle="sales_order_item_price"/>
+    <body>
+        <move element="checkout.success" destination="magento.success.page"/>
+        <move element="checkout.registration" destination="magento.success.page"/>
+        <referenceContainer name="content">
+            <block name="amasty.checkout.success" template="Amasty_CheckoutThankYouPage::onepage/success_page.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Amasty\CheckoutThankYouPage\ViewModel\SuccessPage
+                    </argument>
+                </arguments>
+                <container name="magento.success.page"/>
+                <container name="amasty.checkout.success.page">
+                    <block class="Magento\Framework\View\Element\Messages"
+                           name="messages" as="messages" template="Magento_Theme::messages.phtml"/>
+                    <block class="Magento\Checkout\Block\Onepage\Success" name="amcheckout.success.page"
+                           template="Amasty_CheckoutThankYouPage::onepage/success.phtml" cacheable="false">
+                    </block>
+                </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

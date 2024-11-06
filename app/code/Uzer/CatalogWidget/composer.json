@@ -1,0 +1,21 @@
+{
+    "name": "uzer/catalog-widget",
+    "version": "1.0.0",
+    "description": "Custom catalog widget",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-catalog-widget": "100.4.*"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Uzer\\CatalogWidget\\": ""
+        }
+    }
+}

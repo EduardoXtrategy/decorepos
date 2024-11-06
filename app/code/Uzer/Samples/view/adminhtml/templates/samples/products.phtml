@@ -1,0 +1,101 @@
+<?php /** @var \Uzer\Samples\Block\Adminhtml\Samples\Products $block */ ?>
+<?php $items = $block->getItems() ?>
+<style>
+    .panel-samples-cart, .sumary.product-list {
+        width: 100%;
+    }
+
+    .items-products {
+        width: 100%;
+    }
+
+    .title-product {
+        font-weight: bold;
+    }
+</style>
+<div class="panel-samples-cart">
+    <div class="samples-cart-sumary">
+        <div class="title col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <?= __('Order Summary') ?>
+        </div>
+
+        <div class="sumary product-list">
+            <?php foreach ($items as $item): ?>
+                <?php if ($item->getIsParent() || is_null($item->getParent())): ?>
+                    <?php $children = $item->getChildren() ?>
+                    <table class="items-products">
+                        <tr>
+                            <td class="title-product" colspan="2"><?= $item->getName() ?></td>
+                        </tr>
+                        <?php if (count($children) > 0): ?>
+                            <?php foreach ($children as $child): ?>
+                                <?php $attribute = $block->getProduct($child->getProductId()); ?>
+                                <tr>
+                                    <td rowspan="2" class="image-product">
+                                        <img src="<?= $block->getProductImage($child->getProductId()) ?>">
+                                    </td>
+                                    <td>
+                                        <?php if ($attribute->getAttributeText('color')): ?>
+                                            <?= $attribute->getAttributeText('color'); ?>
+                                        <?php endif; ?>
+                                        <?php if ($attribute->getAttributeText('size')): ?>
+                                            | <?= $attribute->getAttributeText('size'); ?>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?= __('Qty: ') . ' ' . $child->getQty(); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+
+                        <?php elseif (is_null($item->getParent())): ?>
+
+                            <?php $attribute_simple = $block->getProduct($item->getProductId());
+                            ?>
+                            <tr>
+                                <td rowspan="2" class="image-product"><img
+                                        src="<?= $block->getProductImage($item->getProductId()) ?>"></td>
+                                <td>
+                                    <?php if ($attribute_simple->getAttributeText('color')): ?>
+                                        <?= $attribute_simple->getAttributeText('color'); ?>
+                                    <?php endif; ?>
+                                    <?php if ($attribute_simple->getAttributeText('size')): ?>
+                                        | <?= $attribute_simple->getAttributeText('size'); ?>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><?= __('Qty: ') . ' ' . $item->getQty(); ?></td>
+                            </tr>
+                        <?php endif ?>
+                    </table>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+
+        <table class="sumary">
+            <tr>
+                <td class="item-title"><?= __('Product Subtotal') ?></td>
+                <td class="item-description"><?= $block->getCurrencySymbol() ?>0.00</td>
+            </tr>
+            <tr>
+                <td class="item-title"><?= __('Delivery') ?></td>
+                <td class="item-description"><?= $block->getCurrencySymbol() ?>0.00</td>
+            </tr>
+            <tr>
+                <td class="item-title"><?= __('TAX % / VAT %:') ?></td>
+                <td class="item-description"><?= $block->getCurrencySymbol() ?>0.00</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr>
+                </td>
+            </tr>
+            <tr class="samples-cart-total-general">
+                <td class="item-title-total"><?= __('Total:') ?></td>
+                <td class="item-description-total"><?= $block->getCurrencySymbol() ?>0.00</td>
+            </tr>
+        </table>
+
+    </div>
+</div>

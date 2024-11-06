@@ -1,0 +1,246 @@
+.product-info-main .page-title .base {
+    color: #4e4e4e !important;
+    font-family: "Lexend - Medium", sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 36px;
+    text-align: left;
+    text-transform: capitalize !important;
+}
+
+.product-info-main .page-title-wrapper .page-title {
+    width: auto;
+    float: left;
+    margin-right: 24px;
+
+}
+
+.product-info-main .page-title-wrapper {
+    display: inline-flex;
+    width: 100%;
+}
+
+.decowraps-product-type {
+    border-radius: 3px;
+    background-color: #f0f0f0;
+    padding: .5rem;
+    color: #4b4b4b;
+    font-family: "Lexend - Medium", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: 17px;
+    text-align: left;
+}
+
+.product-info-main .product.attribute.overview {
+    margin: 0 !important;
+}
+
+.decowraps-product-type-container {
+    margin-bottom: 0 !important;
+    margin-top: 0.7rem !important;
+}
+
+.decowraps-product-material {
+    font-weight: bold;
+    color: #4b4b4b;
+    font-family: "Lexend - Semi Bold", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    letter-spacing: 0.26px;
+    line-height: 22px;
+    text-align: left;
+}
+
+.decowraps-product-material .value-material {
+    text-transform: uppercase !important;
+}
+
+.decowraps-product-material-container {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+
+.product-view .product-options-wrapper {
+    margin-top: 0rem !important;
+}
+
+.swatch-opt {
+
+}
+
+.swatch-attribute.color {
+    padding-bottom: 0 !important;
+}
+
+.product-social-links, .amazon-minicart-container {
+    width: auto !important;
+    right: 0 !important;
+    float: right !important;
+    text-align: right;
+}
+
+.product.info.detailed .product.data.items {
+    text-align: left !important;
+}
+
+.product.info.detailed .product.data.items .item.title:hover a, .product.info.detailed .product.data.items .item.title a {
+    font-family: "Lexend - Medium", sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: right;
+    text-transform: capitalize !important;
+}
+
+.product.info.detailed .product.data.items .item.title:hover a, .product.info.detailed .product.data.items .item.title.active a {
+    color: #7f9726;
+    /* text-transform: capitalize; */
+}
+
+.product.attribute.description {
+    text-align: left;
+}
+
+.product.info.detailed .product.data.items .item.content {
+    padding-top: 17px !important;
+}
+
+.product.info.detailed .product.data.items .item.title:hover, .product.info.detailed .product.data.items .item.title.active {
+    border-color: #7e9628;
+}
+
+
+.product.info.detailed {
+    box-shadow: 0 0 12px rgba(195, 195, 195, 0.2);
+    border-radius: 5px;
+    border: 1px solid #eeeeee;
+    background-color: #ffffff;
+    padding: 1rem;
+}
+
+.product-social-links {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important
+}
+
+.action.tocompare {
+    display: none !important;
+}
+
+.product-social-links a.action.towishlist, .product-social-links a.action.tocompare, .product-social-links a.mailto {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #82992f;
+    color: #82992f;
+    border-radius: 50%;
+}
+
+.decowraps-keywords .keywords-title {
+    color: #82992f;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+}
+
+.decowraps-keywords .keywords-value {
+    color: #666666;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: normal;
+    line-height: normal;
+}
+
+.component-image {
+    display: flex;
+    text-align: center;
+    margin-left: 24%;
+    margin-top: 2rem;
+}
+
+.component-image p {
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.component-image img {
+    width: 24px;
+    float: left;
+    margin-right: 1rem;
+}
+
+.product-location .container-image {
+    border-top: 2px solid #f0f0f0;
+}
+
+.container-link {
+    display: flex;
+    text-align: center;
+    margin-left: 27%;
+}
+
+.container-link a {
+    text-align: center;
+    color: #799029;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.container-link a:after {
+    content: '';
+    background: url("/media/icons/location.svg")
+}
+
+.available-message-container {
+    border: 1px solid #f5cdbd;
+    background-color: #fff0db;
+    margin-top: 1rem;
+}
+
+.available-message-container p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #be3600;
+    text-align: center;
+}
+
+
+.uzer-product-view .product-label .span-label {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    min-width: 20px;
+    min-height: 20px;
+    overflow: hidden;
+    padding: 1%;
+    position: absolute;
+    z-index: 200;
+    left: 39px;
+    top: 39px;
+}
+
+.uzer-product-view .product-label .span-label.newlabel {
+    background: #A8B400;
+    color: #FFF;
+}
+
+.uzer-product-view .product-label .span-label.onsale {
+
+}
+
+.uzer-product-view .product-label .span-label.sustainable {
+    background: #82992F;
+    margin-left: 3rem;
+}
+
+.uzer-product-view .product-label .span-label.sustainable .sustainable-bg {
+}

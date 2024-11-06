@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!--add id="Uzer_AdvancedFilter::management" sortOrder="100" title="Product Type Sizes Management"
+             module="Uzer_AdvancedFilter" parent="Uzer_Contact::contact" resource="Uzer_AdvancedFilter::management"
+             translate="title" action="product_type_sizes/producttypesizes/index"/-->
+    </menu>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/custom/products" method="POST">
+        <service class="Uzer\CustomProducts\Api\CustomProductsRepositoryInterface" method="saveByCustomerId"/>
+        <resources>
+            <resource ref="Uzer_Customer::management"/>
+        </resources>
+    </route>
+    <route url="/V1/custom/products/delete" method="POST">
+        <service class="Uzer\CustomProducts\Api\CustomProductsRepositoryInterface" method="deleteByCustomerId"/>
+        <resources>
+            <resource ref="Uzer_Customer::management"/>
+        </resources>
+    </route>
+</routes>

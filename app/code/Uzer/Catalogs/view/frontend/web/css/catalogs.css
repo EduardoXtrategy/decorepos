@@ -1,0 +1,14 @@
+.catalogs-title {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.catalog-image {
+    width: 100%;
+}
+
+.catalogs-image-container {
+    height: 333px;
+    max-height: 333px;
+}

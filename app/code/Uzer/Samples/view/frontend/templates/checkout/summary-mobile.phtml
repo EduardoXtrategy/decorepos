@@ -1,0 +1,38 @@
+<div class="sample-back col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <img src="<?= $block->getViewFileUrl('Uzer_Samples::images/back.svg'); ?>" class="btn-back">
+    <span class="btn-back"> <?= __('Back') ?></span>
+</div>
+<div class="panel-samples-cart">
+    <div class="samples-cart-sumary">
+        <div class="title col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <?= __('Order Summary') ?>
+        </div>
+        <table class="sumary">
+            <tr class="item-title-cant">
+                <td>7 <?= __('Items') ?></td>
+                <td><img src="<?= $block->getViewFileUrl('Uzer_Samples::images/back_down.svg'); ?>"></td>
+            </tr>
+            <tr>
+                <td class="item-title"><?= __('Product Subtotal') ?></td>
+                <td class="item-description"><?= $block->getCurrencySymbol() ?>0.00</td>
+            </tr>
+            <tr>
+                <td class="item-title"><?= __('Delivery') ?></td>
+                <td class="item-description"><?= $block->getCurrencySymbol() ?>0.00</td>
+            </tr>
+            <tr>
+                <td class="item-title"><?= __('TAX % / VAT %:') ?></td>
+                <td class="item-description"><?= $block->getCurrencySymbol() ?>0.00</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr>
+                </td>
+            </tr>
+            <tr>
+                <td class="item-title-total"><?= __('Total:') ?></td>
+                <td class="item-description-total"><?= $block->getCurrencySymbol() ?>0.00</td>
+            </tr>
+        </table>
+    </div>
+</div>

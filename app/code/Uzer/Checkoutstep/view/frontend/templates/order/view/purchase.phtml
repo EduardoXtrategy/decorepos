@@ -1,0 +1,7 @@
+<?php /** @var Magento\Sales\Block\Order\View $block */ ?>
+<?php if ($block->getOrder()->getData('purchase_order')): ?>
+    <div class="order-number-po">
+         <div class="po-block-title"><strong><?= __('Purchase Order #')?></strong></div>
+        <div class="number-po-content"><?= $block->getOrder()->getData('purchase_order') ?></div>
+    </div>
+<?php endif; ?>

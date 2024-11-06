@@ -1,0 +1,43 @@
+<?php $block_id = $block->getBlockId(); ?>
+
+<div id="simple-popup-modal">
+    <?php
+    echo $this->getLayout()
+        ->createBlock('Magento\Cms\Block\Block')
+        ->setBlockId($block_id)
+        ->toHtml();
+    ?>
+</div>
+
+<script>
+    require(
+        [
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+        ],
+        function($,modal
+        ) {
+            var options = {
+                type: 'popup',
+                innerScroll: true,
+                title: false,
+                modalClass:'modal-popup-home',
+                buttons: [{
+                    text: $.mage.__('Close'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            $(document).ready(function(){
+                var popup = modal(options, $('#simple-popup-modal'));
+                $('#simple-popup-modal').modal('openModal');
+                $('#click-here').on('click', function(){
+                    $('#simple-popup-modal').modal('openModal');
+                });
+            });
+        }
+    );
+</script>

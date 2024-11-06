@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_account_edited">
+        <observer name="uzer_infor_customer_account_edited_observer"
+                  instance="Uzer\Infor\Observer\CustomerAccountEditedObserver"/>
+    </event>
+    <event name="sales_order_invoice_pay">
+        <observer name="uzer_infor_sales_order_invoice_pay_observer"
+                  instance="Uzer\Infor\Observer\SalesOrderInvoicePayObserver"/>
+    </event>
+</config>

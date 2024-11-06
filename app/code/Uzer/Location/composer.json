@@ -1,0 +1,22 @@
+{
+    "name": "uzer/location",
+    "version": "1.0.0",
+    "description": "Show location product magento2",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "uzer/core": "1.0.*",
+        "magento/module-catalog": "104.0.*"
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Uzer\\Location\\": ""
+        }
+    }
+}

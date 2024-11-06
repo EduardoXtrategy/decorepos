@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="contact_form" resource="default" engine="innodb" comment="ContactForm">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="varchar" name="full_name" nullable="false" length="255" comment="Full Name Column"/>
+        <column xsi:type="varchar" name="company" nullable="false" length="255" comment="Company Column"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="255" comment="Email Column"/>
+        <column xsi:type="varchar" name="phone" nullable="false" length="255" comment="Phone Column"/>
+        <column xsi:type="varchar" name="message" nullable="false" length="255" comment="Message Column"/>
+        <column xsi:type="varchar" name="ip" nullable="true" length="255" comment="Ip Column"/>
+        <column xsi:type="longtext" name="user_agent" nullable="true" comment="User Agent Column"/>
+        <column xsi:type="int" name="store_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Store Id Column"/>
+        <column xsi:type="datetime" default="CURRENT_TIMESTAMP" on_update="false" name="created_at" nullable="false" comment="Created At Column"/>
+        <column xsi:type="datetime"  default="CURRENT_TIMESTAMP" on_update="true" name="updated_at" nullable="false"  comment="Updated At Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="CONTACT_FORM_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+</schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_register_success">
+        <observer name="sMSHandleCustomerSaveAfter" instance="\Uzer\Customer\Observer\CustomerRegisterObserver"/>
+    </event>
+    <event name="controller_action_predispatch_customer_account_createpost">
+        <observer name="uzer_before_account_create" instance="Uzer\Customer\Observer\CreatePostObserver"/>
+    </event>
+</config>

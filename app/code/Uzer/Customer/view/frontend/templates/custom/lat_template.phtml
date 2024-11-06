@@ -1,0 +1,227 @@
+<?php
+/**
+ * @var \Uzer\Customer\Block\Register\Custom $block
+ */
+?>
+<div class="row divider-item responsibilityAgreementDoc">
+    <div class="col-12"><h4 class="register-b2b-title">
+            <strong><?= __('2. Customer Responsibility Agreement / Acuerdo de Responsabilidad del Cliente') ?></strong></h4></div>
+    <div class="col-12"><p
+            class="register-b2b-description"><?= __('Please download and fill out the Customer Responsibility Agreement.') ?></p>
+    </div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <a href="<?php
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                                ->getStore()
+                                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+            ?>PDF/Customer-Responsibility-Agreement.pdf"
+               class="decowraps-button-outline" target="_blank"><?= __('Download Customer Agreement') ?></a>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="responsibility_agreement_doc" id="responsibilityAgreementDoc"
+                       class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                       for="responsibilityAgreementDoc"><span><?= __('Upload Customer Agreement') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>
+<div class="row divider-item cirularFormat170Doc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('3. Circular Format 170 / Formato Circular 170') ?></strong></h4></div>
+    <div class="col-12"><p
+            class="register-b2b-description"><?= __('Please download and fill out the Circular Format 170.') ?></p>
+    </div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <a href="<?php
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                                ->getStore()
+                                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+            ?>PDF/Circular-Format-170.pdf"
+               class="decowraps-button-outline"
+               target="_blank"><?= __('Download Circular Format 170') ?></a>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="circular_format_170_doc" id="cirularFormat170Doc"
+                       class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                       for="cirularFormat170Doc"><span><?= __('Upload Circular Format 170') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>
+<div class="row divider-item personalDataProcessingDoc">
+    <div class="col-12"><h4 class="register-b2b-title">
+            <strong><?= __('4. Personal Data Processing Agreement / Acuerdo de Procesamiento de Datos Personales') ?></strong></h4></div>
+    <div class="col-12"><p
+            class="register-b2b-description"><?= __('Please download and fill out the Personal Data Processing Agreement.') ?></p>
+    </div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <a
+                href="<?php
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                                ->getStore()
+                                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+            ?>PDF/Personal-Data-Processing-Agreement.pdf" class="decowraps-button-outline"
+                target="_blank"><?= __('Download Personal Data Agreement') ?></a>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="personal_data_processing_doc" id="personalDataProcessingDoc" class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                       for="personalDataProcessingDoc"><span><?= __('Upload Personal Data Agreement') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>
+<div class="row divider-item chamberCommerceCertificateDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('5. Chamber of Commerce Certificate / Cámara de Comercio') ?></strong>
+        </h4></div>
+    <div class="col-12"><p
+            class="register-b2b-description"><?= __('Please upload a copy of your Chamber of Commerce Certificate.') ?></p>
+    </div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="chamber_commerce_certificate_doc" id="chamberCommerceCertificateDoc"
+                       class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                       for="chamberCommerceCertificateDoc"><span><?= __('Upload Certificate') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>
+<div class="row divider-item rutDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('6. RUT / El Registro Único Tributario') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('Please upload a copy of your RUT.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="rut_doc" id="rutDoc" class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                       for="rutDoc"><span><?= __('Upload RUT document') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>
+<div class="row divider-item copyLegalRepresentativeDoc">
+    <div class="col-12"><h4 class="register-b2b-title">
+            <strong><?= __("7. Copy of Legal Representative's ID / Copia de Cédula del Representante Legal") ?></strong></h4></div>
+    <div class="col-12"><p
+            class="register-b2b-description"><?= __("Please upload a copy of your legal representative's ID.") ?></p>
+    </div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="form-group">
+                <div class="box">
+                    <input type="file" name="copy_legal_representative_doc" id="copyLegalRepresentativeDoc"
+                           class="inputfile inputfile-custom" accept="application/pdf"/>
+                    <label class="inputfile-styles"
+                           for="copyLegalRepresentativeDoc"><span><?= __("Upload Legal Representative's ID") ?></span><strong><?= __('Upload') ?></strong></label>
+                </div>
+                <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row divider-item commercialReferenceDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('8. Commercial Reference / Referencia Comercial') ?></strong></h4></div>
+    <div class="col-12"><p
+            class="register-b2b-description"><?= __('Please upload a copy of your commercial reference.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="form-group">
+                <div class="box">
+                    <input type="file" name="commercial_reference_doc" id="commercialReferenceDoc"
+                           class="inputfile inputfile-custom" accept="application/pdf"/>
+                    <label class="inputfile-styles"
+                           for="commercialReferenceDoc"><span><?= __('Upload Commercial Reference') ?></span><strong><?= __('Upload') ?></strong></label>
+                </div>
+                <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row divider-item bankReferenceDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('9. Bank Reference / Referencia Bancaria') ?></strong></h4></div>
+    <div class="col-12"><p
+            class="register-b2b-description"><?= __('Please upload a copy of your bank reference.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="form-group">
+                <div class="box">
+                    <input type="file" name="bank_reference_doc" id="bankReferenceDoc" class="inputfile inputfile-custom"
+                           accept="application/pdf"/>
+                    <label class="inputfile-styles"
+                           for="bankReferenceDoc"><span><?= __('Upload Bank Reference') ?></span><strong><?= __('Upload') ?></strong></label>
+                </div>
+                <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row divider-item financialStatementsDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('10. Financial Statements / Estados Financieros') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('Please upload your financial statements from the past year.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="form-group">
+                <div class="box">
+                    <input type="file" name="financial_statements_doc" id="financialStatementsDoc" class="inputfile inputfile-custom" accept="application/pdf"/>
+                    <label class="inputfile-styles"
+                           for="financialStatementsDoc"><span><?= __('Upload Financial Statements') ?></span><strong><?= __('Upload') ?></strong></label>
+                </div>
+                <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row divider-item bascCertificationDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('11. BASC Certification / Certificación BASC') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('If applicable, please upload your BASC Certification.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="form-group">
+                <div class="box">
+                    <input type="file" name="basc_certification" id="bascCertificationDoc" class="inputfile inputfile-custom" accept="application/pdf"/>
+                    <label class="inputfile-styles"
+                           for="bascCertificationDoc"><span><?= __('Upload Certification') ?></span><strong><?= __('Upload') ?></strong></label>
+                </div>
+                <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row divider-item shareholdingCompCertDoc">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('12. Shareholding Composition Certificate / Certificación de Composición Accionaria') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('Please upload your Shareholding Composition Certificate.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="form-group">
+                <div class="box">
+                    <input type="file" name="shareholding_comp_cert_doc" id="shareholdingCompCertDoc" class="inputfile inputfile-custom" accept="application/pdf"/>
+                    <label class="inputfile-styles"
+                           for="shareholdingCompCertDoc"><span><?= __('Upload Certificate') ?></span><strong><?= __('Upload') ?></strong></label>
+                </div>
+                <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+            </div>
+        </div>
+    </div>
+</div>

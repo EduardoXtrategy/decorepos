@@ -1,0 +1,109 @@
+<?php
+/**
+ * @var \Uzer\Customer\Block\Register\Custom $block
+ */
+?>
+<div class="row divider-item new_customer_form">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('2. New customer form') ?></strong></h4></div>
+    <div class="col-12"><p
+            class="register-b2b-description"><?= __('Please download and fill out the New Customer Form') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <a href="<?php
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                                ->getStore()
+                                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+            ?>PDF/New-Customer-Form_Pallet-Shipping-Requirements.pdf" class="decowraps-button-outline" target="_blank"><?= __('Download the New Customer Form') ?></a>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="new_customer_form" id="new_customer_form" class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                    for="new_customer_form"><span><?= __('Upload the New Customer Form') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>
+<div class="row divider-item credit_application">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('3. Credit application') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('If you would like to establish a line of credit with Decowraps, please download the below form
+            and upload the completed document for our review.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <a href="<?php
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            echo $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                ->getStore()
+                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+            ?>PDF/Credit-Application.pdf" class="decowraps-button-outline" target="_blank"><?= __('Download Credit Application Form') ?></a>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="credit_application" id="credit_application" class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                    for="credit_application"><span><?= __('Upload Credit Application Form') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+    </div>
+</div>
+<div class="row divider-item tax_certificate">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('4. Tax Exemption') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('If you have a valid Sales Tax Exemption Certificate, please upload the document and add the
+            expiration date below.') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="box">
+                <input type="file" name="tax_certificate" id="tax_certificate" class="inputfile inputfile-custom"
+                       accept="application/pdf"/>
+                <label class="inputfile-styles"
+                    for="tax_certificate"><span><?= __('Upload Tax Exemption Certificate') ?></span><strong><?= __('Upload') ?></strong></label>
+            </div>
+            <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="form-group">
+                <label for="tax_exception_to" class="form-group-label-floating"><?= __('Expiration Date') ?></label>
+                <div class="due-date control date-input-container">
+                    <?=
+                    $block->getLayout()->createBlock('Magento\Framework\View\Element\Html\Date')
+                        ->setData([
+                            'name' => 'tax_exception_to',
+                            'id' => 'due_date',
+                            'value' => "",
+                            'date_format' => 'MM/dd/yyyy',
+                            'image' => $this->getViewFileUrl('Magento_Theme::calendar.png'),
+                            'years_range' => '-0y:+100y',
+                            'max_date' => 0,
+                            'change_month' => 'true',
+                            'change_year' => 'true',
+                            'show_on' => 'both',
+                            'first_day' => 1
+                        ])
+                        ->toHtml()
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row divider-item wp9">
+    <div class="col-12"><h4 class="register-b2b-title"><strong><?= __('5. W9') ?></strong></h4></div>
+    <div class="col-12"><p class="register-b2b-description"><?= __('Please upload a copy of your W9') ?></p></div>
+    <div class="row register-b2b-form-container">
+        <div class="col-lg-6 col-md-12">
+            <div class="form-group">
+                <div class="box">                
+                    <input type="file" name="wp9" id="wp9" class="inputfile inputfile-custom" accept="application/pdf"/>
+                    <label class="inputfile-styles"
+                        for="wp9"><span><?= __('Upload W9 Document') ?></span><strong><?= __('Upload') ?></strong></label>
+                </div>
+                <small><?= __('PDF Format.') ?> <?= __('Max size 5 MB.') ?></small>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div id="back-top" class=""><?php /* @escapeNotVerified */
+    echo __('SCROLL UP'); ?><i class="fa fa-angle-double-right"></i></div>
+<div class="footer-container layout3">
+    <div class="footer-newsletter">
+        <?php echo $this->getChildHtml("footer_newsletter"); ?>
+    </div>
+    <div class="container">
+        <div class="footer-static-container row">
+            <div class="footer_introduce col-md-3">
+                <div class="footer-introduce">
+                    <?php echo $this->getChildHtml("footer_introduce"); ?>
+                </div>
+            </div>
+            <div class="footer-menu col-md-3">
+                <div class="footer-links">
+                    <?php echo $this->getChildHtml("footer_menu_middle"); ?>
+                </div>
+            </div>
+            <div class="footer-menu col-md-3">
+                <div class="footer-links">
+                    <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('footer_menu_middle_2')->toHtml(); ?>
+                </div>
+            </div>
+            <div class="footer-social-text col-md-3">
+                <div class="footer-links">
+                    <?php echo $this->getChildHtml("social_block"); ?>
+                </div>
+            </div>
+        </div>
+        <div class="menu-hozital col-md-12">
+            <?php echo $this->getChildHtml("footer_menu"); ?>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        document.body.className += " preloaded";
+    }
+</script>
+

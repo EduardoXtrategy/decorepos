@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Uzer_Samples::css/form-samples.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <referenceBlock name="toki_header">
+            <block class="Uzer\Samples\Block\Minicart" name="samples_minicart"
+                   template="Uzer_Samples::minicart.phtml" group="navigation-sections" ttl="3600"
+                   before="minicart"/>
+        </referenceBlock>
+    </body>
+</page>

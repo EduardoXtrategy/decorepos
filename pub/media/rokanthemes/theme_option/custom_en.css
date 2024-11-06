@@ -1,0 +1,8 @@
+/**
+ * custom theme 2019-05-23 01:54:55 */
+
+#newsletter_pop_up{
+width: 1030px;height: 620px;background-color: #FFFFFF;}
+#newsletter_pop_up .col-img{
+	height: 100%;
+	background-image: url(http://192.168.1.20/mazia/pub/media/rokanthemes/newsletter/background/default/background1_1.png);}

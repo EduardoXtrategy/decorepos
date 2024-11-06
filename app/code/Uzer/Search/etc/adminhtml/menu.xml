@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Uzer_Search::management" sortOrder="100" title="Product Banner Management" module="Uzer_Search"
+             parent="Uzer_Contact::decowraps" resource="Uzer_Search::management" translate="title"
+             action="product_banner/productbanner/index"/>
+    </menu>
+</config>

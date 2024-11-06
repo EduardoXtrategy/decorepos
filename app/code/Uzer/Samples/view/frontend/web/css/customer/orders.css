@@ -1,0 +1,77 @@
+.page-title-wrapper .order-date .date {
+    color: #494949;
+}
+
+.action {
+    color: #718725 !important;
+}
+
+.table-orders {
+    border: none;
+}
+
+.table-orders .items-title {
+    border-bottom: 1px solid #DFDFDF;
+    padding-bottom: 10px;
+}
+
+.table-orders .items-title span {
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    display: block;
+}
+
+.table-orders .list-products {
+    padding: 20px 0;
+    border-bottom: 1px solid #E7E7E7;
+    border-right-color: #fff;
+}
+
+.table-orders .list-products .name {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    display: block;
+    line-height: 30px;
+    display: block;
+}
+
+.table-orders .list-products .ref {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    line-height: 30px;
+    display: block;
+}
+
+.table-orders .list-products .sku {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+    display: block;
+    width: 100px;
+}
+
+.table-orders .tax {
+    display: block;
+}
+
+.table-orders .tax-item {
+    width: 10%;
+}
+
+.table-orders .tax span,
+.table-orders .tax-item span {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+    display: block;
+    line-height: 30px;
+    display: block;
+}
+
+.table-orders .bor-right {
+    border-right-color: #fff;
+}

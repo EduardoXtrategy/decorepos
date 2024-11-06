@@ -1,0 +1,62 @@
+<?php
+
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2022 Amasty (https://www.amasty.com)
+ * @package One Step Checkout Thank you Page 2 for Magento 2 (System)
+ */
+?>
+<?php
+/**
+ * @var $block Magento\Checkout\Block\Onepage\Success
+ * @var $escaper Magento\Framework\Escaper
+ */
+?>
+
+<div class="checkout-success">
+    <div class="ico-thankyou-page">
+    </div>
+    <?php if ($block->getOrderId()) : ?>
+        <div class="success-messages">
+            <h2><?= $escaper->escapeHtml(__('We\'ve received your order!')) ?></h2>
+            <p><?= $escaper->escapeHtml(__('Thank you for shopping with Decowraps. Please expect an order confirmation email to hit your inbox shortly.')) ?></p>
+        </div>
+        <div class="order-details">
+            <div class="order-number-detail">
+                <p><?= $escaper->escapeHtml(__('Order #')) ?><?= /* @noEscape */ $block->getOrderId() ?></p>
+            </div>
+            <div class="order-data-details">
+                <div class="order-item-data">
+                    <strong><?= $escaper->escapeHtml(__('Total:')) ?></strong> <span>
+                        <?php
+                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                        $order = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId($block->getOrderId());
+                        $total = $order->formatPrice($order->getGrandTotal()) ?>
+                        <?php echo $total ?>
+                    </span>
+                </div>
+                <div class="order-item-data">
+                    <strong><?= $escaper->escapeHtml(__('Payment method:')) ?></strong>
+                    <span>
+                        <?php
+                        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                        $payment = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId($block->getOrderId())->getPayment();
+                        echo $paymentMethodTitle = $payment->getMethodInstance()->getTitle();?>
+                    </span>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+    <?= $block->getAdditionalInfoHtml() ?>
+    <?= $block->getChildHtml('cms') ?>
+    <div class="actions-toolbar actions-thankyou-page">
+        <a class="action go-to-shop" href="<?= /* @noEscape */ $block->getUrl() ?>">
+           <?= $escaper->escapeHtml(__('Go to Home')) ?>
+        </a>
+        <?php if ($block->getCanViewOrder()) : ?>
+            <a class="action view-order" href="<?= /* @noEscape */ $block->getViewOrderUrl() ?>">
+              <?= $escaper->escapeHtml(__('View Order')) ?>
+            </a>
+        <?php endif; ?>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @var \Uzer\Customer\Block\Account\Info $block
+ */
+?>
+<?php if ($block->getTaxvat()) : ?>
+    <p><span class="label-info-account"><?= __('NIT: ') ?> </span><?= $block->escapeHtml($block->getTaxvat()); ?></p>
+<?php endif; ?>
+<?php if ($block->getPayableEmail()): ?>
+    <p>
+    <span
+        class="label-info-account"><?= __('Accounts Payable: ') ?></span><?= $block->escapeHtml($block->getPayableEmail()); ?>
+    </p>
+<?php endif; ?>

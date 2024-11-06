@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 RokanThemes.com. All rights reserved.
+
+ * @author RokanThemes Team <contact@rokanthemes.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="location" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Location</label>
+            <tab>decowraps</tab>
+            <resource>Uzer_Location::config</resource>
+            <group id="stores" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Show product store</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="4" showInDefault="0"
+                       showInWebsite="0" showInStore="1">
+                    <label>Enable</label>
+                    <comment>Show product in another store</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="related" translate="label comment" type="select" sortOrder="4" showInDefault="0"
+                       showInWebsite="0" showInStore="1">
+                    <label>Related store</label>
+                    <comment>Store to redirect</comment>
+                    <source_model>Magento\Store\Model\System\Store</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="attribute_value" translate="label comment" type="select" sortOrder="4" showInDefault="0"
+                       showInWebsite="0" showInStore="1">
+                    <label>Product attribute</label>
+                    <comment>Product attribute for show another location</comment>
+                    <source_model>Uzer\Location\Config\Source\AttributeValue</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="message" translate="label comment" type="text" sortOrder="4" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Text Message</label>
+                    <comment>Text message to show in product view</comment>
+                </field>
+                <field id="textlink" translate="label comment" type="text" sortOrder="4" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Text Link</label>
+                    <comment>Text to display in link. Example: Go to this product in Colombia´s store</comment>
+                </field>
+                <field id="image" translate="label comment" type="text" sortOrder="4" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Image name</label>
+                    <comment>Options: colombia.svg, usa.svg, canada.svg, ecuador.svg, europeanunion.svg</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

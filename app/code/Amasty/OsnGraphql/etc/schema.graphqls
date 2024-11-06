@@ -1,0 +1,36 @@
+type Mutation {
+    AmxnotifStockSubscribe (input: AmxnotifSubscribeInput): AmxnotifSubscribeOutput @resolver(class: "\\Amasty\\OsnGraphql\\Model\\Resolver\\StockSubscribe") @doc(description:"Subscribe to product comes back in stock alert")
+    AmxnotifPriceSubscribe (input: AmxnotifSubscribeInput): AmxnotifSubscribeOutput @resolver(class: "\\Amasty\\OsnGraphql\\Model\\Resolver\\PriceSubscribe") @doc(description:"Subscribe to product price changes")
+}
+
+input AmxnotifSubscribeInput {
+    product_id: Int
+    product_uid: String
+    email: String
+    gdpr_agreement: Boolean
+}
+
+type AmxnotifSubscribeOutput {
+    response_message: String
+}
+
+interface ProductInterface {
+  amxnotif_hide_alert: Boolean @resolver (class: "Amasty\\OsnGraphql\\Model\\Resolver\\HideAlertAttributeResolver")
+}
+
+type StoreConfig {
+    amxnotif_general_show_out_of_stock_only: Boolean @doc(description: "Show Options of Out Of Stock Configurable."),
+
+    amxnotif_stock_customer_group: String @doc(description: "Allow Subscription for Selected Group(s)."),
+    amxnotif_stock_subscribe_category: Boolean @doc(description: "Enable Subscribe from Category Page."),
+    amxnotif_stock_with_popup: Boolean @doc(description: "Use Popup for Guests on Category."),
+    amxnotif_stock_placeholder: String @doc(description: "Placeholder for the Subscription Field."),
+
+    amxnotif_price_customer_group: String @doc(description: "Allow Subscription for Selected Group(s)."),
+
+    amxnotif_gdrp_enabled: Boolean @doc(description: "GDPR Consent status."),
+    amxnotif_gdrp_text: String @doc(description: "Consent Text."),
+
+    catalog_productalert_allow_stock: Boolean @doc(description: "Allow Alert When Product Comes Back in Stock."),
+    catalog_productalert_allow_price: Boolean @doc(description: "Allow Alert When Product Price Changes.")
+}

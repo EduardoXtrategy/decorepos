@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Uzer\Blog\Block\Widget\Widget" id="uzer_blog_widget">
+        <label translate="true">Recent posts</label>
+        <description>Recent post widget</description>
+        <parameters>
+            <parameter name="id" sort_order="10" required="true" visible="true" xsi:type="text">
+                <label translate="true">Identifier</label>
+            </parameter>
+            <parameter name="title" sort_order="10" required="true" visible="true" xsi:type="text">
+                <label translate="true">Custom Title</label>
+            </parameter>
+            <parameter name="categories" sort_order="20" required="true"
+                       source_model="Uzer\Blog\Model\Config\Source\Select" visible="true" xsi:type="multiselect">
+                <label translate="true">Tab quantity</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

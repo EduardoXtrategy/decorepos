@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Uzer_CreditTerms::management" sortOrder="100" title="Customer Balance Management"
+             module="Uzer_CreditTerms" parent="Amasty_Base::extensions" resource="Uzer_CreditTerms::management"
+             translate="title" action="customer_balance/customerbalance/index"/>
+    </menu>
+</config>

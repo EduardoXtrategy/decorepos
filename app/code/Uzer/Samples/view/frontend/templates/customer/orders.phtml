@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var Uzer\Samples\Block\Customer\Orders $block
+ */
+?>
+<table class="data table history">
+    <thead>
+    <tr>
+        <td><?= __('Order #') ?></td>
+        <td><?= __('Date') ?></td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($block->getSamplesOrders() as $order) : ?>
+        <tr>
+            <td><?= $order->getId() ?></td>
+            <td><?= date('M d, Y', strtotime($order->getDatePurchase())) ?></td>
+            <td><a class="action edit"
+                   href="<?= $block->getUrl('samples/customer/detail', array('order' => $order->getId())) ?>">
+                    <span><?= __('View') ?></span></a></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="uzer_jobs" frontName="uzer_jobs">
+            <module name="Uzer_Jobs"/>
+        </route>
+        <route id="request_job" frontName="request_job">
+            <module name="Uzer_Jobs"/>
+        </route>
+    </router>
+</config>

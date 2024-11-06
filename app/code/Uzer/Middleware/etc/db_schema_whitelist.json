@@ -1,0 +1,17 @@
+{
+  "sale_orders_middleware": {
+    "column": {
+      "entity_id": true,
+      "order_id": true,
+      "created_at": true,
+      "updated_at": true,
+      "sended": true
+    },
+    "index": {
+      "SALE_ORDERS_MIDDLEWARE_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

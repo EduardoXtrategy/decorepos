@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="samples_configuration_template" label="Samples Order" file="samples_order.html" type="html"
+              module="Uzer_Samples"
+              area="frontend"/>
+    <template id="samples_configuration_kit" label="Sample Kit" file="sample_kit.html" type="html" module="Uzer_Samples"
+              area="frontend"/>
+</config>

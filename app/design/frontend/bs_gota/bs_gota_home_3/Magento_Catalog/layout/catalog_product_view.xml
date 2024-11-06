@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magento_Catalog::css/decowraps-product.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.main" destination="product-view-right"/>
+        <move element="product.info.media" destination="product-view-left"/>
+        <move element="product.info.overview" destination="product.info.main" after="page.main.title"/>
+        <move element="product.info.extrahint" destination="page.main.title" after="decowraps.product.type"/>
+        <referenceContainer name="content">
+            <container name="product-view" htmlTag="div" htmlClass="product-view row" before="-">
+                <container name="product-view-left" htmlTag="div" htmlClass="col-sm-5 col-xs-12" before="-"/>
+                <container name="product-view-right" htmlTag="div" htmlClass="col-sm-7 col-xs-12"
+                           after="product-view-left"/>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="page.main.title">
+            <block class="Magento\Catalog\Block\Product\View" name="decowraps.product.type"
+                   template="Magento_Catalog::product-type.phtml"/>
+        </referenceBlock>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View" name="decowraps.product.material"
+                   template="Magento_Catalog::product-material.phtml"
+                   before="product.info"/>
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.available.message"
+                   after="product.info"
+                   template="Magento_Catalog::available-message.phtml"/>
+            <container name="custom-buttons" htmlClass="custom-buttons" htmlTag="div"
+                       after="partial-boxes">
+                <block class="Uzer\Catalog\Block\Product\View" name="custom-add-to-cart"
+                       template="Magento_Catalog::product/custom/buttonadd.phtml"
+                       before="-"/>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument name="title" translate="true" xsi:type="string">Product Info</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View" name="deliveryinfo.tab" as="deliveryinfo"
+                   template="product/view/custom-delivery.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Delivery and Warranty</argument>
+                    <argument name="sort_order" xsi:type="string">30</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Product\View" name="decowraps.keywords"
+                   template="Magento_Catalog::product/view/keywords.phtml">
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="product.info.price">
+            <block class="Magento\Catalog\Block\Product\View" name="purchase-options"
+                   before="product.price.final"
+                   template="Magento_Catalog::product/view/purchase.phtml">
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="product.info.pricecountdown.product.page" remove="true"/>
+
+        <referenceBlock name="reviews.tab" remove="true"/>
+        <referenceBlock name="product.review.form" remove="true"/>
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="product.attributes" remove="true"/>
+    </body>
+</page>

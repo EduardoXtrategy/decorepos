@@ -1,0 +1,45 @@
+<?php /** @var \Uzer\Samples\Block\Checkout\DeliveryMethod $block */ ?>
+<form action="<?= $block->getUrl('samples/checkout/complete'); ?>" method="post" class="form"
+      id="samples-cart-delivery-address"
+      data-mage-init='{"validation":{}}'>
+    <?php echo $this->getBlockHtml('formkey') ?>
+    <input type="hidden" name="address_code" id="address_code">
+    <div class="sample-checkout-title col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <span><?= __('Delivery Method') ?></span>
+    </div>
+
+    <div class="row shipping-costs">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <label class="label--radio-chk">
+                <input type="radio" class="radio-chk" checked name="foo">
+            </label>
+            <span><?= __('Ship to your address') ?></span>
+
+        </div>
+        <div class="shipping-value col-sm-3 col-md-3 col-lg-3 col-xl-3">
+            <?= $block->getCurrencySymbol() ?>0.00
+        </div>
+    </div>
+
+    <div class="row description">
+        <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
+            <span><?= __("Decowraps offers free ground shipping on all sample orders. If you'd like to get your samples sooner, please specify in the notes section below. Additional fees may apply.") ?></span>
+        </div>
+    </div>
+
+    <div class="row note">
+        <div class="col-sm-12 col-md-12 col-lg-9 col-xl-9">
+            <label><?= __('Note') ?></label>
+            <textarea name="note-delivery" class="note-delivery" cols="30" rows="6"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="pnl-shipping col-sm-12 col-md-12 col-lg-12 col-xl-12 btn-desktop">
+            <button class="samples-button-md" type="submit">
+                <?= __('Continue to Order') ?>
+            </button>
+        </div>
+    </div>
+
+</form>

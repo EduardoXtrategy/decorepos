@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Block\Cart\Grid">
+        <plugin name="uzerShowCart" type="Uzer\Catalog\Plugin\Block\Cart\Grid"/>
+    </type>
+    <type name="Magento\ConfigurableProduct\Model\ResourceModel\Product\LinkedProductSelectBuilder">
+        <arguments>
+            <argument name="baseSelectProcessor"
+                      xsi:type="object">Uzer\Catalog\Model\ConfigurableProduct\ResourceModel\Product\StockStatusBaseSelectProcessor</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="uzerShowCart" type="Uzer\Catalog\Plugin\Model\QuoteWrapper"/>
+    </type>
+    <type name="Magento\Checkout\Model\Cart">
+        <plugin name="partial_box_update_items"
+                type="Uzer\Catalog\Plugin\Model\CartWrapper" sortOrder="10" />
+    </type>
+    <type name="Uzer\Catalog\Observer\SalesQuoteRemoveItem">
+        <arguments>
+            <argument name="session" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Catalog\Block\Product\View">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Catalog\Block\Product\Renderer\Simple">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Catalog\Block\Product\PartialBoxes">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Catalog\Block\Product\PartialBoxesSimple">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+</config>

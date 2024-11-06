@@ -1,0 +1,23 @@
+<?php /** @var \Uzer\Samples\Block\Checkout\Success $block */ ?>
+<div class="success-notification">
+    <div class="row">
+        <div class="logo-notification">
+            <img src="<?= $block->getViewFileUrl('Uzer_Samples::images/image-order.png'); ?>">
+        </div>
+        <div class="title-notification">
+            <?= __('Thank you for your order!') ?>
+        </div>
+        <div class="number-order">
+            <?= __('Sample Order #%1', array($block->getSampleOrder())) ?>
+        </div>
+        <div class="order-message">
+            <p><?= __('We appreciate your interest in our products and hope that these samples guide you in your design process.') ?></p>
+            <p><?= __('Please expect an order confirmation email complete with delivery details to hit your inbox shortly.') ?></p>
+            <p><?= __('If you have any questions in the meantime, please don\'t hesitate to contact us.') ?></p>
+        </div>
+        <a href="<?= $block->getUrl('/') ?>" class="btn samples-button-md"><span
+                class="text-white"><?= __('Return to Home') ?></span></a>
+    </div>
+</div>
+
+

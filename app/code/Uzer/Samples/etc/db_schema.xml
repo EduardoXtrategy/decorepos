@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sample_orders" resource="default" engine="innodb" comment="SampleOrder">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="int" name="sample_quote_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Sample Quote Id Column"/>
+        <column xsi:type="varchar" name="date_purchase" nullable="false" length="255" comment="Date Purchase Column"/>
+        <column xsi:type="varchar" name="note" nullable="false" length="1024" comment="Note Column"/>
+        <column xsi:type="int" name="customers_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Customers Id Column"/>
+        <column xsi:type="int" name="customer_address_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Customers address Id Column"/>
+        <column xsi:type="varchar" name="full_name" nullable="false" length="1024" comment="Full name"/>
+        <column xsi:type="varchar" name="first_name" nullable="false" length="1024" comment="First name"/>
+        <column xsi:type="varchar" name="last_name" nullable="false" length="1024" comment="Last name"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="1024" comment="Email"/>
+        <column xsi:type="int" name="store_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Store Id Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="SAMPLE_ORDERS_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+    <table name="samples_cart_item" resource="default" engine="innodb" comment="">
+        <column xsi:type="bigint" name="entity_id" unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="sku" nullable="false" length="255"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255"/>
+        <column xsi:type="tinyint" name="is_parent" unsigned="true" nullable="false" identity="false"/>
+        <column xsi:type="varchar" name="parent" nullable="true"/>
+        <column xsi:type="mediumtext" nullable="false" name="attributes"/>
+        <column xsi:type="int" nullable="false" name="qty" unsigned="true"/>
+        <column xsi:type="int" nullable="false" name="product_id" unsigned="true"/>
+        <column xsi:type="int" nullable="false" name="samples_cart_id" unsigned="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="SAMPLES_CART_ITEM_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+    <table name="samples_cart" resource="default" engine="innodb" comment="SamplesCart">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="int" name="customer_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Customer Id Column"/>
+        <column xsi:type="int" name="customer_address_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Customer Shipping address Column"/>
+        <column xsi:type="boolean" name="active" nullable="false" comment="Active Column"/>
+        <column xsi:type="int" name="store_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Store Id Column"/>
+        <column xsi:type="int" name="website_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Website Id Column"/>
+        <column xsi:type="varchar" name="complete_at" nullable="false" length="255" comment="Complete At Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="SAMPLES_CART_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+    <table name="sample_kits" resource="default" engine="innodb" comment="SamplesCart">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="varchar" name="address_name" nullable="false" length="1024" comment="First name"/>
+        <column xsi:type="varchar" name="street_address" nullable="false" length="1024" comment="Last name"/>
+        <column xsi:type="varchar" name="country" nullable="false" length="1024" comment="Last name"/>
+        <column xsi:type="varchar" name="state" nullable="false" length="1024" comment="Last name"/>
+        <column xsi:type="varchar" name="city" nullable="false" length="1024" comment="Last name"/>
+        <column xsi:type="varchar" name="zip_code" nullable="false" length="1024" comment="Last name"/>
+        <column xsi:type="varchar" name="message" nullable="false" length="1024" comment="Last name"/>
+        <column xsi:type="varchar" name="complete_at" nullable="false" length="255" comment="Complete At Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="SAMPLES_KITS_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+</schema>

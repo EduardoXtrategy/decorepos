@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="uzer_helper_remove_attribute_options" xsi:type="object">Uzer\Helper\Console\Command\RemoveAttributeOptions</item>
+                <item name="uzer_helper_set_dimension_attributes" xsi:type="object">Uzer\Helper\Console\Command\SetDimensionAttributes</item>
+                <item name="uzer_helper_remove_orders" xsi:type="object">Uzer\Helper\Console\Command\RemoveOrders</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

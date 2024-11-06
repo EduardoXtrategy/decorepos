@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 RokanThemes.com. All rights reserved.
+
+ * @author RokanThemes Team <contact@rokanthemes.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="decowraps" translate="label" sortOrder="310">
+            <label><![CDATA[Decowraps]]></label>
+        </tab>
+        <section id="uzer_checkout" translate="label" sortOrder="90" showInDefault="1" showInWebsite="1"
+            showInStore="1">
+            <class>separator-top</class>
+            <label>Cart</label>
+            <tab>decowraps</tab>
+            <resource>Magento_Customers::config</resource>
+            <group id="checkout" translate="label" type="text" sortOrder="2" showInDefault="1"
+                showInWebsite="1"
+                showInStore="1">
+                <field id="cart" translate="label" type="text" sortOrder="10" showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1">
+                    <label>Cart message</label>
+                    <comment>Enter your cart message text here.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

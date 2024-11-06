@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <middleware>
+            <configuration>
+                <enabled>1</enabled>
+                <client_id>CQFuzqTJuZlZGSdcT+OvoIxsUrf/xicd+aTYqhY3nLIFNXZDk3jJg5vEftjwWoAO</client_id>
+                <client_secret>kxeRdWEDS/v6lqlqKI2uojiBEj+Mrg1Rmv1/IN5uocMPfV5NoDAmnU76XcawxK3d</client_secret>
+                <api_url>https://medusa.decowraps.com:50000/GatewayEcommerceQA/api/</api_url>
+            </configuration>
+        </middleware>
+    </default>
+</config>

@@ -1,0 +1,11 @@
+<?php /** @var Uzer\Samples\Block\Cart\Content\Links $block */ ?>
+<?php if ($block->hasItems()): ?>
+    <div class="row sample-footer-links">
+        <div class="col-md-7 samples-cart-continue">
+            <a href="<?= $block->getUrlContinue() ?>"><?= __('Continue Adding Samples') ?></a>
+        </div>
+        <div class="col-md-5 samples-cart-clear">
+            <a href="<?= $block->getUrl('samples/cart/clear') ?>"><?= __('Clear Cart') ?></a>
+        </div>
+    </div>
+<?php endif; ?>

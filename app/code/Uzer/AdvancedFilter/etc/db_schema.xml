@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="product_type_sizes" resource="default" engine="innodb" comment="ProductTypeSizes">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="int" name="size_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Size Id Column"/>
+        <column xsi:type="int" name="product_type_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Product Type Id Column"/>
+        <column xsi:type="varchar" name="sku" nullable="false"/>
+        <column xsi:type="tinyint" name="status" unsigned="true" nullable="false" identity="false"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="PRODUCT_TYPE_SIZES_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+    </table>
+</schema>

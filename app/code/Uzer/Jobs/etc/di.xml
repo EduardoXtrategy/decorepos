@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Uzer\Jobs\Api\Data\UzerJobInterface" type="Uzer\Jobs\Model\UzerJob"/>
+    <preference for="Uzer\Jobs\Api\Data\RequestJobInterface" type="Uzer\Jobs\Model\RequestJob"/>
+</config>

@@ -1,0 +1,8 @@
+/**
+ * custom theme 2019-07-01 09:43:15 */
+
+#newsletter_pop_up{
+width: 1030px;height: 620px;background-color: #FFFFFF;}
+#newsletter_pop_up .col-img{
+	height: 100%;
+	background-image: url(http://labbluesky.com/magento/mazia/pub/media/rokanthemes/newsletter/background/default/background1_2.png);}

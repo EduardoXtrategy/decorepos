@@ -1,0 +1,18 @@
+<?php
+/**
+ * @var Uzer\Catalog\Block\Product\PartialBoxesSimple $block
+ */
+?>
+<?php if ($block->hasDisplay() && $block->getPartialBoxQty() > 0): ?>
+    <div class="partial-box-container">
+        <div class="partial-box-inner">
+            <p><?= __('There is a <strong>partial box available</strong> with <span class="partial-box-unit">%1</span> units.<br> Would you like to add them to your cart?', $block->getPartialBoxQty()) ?></p>
+        </div>
+        <div class="partial-box-inner">
+            <button class="link-add-partial">
+                <span class="icon-plus"></span>
+                <span class="label"><?= __('Add units') ?></span>
+            </button>
+        </div>
+    </div>
+<?php endif; ?>

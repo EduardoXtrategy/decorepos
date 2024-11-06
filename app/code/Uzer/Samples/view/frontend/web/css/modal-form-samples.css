@@ -1,0 +1,181 @@
+/*-------------- Modal ---------*/
+
+@media (min-width: 768px){
+    .ajaxsuite-popup-wrapper .modal-popup._inner-scroll .modal-inner-wrap {
+        min-width: 60% !important;
+    }
+    .ajaxsuite-popup-wrapper .modal-popup._inner-scroll .modal-inner-wrap .modal-content {
+        max-width: 100% !important;
+    }
+}
+
+.modal-product-add-form{
+    border: 1px solid #F0F0F0;
+    padding: 25px;
+}
+
+.modal-product-add-form .product-name{
+    text-align:left;
+}
+
+.modal-product-add-form .swatch-attribute.color{
+    left: 5px !important;
+}
+
+.modal-popup .modal-header {
+    border-bottom: 1px solid #fff;
+}
+
+.modal-popup .modal-footer{
+    border-top: 1px solid #fff;
+}
+
+.modal-inner-wrap{
+    background-color:#fff !important;
+}
+
+#modal-content-add-product{
+    background-color:#fff;
+}
+
+/*.modal-popup .modal-footer button {*/
+/*    margin: 0 10px;*/
+/*    display: none;*/
+/*}*/
+
+.modal-popup .modal-title{
+    border-bottom: 1px solid #fff !important;
+    padding-bottom: 3px !important;
+}
+
+.modal-popup .modal-footer{
+    border-top: 1px solid #fff !important;
+}
+.modal-popup .modal-title{
+    margin-top: 20px;
+    font-size: 20px !important;
+}
+
+.ajaxsuite-popup-wrapper .modal-popup._inner-scroll .modal-inner-wrap .modal-content{
+    padding: 10px 30px 30px 30px !important;
+}
+
+
+
+ /******************** Attributes Product ***********/
+
+ #modal-content-add-product .samples-button{
+    margin-top:2em;
+ }
+
+ #modal-content-add-product .tittle-product{
+     text-align: left;
+     color: #4E4E4E;
+     font-weight: 500;
+     font-size: 19px;
+ }
+
+#modal-content-add-product .select-all{
+    color: #82992F;
+    line-height: 3em;
+    border-bottom: 1px solid #82992F;
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: 550;
+}
+
+#modal-content-add-product .attributes-product{
+    text-align: left;
+    border-bottom: 1px solid #E6E6E6;
+    padding: 10px 0 10px 0;
+}
+
+#modal-content-add-product  .tittle-attribute{
+    font-weight: 600;
+    color: #4B4B4B;
+}
+
+
+/*------------------------ Atrributes  Check box   --------------------*/
+
+#modal-content-add-product .attr-genl input[type="checkbox"] {
+	display: none;
+}
+
+
+#modal-content-add-product .attr-genl input[type="checkbox"] + label {
+	line-height: 2.7em;
+    margin-right: 1.5em;
+    color: #5B5B5B;
+    font-size: 13px;
+}
+
+
+#modal-content-add-product .attr-genl input[type="checkbox"] + label:before {
+	content: "";
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-right: 0.5em;
+	border: 1.7px solid #AFAFAF;
+	background: #fff;
+	margin-top: 0.5em;
+}
+
+
+#modal-content-add-product .attr-genl input[type="checkbox"]:checked + label:after {
+	content: "";
+	width: 12px;
+	height: 4px;
+	border: 2px solid #82992F;
+	float: left;
+	margin-left: -1.6em;
+	border-right: 0;
+	border-top: 0;
+	margin-top: 13px;
+	transform: rotate(-55deg);
+}
+
+
+#modal-content-add-product .attr-genl input[type="checkbox"]:checked  {
+	border-color: #82992F;
+}
+
+/*------------------------ Atrributes Color - Check box   --------------------*/
+
+#modal-content-add-product .attr-color input[type=checkbox] {display: none;}
+
+#modal-content-add-product .attr-color .label-checkox {
+     display: inline-block;
+     cursor: pointer;
+     position: relative;
+     margin-right: 33px;
+ }
+ #modal-content-add-product .attr-color .label-checkox:before {
+     content: "";
+     display: inline-block;
+     width: 24px;
+     height: 24px;
+     border: 2px solid #ffffff !important;
+    box-shadow: 0 0 0 1px #AFAFAF;
+     top: -1px;
+     border-radius: 50px;
+     box-sizing: border-box;
+     position: absolute;
+     overflow: visible;
+     margin: 0 10px 10px 0;
+ }
+
+ #modal-content-add-product .attr-color .label-checkox:before:hover {
+    box-shadow: 0 0 0 1.6px var(--secondary-color);
+ }
+
+
+
+ #modal-content-add-product .attr-color input[type=checkbox]:checked + .label-checkox:before {
+     content: "\02714";
+     font-size: 20px;
+     color: #5B5B5B;
+     text-align: center;
+     line-height: 22px;
+ }

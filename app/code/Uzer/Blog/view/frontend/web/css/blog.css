@@ -1,0 +1,36 @@
+.news-trends-container .news-trends-list .category {
+    float: left;
+    margin-right: 1rem !important;
+}
+
+.news-trends-container .news-trends-list .category {
+    text-align: center;
+    margin-right: 1rem !important;
+    font-weight: 500;
+    padding: 5px 15px;
+}
+
+.news-trends-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.news-trends-container .news-trends-list .category:hover {
+    cursor: pointer;
+}
+
+.news-trends-container .news-trends-list .category.active {
+    background: #82992f;
+    color: #FFF;
+}
+
+.new-trends-box-container .owl-item {
+    margin-right: 1rem;
+}
+
+@media (min-width: 790px) {
+    .new-trends-box-container .owl-item {
+        width: 380px !important;
+    }
+}
+

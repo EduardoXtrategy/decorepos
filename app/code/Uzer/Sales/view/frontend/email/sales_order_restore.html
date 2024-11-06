@@ -1,0 +1,33 @@
+<!--@subject {{trans "Request return products"}} @-->
+<!--@vars {} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<body style="background:#F5F5F5;">
+<table width="650" align="center"
+       style="background: url(images/top-border.png) no-repeat #ffffff;margin-top: 40px;margin-bottom: 60px;"
+       cellspacing="0" cellpadding="0">
+    <tbody>
+    <tr style="display: block;padding: 20px 40px;">
+        <td>
+            <span style="font-size: 16px;font-weight: 600;display: block;padding-bottom: 10px;">Information</span>
+            <table width="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td style="font-size:14px;">{{trans
+                    "%company"
+                    company = $company}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="display: block;padding: 20px 40px;"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+{{template config_path="design/email/footer_template"}}

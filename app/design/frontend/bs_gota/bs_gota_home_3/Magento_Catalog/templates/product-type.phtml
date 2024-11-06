@@ -1,0 +1,13 @@
+<?php /** @var Magento\Catalog\Block\Product\View $block */ ?>
+<?php $productMaterial = $block->getProduct()->getResource()->getAttribute('product_type_decowraps');
+if ($productMaterial) {
+    $_attributeValue = $productMaterial->getFrontend()->getValue($block->getProduct());
+}
+?>
+<?php if (isset($_attributeValue)): ?>
+    <p class="decowraps-product-type-container">
+        <span class="decowraps-product-type">
+            <?= $block->escapeHtml($_attributeValue); ?>
+        </span>
+    </p>
+<?php endif; ?>

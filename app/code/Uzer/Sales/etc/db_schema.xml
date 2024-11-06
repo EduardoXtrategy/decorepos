@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order_returns" resource="default" engine="innodb" comment="">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity Id Column"/>
+        <column xsi:type="int" name="order_id" unsigned="true" nullable="true" identity="false"/>
+        <column xsi:type="varchar" name="name" nullable="false"/>
+        <column xsi:type="varchar" name="email" nullable="false"/>
+        <column xsi:type="varchar" name="phone" nullable="false"/>
+        <column xsi:type="longtext" name="description" nullable="false"/>
+        <column xsi:type="varchar" name="image" nullable="true"/>
+        <column xsi:type="datetime" name="created_at" nullable="false" on_update="true"/>
+        <column xsi:type="datetime" name="updated_at" nullable="false" on_update="true"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="SALES_ORDER_RETURNS_ENTITY_ID" indexType="btree">
+            <column name="entity_id"/>
+        </index>
+        <constraint xsi:type="foreign" referenceId="SALES_ORDER_RETURNS_SALES_ORDER" table="sales_order_returns"
+                    column="order_id"
+                    referenceTable="sales_order" referenceColumn="entity_id" onDelete="SET NULL"/>
+    </table>
+</schema>

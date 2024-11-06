@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 RokanThemes.com. All rights reserved.
+
+ * @author RokanThemes Team <contact@rokanthemes.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Rokanthemes_Blog::css/post.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <referenceBlock name="blog.sidebar.archive" remove="true"/>
+        <referenceContainer name="footer-container">
+            <container name="related-item-posts" before="-" htmlTag="div"
+                       htmlClass="uzer-related-item-content container">
+                <container name="related-item-posts-products" before="-" htmlTag="div"
+                           htmlClass="uzer-related-products"/>
+                <container name="related-item-posts-posts" after="related-item-posts-products"
+                           htmlTag="div"
+                           htmlClass="uzer-related-posts"/>
+            </container>
+        </referenceContainer>
+        <move element="blog.post.relatedproducts" destination="related-item-posts-products"/>
+        <move element="blog.post.relatedposts" destination="related-item-posts-posts"/>
+    </body>
+</page>

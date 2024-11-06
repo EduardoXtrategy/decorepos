@@ -1,0 +1,17 @@
+{
+  "name": "uzer/theme-frontend-decowraps",
+  "description": "N/A",
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "magento/framework": "*",
+    "bs_gota/theme-frontend-bs_gota_home_3": "*"
+  },
+  "type": "magento2-theme",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ]
+  }
+}

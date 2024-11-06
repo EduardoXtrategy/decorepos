@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="admin_system_config_changed_section_catalog">
+        <observer name="Sensei_SortingPro::save_catalog_search"
+                  instance="Sensei\SortingPro\Observer\System\ConfigChanged"/>
+    </event>
+    <event name="admin_system_config_changed_section_scsorting">
+        <observer name="Sensei_SortingPro::save_sensei_search"
+                  instance="Sensei\SortingPro\Observer\System\ConfigChanged"/>
+    </event>
+    <event name="catalog_product_save_before">
+        <observer name="update_counters_attributes" instance="Sensei\SortingPro\Observer\UpdateCountersAttributes" />
+    </event>
+    <event name="catalog_product_save_after">
+        <observer name="update_counters_attributes_2" instance="Sensei\SortingPro\Observer\UpdateCountersAttributes" />
+    </event>
+</config>

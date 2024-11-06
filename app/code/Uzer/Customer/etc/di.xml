@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Uzer\Customer\Api\Data\InformationBusinessInterface"
+                type="Uzer\Customer\Model\InformationBusiness"/>
+    <preference for="Uzer\Customer\Api\SaveBusinessInformationInterface"
+                type="Uzer\Customer\Model\SaveBusinessInformation"/>
+    <preference for="\Magento\ProductAlert\Model\Email"
+                type="Uzer\Customer\Model\Email"/>
+    <type name="Magento\Customer\Block\Account\Navigation">
+        <plugin name="decowraps_custom_customer_navigation"
+                sortOrder="10"
+                type="Uzer\Customer\Plugin\Block\Account\Navigation"/>
+    </type>
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="decowraps_custom_customer_api"
+                sortOrder="10"
+                type="Uzer\Customer\Plugin\Api\CustomerRepositoryWrapper"/>
+    </type>
+</config>

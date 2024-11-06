@@ -1,0 +1,143 @@
+<?php /** @var Uzer\Samples\Block\Customer\Detail $block */ ?>
+<?php $order = $block->getSampleOrderDetail(); ?>
+
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper"><?= __('Sample Order #') ?> <?= $order->getId() ?></span>
+    </h1>
+    <div class="order-date">
+        <span class="label"> <?= __(' Order Date:') ?> </span>
+        <span class="date"><?= date('M d, Y', strtotime($order->getDatePurchase())) ?></span>
+    </div>
+</div>
+<?php
+/** @var \Uzer\Samples\Model\SampleCartItem[] $items */
+$items = $block->getCartItems();
+?>
+<div class="row">
+    <div class="col-12">
+        <table width="100%" cellspacing="0" cellpadding="0" class="table-orders">
+            <thead>
+            <tr>
+                <td colspan="2" class="items-title bor-right">
+                    <span><?= __('Article') ?></span>
+                </td>
+                <td colspan="2" class="items-title bor-right">
+                    <span><?= __('Qty Units') ?></span>
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="4" class="list-products">
+                    <table width="100%" cellspacing="0" cellpadding="0">
+                        <tbody>
+                        <?php foreach ($items as $item) : ?>
+                            <?php if ($item->getIsParent() || is_null($item->getParent())) : ?>
+                                <?php $children = $item->getChildren() ?>
+                                <tr>
+                                    <td colspan="3">
+                                        <span class="name"><?= $item->getName() ?></span>
+                                    </td>
+                                </tr>
+                                <?php if (count($children) > 0) : ?>
+
+                                    <?php foreach ($children as $child) : ?>
+                                        <?php $attribute = $block->getProductBySku($child->getSku());
+                                        if ($attribute) {
+                                            $multiple_attributes = $attribute->getResource()->getAttribute('material')->getFrontend()->getValue($attribute);
+                                            ?>
+                                            <tr>
+                                                <td colspan="2">
+                                        <span class="ref"><?= __('Ref:') ?> <?= $child->getSku() ?>
+                                            <?php /** @var \Magento\Catalog\Model\Product $productItem */ ?>
+                                            <?php $productItem = $block->getProductBySku($child->getSku()); ?>
+                                            <?php if ($productItem): ?>
+                                                <?php if ($productItem->getAttributeText('size')) : ?> |
+                                                    <?= $productItem->getAttributeText('size'); ?>
+                                                <?php endif; ?>
+                                                <?php if ($productItem->getAttributeText('color')) : ?> |
+                                                    <?= $productItem->getAttributeText('color'); ?>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+
+                                        </span>
+                                                </td>
+                                                <td width="20"><span class="sku"><?= $child->getQty(); ?></span></td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    endforeach;
+                                    ?>
+
+                                <?php elseif (is_null($item->getParent())) : ?>
+
+                                    <?php $attribute_simple = $block->getProductBySku($item->getSku());
+                                    $multiple_attributes_simple = $attribute_simple->getResource()->getAttribute('material')->getFrontend()->getValue($attribute_simple);
+                                    ?>
+                                    <tr>
+                                        <td colspan="2"><span class="ref"><?= __('Ref:') ?> <?= $attribute_simple->getSku() ?>
+
+                                                <?php if ($attribute_simple->getAttributeText('size')) : ?> |
+                                                    <?= $attribute_simple->getAttributeText('size'); ?>
+                                                <?php endif; ?><?php if ($attribute_simple->getAttributeText('color')) : ?> | <?= $attribute_simple->getAttributeText('color'); ?><?php endif; ?></span>
+                                        </td>
+                                        <td width="20"><span class="sku"><?= $item->getQty(); ?></span>
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="bor-right">&nbsp;</td>
+                <td class="bor-right">&nbsp;</td>
+                <td class="tax">
+                    <span><?= __('Subtotal products:') ?></span>
+                </td>
+                <td class="tax-item">
+                    <span><?= $block->getCurrencySymbol() ?>0.00</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="bor-right">&nbsp;</td>
+                <td class="bor-right">&nbsp;</td>
+                <td class="tax">
+                    <span><?= __('Delivery:') ?></span>
+                </td>
+                <td class="tax-item">
+                    <span><?= $block->getCurrencySymbol() ?>0.00</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="bor-right">&nbsp;</td>
+                <td class="bor-right">&nbsp;</td>
+                <td class="tax">
+                    <span><?= $block->getStoreTax() ?>%:</span>
+                </td>
+                <td class="tax-item">
+                    <span><?= $block->getCurrencySymbol() ?>0.00</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php $address = $block->getShippingAddress(); ?>
+<?php if ($address): ?>
+    <div class="row">
+        <div class="col-12">
+            <div class="box box-shipping-address">
+                <strong class="box-title">
+                    <span><?= __('Shipping Address') ?></span>
+                </strong>
+                <div class="box-content">
+                    <?= $block->getFormattedAddress($address) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,87 @@
+<?php /** @var \Uzer\OnDemand\Block\OnDemand $block */ ?>
+<?php if ($block->isOnDemand()): ?>
+    <div class="row samples-cart-form">
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+        <div class="col-md-12 col-12">
+            <?php if ($block->getText()): ?>
+                <div class="row">
+                    <div class="col-md-12 col-12 samples-description">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="37.5" height="43.5" viewBox="0 0 25 29">
+                            <g>
+                                <g>
+                                    <path fill="#060606"
+                                          d="M20.239 11.96c-1.224.621-2.452-.13-3.126-1.165.552-.86 1.127-2.037 1.563-2.999 1.698-.143 3.448.049 5.137.225-.975 1.31-2.727 3.51-3.574 3.94zm-7.555 7.436a.264.264 0 0 0-.006.003L8.335 21.61l-.63-.388 2.116-2.458c.351-.408-.287-.954-.639-.545l-2.2 2.556-1.361-.84.46-11.577c.651.986 1.568 1.952 2.07 2.452 1.485 1.48 3.12 2.73 4.465 3.42l-1.856 2.157c-.352.408.287.953.639.545l2.566-2.982c1.687.99 3.68 1.756 5.497 2.127zm-5.77 7.358a8.267 8.267 0 0 0-1.532-1.361l1.057-2.25.593.366-.005.133zM4.434 21.9l1.295.798-.847 1.799c-.59-.386-1.353-.731-2.168-.976a8.366 8.366 0 0 0-.78-.195zm3.937.71c.345.211.01.736-.332.525L4.28 20.824c-.344-.212-.01-.737.333-.526zM9.877 8.79l-.672 1.862c-1.09-1.025-2.49-2.324-2.96-3.793.41-.086 1.164-.18 2.224-.051.169.818.69 1.549 1.408 1.982zm5.244-5.999a50.79 50.79 0 0 1-.31.984c-.17.195-.404.467-.67.787a22.1 22.1 0 0 0-.521-1.386c.497-.138.998-.266 1.5-.385zM13.809.9c.167-.148.444-.023.432.206l-.056 1.063c-.274.07-.576.15-.896.241a43.237 43.237 0 0 0-.335-.748zm3.347 3.58c.173-.122.421.023.386.236l-.17 1.043a41.62 41.62 0 0 0-.813.124 43.6 43.6 0 0 0-.26-.797zm-1.923.094c.135.38.312.892.49 1.456-.722.137-1.454.303-2.07.5.119-.158.247-.325.386-.501.445-.566.88-1.088 1.194-1.455zm-2.897 7.195l-.597.954a20.27 20.27 0 0 1-1.86-1.448l.772-2.145c.134.037.557.101.63.106a3.067 3.067 0 0 0 1.055 2.533zm2.697 1.818a16.17 16.17 0 0 1-.933-.533.422.422 0 0 0-.541.083l-.379.44a9.544 9.544 0 0 1-.734-.4l.597-.954c1.177.543 2.682.28 3.543-.706.084.118.174.23.269.338zm3.74-.61c.757 1.044 1.06 1.889 1.177 2.342-1.323-.236-2.767-.706-4.117-1.335l1.647-1.566c.386.275.826.472 1.293.56zm-2.488-2.446c-.936 1.127-2.521 1.65-3.633.37-.784-.91-.68-2.339.24-3.12.656-.555 3.44-1.058 5.447-1.307-.035.082-1.246 2.867-2.054 4.057zm5.094-3.552a26.58 26.58 0 0 0-2.112-.05 74.557 74.557 0 0 1 1.977-1.477c.042.4.093.939.135 1.527zm1.775-1.146c.192-.076.394.117.312.311l-.405.962a56.85 56.85 0 0 0-.835-.07c-.019-.28-.04-.552-.062-.805zm1.81 1.684c-.146-.33-.742-.294-1.027-.324l.305-.725c.364-.864-.53-1.761-1.402-1.41l-.76.304a36.204 36.204 0 0 0-.082-.722.427.427 0 0 0-.661-.288c-.013.01-.98.696-1.96 1.436-.192-.376-.81-.185-1.134-.145l.13-.792c.152-.931-.933-1.6-1.704-1.053l-.655.462c-.08-.225-.146-.472-.255-.688.226-.713.37-1.224.372-1.23a.425.425 0 0 0-.49-.523c-.02.004-.243.05-.602.133l.042-.804C15.13.198 13.965-.36 13.25.273l-.67.593c-.179-.37-.301-.609-.318-.643a.427.427 0 0 0-.718-.051c-.004.005-.403.567-.905 1.332-.295.45.41.908.705.457.179-.273.344-.519.482-.722.46.95 1.301 2.773 1.677 4.108-.728.916-1.63 1.946-2.04 3.054-1.32-.004-2.372-1.197-2.195-2.5.036-.26.211-.807.846-1.938.264-.47-.47-.879-.734-.409-.41.731-.895 1.552-.963 2.406-1.802-.19-2.8.203-2.843.22a.424.424 0 0 0-.262.371L4.797 19.47c-1.122-.355-2.01 1.094-1.155 1.915L.205 23.351c-.45.257-.085.948.382.76.337-.135 1.198-.02 2.109.28l-.918.788c-.408.35.137.987.55.634l1.252-1.075c.165.076.326.157.48.244l-1.773 2.83c-.285.455.426.903.714.443l1.527-2.438c.109.1.229.185.36.255l-.445 1.519c-.151.515.656.752.808.234l.35-1.197c.528.464.989 1 1.313 1.537.207.343.782.236.798-.19l.145-3.999c1.065.334 1.949-.954 1.245-1.816l11.387-5.62c.389-.19.616-.754.42-1.2-.149-.339-.354-1.168-1.114-2.356.281-.05.558-.142.826-.277 1.354-.687 4.004-4.362 4.301-4.78a.417.417 0 0 0 .042-.41z"/>
+                                </g>
+                            </g>
+                        </svg>
+                        <p>
+                            <?= __($block->getText()) ?>
+                        </p>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="row">
+                <div class="col-md-12 col-12 samples-form">
+                    <button id="modal-btn-ondemand" class="samples-button" type="button">
+                        <?= __('Contact Us') ?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ondemand-container" style="display: none">
+        <div id="modal-content-add-product-ondemand">
+            <div class="modal-inner-content modal-ondemand">                
+                <form action="<?= $block->getUrl('ondemand/add') ?>" method="post" id="ondemand-form">
+                    <?= $block->getBlockHtml('formkey') ?>
+                    <input type="hidden" name="product_sku" value="<?= $block->getProduct()->getSku() ?>">
+                    <input type="hidden" name="product_id" value="<?= $block->getProduct()->getId() ?>">
+                    <input type="hidden" name="product_name" value="<?= $block->getProduct()->getName() ?>">
+                    <input type="hidden" name="b_model_id" value="<?= $block->getProduct()->getBModel() ?>">
+                    <div class="d-flex">
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label for="customer-name-demand">
+                                    <?= __('Name') ?> *
+                                </label>
+                                <input type="text" name="name" id="customer-name-demand" required
+                                    value="<?= $block->getCustomer()->getName() ?>">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label for="customer-email-demand">
+                                    <?= __('Email') ?> *
+                                </label>
+                                <input type="text" name="email" id="customer-email-demand" required
+                                    value="<?= $block->getCustomer()->getEmail() ?>">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-group">
+                                <label for="customer-description-demand">
+                                    <?= __('Message') ?>
+                                </label>
+                                <textarea name="description" id="customer-description-demand" cols="30"
+                                    rows="10"></textarea>
+                            </div>
+                        </div>
+                        <div class="g-recaptcha__container">
+                        <div class="g-recaptcha" data-sitekey="6LdtETgeAAAAAAShEvk6W7NNI_6OTkHaDaNqIz74"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-12 samples-form">
+                            <button id="modal-btn-ondemand-save g-recaptcha" class="samples-button" type="submit"
+                                    data-sitekey="6LdtETgeAAAAAAShEvk6W7NNI_6OTkHaDaNqIz74" data-callback='onSubmit' data-action='submit'>
+                                    <?= __('Submit') ?>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<?php endif; ?>

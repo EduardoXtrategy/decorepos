@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @var \Uzer\Customer\Block\Register\BaseForm $block
+ */
+?>
+<div class="row item">
+    <div class="col-md-6 required">
+        <input type="hidden" id="first_name" name="first_name" class="input-text required-entry"
+               data-validate="{required:true}" autocomplete="off" aria-required="true"
+               value="<?= $block->getCustomer()->getFirstname() ?>">
+    </div>
+    <div class="col-md-6 required">
+        <input type="hidden" id="last_name" name="last_name" class="modal-input"
+               value="<?= $block->getCustomer()->getLastname() ?>" required>
+    </div>
+</div>
+<div class="row item required">
+    <div class="col-md-12">
+        <input type="hidden" id="company" name="company" class="modal-input"
+               value="<?= $block->getCustomer()->getCompany() ?>" required>
+    </div>
+</div>
+<div class="row item required">
+    <div class="col-md-12 required">
+        <input type="hidden" id="telephone" name="telephone" class="modal-input"
+               value="<?= $block->getCustomer()->getTelephone() ?>" required>
+    </div>
+</div>
+<div class="row register-b2b-form-container">
+    <div class="col-lg-6 col-md-12">
+        <div class="form-group required">
+            <label for="street_1"> <?= __('Street Address 1') ?>* </label>
+            <input type="text" id="street_1" name="street[]" class="modal-input" data-validate="{required:true}"
+                   required>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+            <label for="street_2"> <?= __('Street Address 2') ?> </label>
+            <input type="text" id="street_2" name="street[]" class="modal-input">
+        </div>
+    </div>
+</div>
+<div class="row register-b2b-form-container">
+    <div class="col-lg-6 col-md-12">
+        <div class="form-group item required">
+            <label for="Country"> <?= __('Country') ?>
+                * </label> <?php $countries = $block->getAllowedCountries(); ?>
+            <select name="country" id="country" class="form-control-plaintext modal-input" title="Country" required
+                    aria-required="true">
+                <option value=""> <?= __('Select country') ?> </option> <?php foreach ($countries as $country) : ?>
+                    <option value="<?= $country->getId() ?>"> <?= $country->getName() ?> </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="form-group item required">
+            <label for="region"> <?= __('State/Province') ?>* </label>
+            <input type="text" id="region" name="region" class="form-control-plaintext modal-input">
+            <select id="region-sa" name="region-sa" class="form-control-plaintext modal-input" title="State/Province" required
+                    aria-required="true"></select>
+        </div>
+    </div>
+
+</div>
+<div class="row register-b2b-form-container">
+    <div class="col-lg-6 col-md-12">
+        <div class="form-group item required">
+            <label for="city"> <?= __('City') ?>* </label>
+            <input type="text" class="form-control-plaintext modal-input" id="city" name="city" required>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="form-group item required">
+            <label for="zip_code"> <?= __('Zip Code') ?>* </label>
+            <input type="text" class="form-control-plaintext modal-input validate-zip-international" id="zip_code"
+                   name="zip_code" required>
+        </div>
+    </div>
+</div>
+<div class="row register-b2b-form-container">
+    <div class="col-lg-6 col-md-12">
+        <div class="form-group item required">
+            <label for="account_tax"> <?= __('RUC') ?>* </label>
+            <input type="text" class="form-control nit-field" id="account_tax" name="tax_vat" required>
+            <small><?= __('Only 9 numbers.') ?></small>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+        <div class="form-group item required">
+            <label for="account_email"> <?= __('Accounts Payable Email Address') ?>* </label>
+            <input type="text" class="form-control" id="account_email" name="account_email" required>
+        </div>
+    </div>
+</div>

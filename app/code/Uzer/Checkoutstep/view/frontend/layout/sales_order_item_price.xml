@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <block class="Uzer\Checkoutstep\Block\Item\Price\Renderer" name="item_row_total"
+           template="Magento_Weee::item/price/row.phtml">
+        <arguments>
+            <argument name="zone" xsi:type="string">sales</argument>
+        </arguments>
+    </block>
+</page>

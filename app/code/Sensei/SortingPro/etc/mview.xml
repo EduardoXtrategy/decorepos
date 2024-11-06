@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Mview/etc/mview.xsd">
+    <view id="sensei_sortingpro_bestseller" class="Sensei\SortingPro\Model\Indexer\Bestsellers\BestsellersIndexer" group="indexer"/>
+    <view id="sensei_sortingpro_most_viewed" class="Sensei\SortingPro\Model\Indexer\MostViewed\MostViewedIndexer" group="indexer"/>
+    <view id="sensei_sortingpro_wished" class="Sensei\SortingPro\Model\Indexer\Wished\WishedIndexer" group="indexer"/>
+</config>

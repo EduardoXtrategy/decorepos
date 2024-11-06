@@ -1,0 +1,74 @@
+<div role="alertdialog"
+     tabindex="-1"
+     class="amgdprcookie-bar-container <% if (data.isPopup) { %>-popup<% } %>" data-amcookie-js="bar">
+    <div class="amgdprcookie-bar-block">
+        <p class="amgdprcookie-policy"><%= data.policyText %></p>
+        <div class="amgdprcookie-buttons-block">
+            <% _.each(data.buttons, function(button) { %>
+            <button class="amgdprcookie-button <%= button.class %>" disabled data-amgdprcookie-js="<%= button.dataJs %>"><%= button.label %></button>
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<style>
+    .amgdprcookie-bar-container {
+        background-color: <%= css.backgroundColor %>
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-policy {
+        color: <%= css.policyTextColor %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-text {
+        color: <%= css.textColor %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-header {
+        color: <%= css.titleColor %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-link,
+    .amgdprcookie-bar-container .amgdprcookie-policy a {
+        color: <%= css.linksColor %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-button.-save {
+        order: <%= css.acceptBtnOrder %>;
+        background-color: <%= css.acceptBtnColor %>;
+        border-color: <%= css.acceptBtnColor %>;
+        color: <%= css.acceptBtnTextColor %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-button.-save:hover {
+        background-color: <%= css.acceptBtnColorHover %>;
+        border-color: <%= css.acceptBtnColorHover %>;
+        color: <%= css.acceptBtnTextColorHover %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-button.-settings {
+        order: <%= css.allowBtnOrder %>;
+        background-color: <%= css.allowBtnColor %>;
+        border-color: <%= css.allowBtnColor %>;
+        color: <%= css.allowBtnTextColor %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-button.-settings:hover {
+        background-color: <%= css.allowBtnColorHover %>;
+        border-color: <%= css.allowBtnColorHover %>;
+        color: <%= css.allowBtnTextColorHover %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-button.-decline {
+        order: <%= css.declineBtnOrder %>;
+        background-color: <%= css.declineBtnColor %>;
+        border-color: <%= css.declineBtnColor %>;
+        color: <%= css.declineBtnTextColor %>;
+    }
+
+    .amgdprcookie-bar-container .amgdprcookie-button.-decline:hover {
+        background-color: <%= css.declineBtnColorHover %>;
+        border-color: <%= css.declineBtnColorHover %>;
+        color: <%= css.declineBtnTextColorHover %>;
+    }
+</style>

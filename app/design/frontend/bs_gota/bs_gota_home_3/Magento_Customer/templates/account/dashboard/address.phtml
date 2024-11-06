@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Address $block */
+?>
+<div class="box box-billing-address">
+    <strong class="box-title">
+        <span><?= $block->escapeHtml(__('Default Billing Address')) ?></span>
+    </strong>
+    <div class="box-content">
+        <address>
+            <?= $block->getPrimaryBillingAddressHtml() ?>
+        </address>
+    </div>
+    <div class="box-actions">
+        <a class="action edit" href="<?= $block->escapeUrl($block->getPrimaryBillingAddressEditUrl()) ?>"
+           data-ui-id="default-billing-edit-link"><span><?= $block->escapeHtml(__('Edit Address')) ?></span></a>
+    </div>
+</div>
+<div class="customer-edit-buying-options">
+    <?= __('If you would like to edit your online shopping options, please <a href="%1" target="_blank">contact us</a> and a Customer Services Representative will help you update your account shortly.', $block->escapeUrl($block->getUrl('contact-us'))) ?>
+</div>
+</div>
+</div>

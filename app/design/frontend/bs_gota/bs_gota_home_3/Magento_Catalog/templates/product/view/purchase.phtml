@@ -1,0 +1,29 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php
+$onDemandValidator = \Magento\Framework\App\ObjectManager::getInstance()->create(\Uzer\OnDemand\Model\OnDemandValidator::class);
+$_product = $block->getProduct();
+$config_point2 = $this->helper('Rokanthemes\RokanBase\Helper\Data')->getConfigData('setting_categories/categories/point2');
+$arr_config_point2 = explode(',', $config_point2);
+$qty = 1;
+$categories = $_product->getCategoryIds();
+if (count($categories) > 0 && count($arr_config_point2) > 0) {
+    foreach ($arr_config_point2 as $val1) {
+        if (in_array(trim($val1), $categories)) {
+            $qty = 3;
+            break;
+        }
+    }
+}
+?>
+<?php if (!$onDemandValidator->isOndemand($_product)): ?>
+    <h3><?= __('Purchase options') ?></h3>
+<?php endif; ?>

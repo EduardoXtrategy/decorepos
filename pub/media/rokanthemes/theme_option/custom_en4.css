@@ -1,0 +1,31 @@
+/**
+ * custom theme 2021-06-29 16:04:04 */
+
+#newsletter_pop_up{
+width: 460px;height: 772px;background-color: #FFFFFF;}
+#newsletter_pop_up .newsletter-popup-has-background{ 
+	background-image: url(http://test.decowraps.com/media/rokanthemes/newsletter/background/default/bg_newsellter_new.png);}
+.blog-custom-wrapper{        
+	background-image: url(http://test.decowraps.com/media/rokanthemes/blog/bannerbackground/default/img-blog1_1.jpg); padding: 27vh 0; color: #fff; margin-bottom: 100px; max-height: 600px; background-repeat: no-repeat; background-size: cover;}
+.contact-index-index .page-title-wrapper{       
+	background-image: url(http://test.decowraps.com/media/rokanthemes/contactusbackground/default/Contact1.jpg); padding: 27vh 0; color: #fff; margin-bottom: 100px; max-height: 600px; background-repeat: no-repeat; background-size: cover;}
+.cms-about-us .page-title-wrapper{       
+	background-image: url(http://test.decowraps.com/media/rokanthemes/aboutbannerbackground/default/About-us1.jpg); padding: 27vh 0; color: #fff; margin-bottom: 100px; max-height: 600px; background-repeat: no-repeat; background-size: cover;} 
+.background-module-product{        
+	background-image: url(http://test.decowraps.com/media/rokanthemes/backgroundproductmodule/default/bg_product_module_1.jpg); padding: 90px 0 95px; color: #fff; background-repeat: no-repeat; background-size: cover;}
+@media screen and ( max-width: 991px ){ 
+	.contact-index-index .page-title-wrapper{ 
+	padding: 10vh 0; margin-bottom: 50px;	}
+	.blog-custom-wrapper{ 
+		padding: 10vh 0; margin-bottom: 50px;	}
+	.background-module-product{
+		padding: 10vh 0;	}
+	.cms-about-us .page-title-wrapper{   
+		padding: 10vh 0; margin-bottom: 50px;	}
+}	
+.block-newsletter-form{       
+	background-image: url(http://test.decowraps.com/media/rokanthemes/newsletterformbackground/websites/2/background-newsletter.png); background-repeat: no-repeat; background-size: cover;}
+body.cms-index-index{
+	background-color:#FFFFFF !important;
+	background-image:url(//test.decowraps.com/media/rokanthemes/main_background/stores/11/body-bg-home4.jpg) !important;
+}

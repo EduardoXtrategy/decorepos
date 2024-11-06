@@ -1,0 +1,12 @@
+<?php /** @var \Uzer\Samples\Block\Cart\Content\Items $block */ ?>
+<?php if (!$block->hasItems()): ?>
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="samples-cart-empty">
+                <p><?= __('Your samples cart is empty') ?></p>
+                <p class="description"><?= __('Click <a href="%1">here</a> to continue shopping ...', $block->getUrl('product')) ?></p>
+                <div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

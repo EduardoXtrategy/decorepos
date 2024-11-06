@@ -1,0 +1,47 @@
+<?php /** @var \Uzer\Samples\Block\Cart\Content\Summary $block */ ?>
+<?php if ($block->hasItems()): ?>
+    <div class="panel-samples-cart">
+        <div class="samples-cart-sumary">
+            <div class="title col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <?= __('Order Summary') ?>
+                <table class="total-samples-mobile">
+                    <tr>
+                        <td class="item-title-total"><?= __('Total:') ?></td>
+                        <td class="item-description-total"><?= $block->getCurrencySymbol() ?>0.00</td>
+                    </tr>
+                </table>
+            </div>
+            <table class="sumary">
+                <tr>
+                    <td class="item-title"><?= __('Product Subtotal') ?></td>
+                    <td class="item-description"><?= $block->getCurrencySymbol() ?>0.00</td>
+                </tr>
+                <tr>
+                    <td class="item-title"><?= __('Delivery') ?></td>
+                    <td class="item-description"><?= $block->getCurrencySymbol() ?>0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr>
+                    </td>
+                </tr>
+                <tr class="samples-cart-total-general">
+                    <td class="item-title-total"><?= __('Total:') ?></td>
+                    <td class="item-description-total"><?= $block->getCurrencySymbol() ?>0.00</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a class="btn samples-button" href="<?= $block->getUrl('samples/checkout') ?>">
+                            <?= __('Continue to Samples Checkout') ?>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 btn-desktop">
+            <a class="btn samples-button" href="<?= $block->getUrl('samples/checkout') ?>">
+                <?= __('Continue to Samples Checkout') ?>
+            </a>
+        </div>
+    </div>
+<?php endif; ?>

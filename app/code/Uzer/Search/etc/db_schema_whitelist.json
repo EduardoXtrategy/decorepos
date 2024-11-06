@@ -1,0 +1,16 @@
+{
+  "product_banner": {
+    "column": {
+      "entity_id": true,
+      "attribute_id": true,
+      "banner": true,
+      "stores_id": true
+    },
+    "index": {
+      "PRODUCT_BANNER_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

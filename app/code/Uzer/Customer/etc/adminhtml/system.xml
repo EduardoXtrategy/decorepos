@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 RokanThemes.com. All rights reserved.
+
+ * @author RokanThemes Team <contact@rokanthemes.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="decowraps" translate="label" sortOrder="310">
+            <label><![CDATA[Decowraps]]></label>
+        </tab>
+        <section id="uzer" translate="label" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Customers</label>
+            <tab>decowraps</tab>
+            <resource>Magento_Customers::config</resource>
+            <group id="customers" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <field id="approved" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Template email approved customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <comment>Email template is chosen based on theme fallback when "Default" option is selected.
+                    </comment>
+                </field>
+                <field id="no_group" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Template email no approved customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <comment>Email template is chosen based on theme fallback when "Default" option is selected.
+                    </comment>
+                </field>
+                <field id="group" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Assigned customer group</label>
+                    <source_model>Uzer\Customer\Model\System\CustomerGroups</source_model>
+                    <comment>Select customer group for assign when this is approved</comment>
+                </field>
+                <field id="excluded_group" translate="label" type="select" sortOrder="3" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Assigned customer excluded taxes group group</label>
+                    <source_model>Uzer\Customer\Model\System\CustomerGroups</source_model>
+                    <comment>Select customer group for assign when this is approved and this is excluded from taxes</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

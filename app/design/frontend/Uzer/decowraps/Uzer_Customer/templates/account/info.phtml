@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @var \Uzer\Customer\Block\Account\Info $block
+ */
+?>
+<?php if ($block->getTaxvat()) : ?>
+    <p><span class="label-info-account"><?= __('VAT:') ?></span> <?= $block->escapeHtml($block->getTaxvat()); ?></p>
+<?php endif; ?>
+<p><span class="label-info-account"><?= __('Account payable email:') ?></span> <?= $block->escapeHtml($block->getPayableEmail()); ?></p>

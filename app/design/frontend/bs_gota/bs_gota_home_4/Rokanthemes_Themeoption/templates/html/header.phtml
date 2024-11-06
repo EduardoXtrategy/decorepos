@@ -1,0 +1,81 @@
+<div class="header-container layout3 layout4">
+	<div class="topbar hidden-xs hidden-sm">
+		<div class="container-max">
+			<div class="flex-layout">
+				<?php echo $this->getChildHtml("topbar-introduce-store"); ?> 
+			</div>
+		</div>
+	</div>
+	<div class="header">
+		<div class="container-max">
+			<div class="for-full-withmenu flex-layout">
+				
+				<div class="col-logo">
+					<?php echo $this->getChildHtml("logo"); ?>	
+				</div>
+				<?php echo $this->getChildHtml("topSearch"); ?>	
+				<div class="header-right">
+					<div class="language-currency">
+						<div class="container-setting-language-currency">
+							<?php echo $this->getChildHtml("currency"); ?>
+							<?php echo $this->getChildHtml("store_language"); ?>  
+						</div>		
+					</div>
+					<div class="header-top-setting hidden-xs hidden-sm">
+						<a href="#" class="actions-top"><span class="icon-more-horizontal"></span></a>
+						<div class="setting-container">
+							<div class="wishlist visible-md visible-lg wishlist-custom-button-login">
+							<a href="<?php echo $this->getUrl('wishlist');?>"><?php echo __('Wishlist');?></a>
+							</div>		
+							<div class="compare visible-md visible-lg">
+								<a href="<?php echo $this->getUrl('catalog/product_compare');?>"><?php echo __('Compare');?></a>
+							</div>		
+							<div class="register-login visible-md visible-lg">
+								<?php if(!$this->helper('Rokanthemes\Themeoption\Helper\Data')->isLoggedIn()){?>
+									<a class="custom-button-login" href="<?php echo $this->getUrl('customer/account/login');?>"><?php echo __('Login');?></a>
+									<?php echo __('or');?>
+									<a href="<?php echo $this->getUrl('customer/account/create');?>">  <?php echo __('Sign up');?></a> 
+								<?php
+								}
+								else{
+								?>
+								<a href="<?php echo $this->getUrl('customer/account/index');?>"><?php echo __('My account');?></a>
+								<a href="<?php echo $this->getUrl('customer/account/logout');?>"> <?php echo __('or');?> <?php echo __('Logout');?></a>
+								<?php } ?>
+							</div>		
+						</div>
+					</div>	
+					<?php echo $this->getChildHtml("minicart");?>		
+				</div>
+			</div>
+		</div>
+		<div class="header-menu">
+			<div class="container-max">
+				<div class="flex-layout">
+					<?php echo $this->getChildHtml("vertical.topnav")?>
+					<?php echo $this->getChildHtml("top.navigation.sections"); ?>	
+					<div class="holine hidden-xs hidden-sm"><?php echo $this->getChildHtml("holine-number"); ?></div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
+<?php if($this->helper('Rokanthemes\Themeoption\Helper\Themeconfig')->isEnableStickyHeader()){ ?>
+<script type="text/javascript">
+    require(['jquery'],function($){
+        $(document).ready(function($){
+			$(window).scroll(function() {
+				var num = $('.header-container').outerHeight();
+				var screenWidth = $(window).width();
+				
+				if ($(this).scrollTop() > num && screenWidth >= 768 ){  
+					$(".header").addClass("sticky");
+				}
+				else{
+					$(".header").removeClass("sticky");
+				}
+			});
+		});
+    });
+</script>
+<?php } ?>

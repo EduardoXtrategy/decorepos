@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Uzer_Samples::css/form-samples.css" rel="stylesheet" type="text/css"/>
+        <css src="Uzer_Samples::css/samples.css" rel="stylesheet" type="text/css"/>
+        <css src="Uzer_Samples::css/samples-cart-items.css" rel="stylesheet" type="text/css"/>
+        <css src="Uzer_Samples::css/samples-cart-sumary.css" rel="stylesheet" type="text/css"/>
+        <script src="Uzer_Samples::js/samples-cart.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content" >
+            <container name="samples-cart" htmlTag="div" htmlClass="row">
+                <container name="samples-cart-empty" htmlTag="div" htmlClass="col-md-12 col-12">
+                    <block class="Uzer\Samples\Block\Cart\Content\Items"
+                           name="samples-cart-empty-block"
+                           cacheable="false"
+                           template="Uzer_Samples::cart/content/empty.phtml"/>
+                </container>
+                <container name="samples-cart-content" htmlTag="div" htmlClass="col-md-8 samples-card-content">
+                    <block class="Uzer\Samples\Block\Cart\Content\Items"
+                           cacheable="false"
+                           template="Uzer_Samples::cart/content/items.phtml" name="samples-card-content-items"/>
+                    <block class="Uzer\Samples\Block\Cart\Content\Links"
+                           cacheable="false"
+                           template="Uzer_Samples::cart/content/links.phtml" name="samples-card-content-links"/>
+                </container>
+                <container name="samples-card-sidebar" htmlTag="div" htmlClass="col-md-4 samples-card-sidebar">
+                    <block class="Uzer\Samples\Block\Cart\Content\Summary"
+                           cacheable="false"
+                           template="Uzer_Samples::cart/content/summary.phtml" name="samples-card-sidebar-summary"/>
+                </container>
+            </container>
+        </referenceContainer>
+        <referenceBlock name="footer_newsletter" remove="true"/>
+    </body>
+</page>

@@ -1,0 +1,34 @@
+{
+  "uzer_jobs": {
+    "column": {
+      "entity_id": true,
+      "name": true,
+      "location": true,
+      "description": true,
+      "status": true
+    },
+    "index": {
+      "UZER_JOBS_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  },
+  "uzer_request_jobs": {
+    "column": {
+      "entity_id": true,
+      "full_name": true,
+      "job_title": true,
+      "email": true,
+      "phone": true,
+      "message": true,
+      "document": true
+    },
+    "index": {
+      "UZER_REQUEST_JOBS_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

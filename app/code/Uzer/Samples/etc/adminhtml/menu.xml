@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Uzer_Samples::orders" sortOrder="50" title="Sample Orders" module="Uzer_Samples"
+             parent="Uzer_Contact::decowraps" resource="Uzer_Samples::orders" translate="title"
+             action="sample_order/sampleorder/index"/>
+    </menu>
+</config>

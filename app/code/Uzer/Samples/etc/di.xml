@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Uzer\Samples\Api\Data\SamplesCartInterface" type="Uzer\Samples\Model\Data\SamplesCart"/>
+    <type name="Uzer\Samples\Model\Session">
+        <arguments>
+            <argument name="storage" xsi:type="object">Uzer\Samples\Model\Session\Storage</argument>
+        </arguments>
+    </type>
+    <preference for="Uzer\Samples\Api\Data\SampleCartItemInterface" type="Uzer\Samples\Model\Data\SampleCartItem"/>
+    <preference for="Uzer\Samples\Api\CartInterface" type="Uzer\Samples\Model\Cart"/>
+    <type name="Uzer\Samples\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Samples\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">samples</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Uzer\Samples\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Uzer\Samples\Api\Data\SampleOrderInterface" type="Uzer\Samples\Model\Data\SampleOrderData"/>
+    <preference for="Uzer\Samples\Api\Data\SampleKitInterface" type="Uzer\Samples\Model\SampleKit"/>
+</config>

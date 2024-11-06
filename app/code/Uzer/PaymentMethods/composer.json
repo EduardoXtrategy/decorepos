@@ -1,0 +1,18 @@
+{
+    "name": "uzer/paymentmethods",
+    "description": "Module to list payment methods in Magento 2",
+    "require": {
+        "php": "~7.1.0||~7.2.0||~7.3.0",
+        "magento/framework": "102.0.*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Uzer\\PaymentMethods\\": ""
+        }
+    }
+}

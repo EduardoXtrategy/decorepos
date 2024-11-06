@@ -1,0 +1,110 @@
+<!--@subject {{trans "New Contact form"}} @-->
+<!--@vars {} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body * {
+            font-family: 'Open Sans', sans-serif;
+            color: #4F4F4F;
+        }
+    </style>
+</head>
+<body style="background:#F5F5F5;">
+<table width="650" align="center"
+       style="background: url(images/top-border.png) no-repeat #ffffff;margin-top: 40px;margin-bottom: 60px;"
+       cellspacing="0" cellpadding="0">
+    <tbody>
+    <tr>
+        <td style="padding: 50px 0 35px 0;">
+        <a href="https://www.decowraps.com/" style="text-align: center;display: block;"><img
+            src="http://decowraps.uzerdev.com/media/email/logo-decowraps.png" width="167" height="55" alt="Decowraps"></a></td>
+    </tr>
+    <tr>
+        <td style="height: 20px;"></td>
+    </tr>
+    <tr style="padding: 0 35px;display: block;">
+        <td style="background: #F8F8F8;display: block;padding: 30px 25px 0px 25px;border-radius: 5px; text-align:center;">
+            <span style="font-size: 18px;padding-bottom: 10px;font-weight: 600;text-align:left;display: block;">Form Client</span>
+            <table style="color:#4F4F4F" align="center">
+                <tr>
+                    <td>{{trans "Full name."}}</td>
+                    <td>{{trans "%full_name." full_name=$full_name}}</td>
+                </tr>
+                <tr>
+                    <td>{{trans "Email."}}</td>
+                    <td>{{trans "%email." email=$email}}</td>
+                </tr>               
+                <tr>
+                    <td>{{trans "company."}}</td>
+                    <td>{{trans "%company." company=$company}}</td>
+                </tr>
+                <tr>
+                    <td>{{trans "Phone."}}</td>
+                    <td>{{trans "%phone." phone=$phone}}</td>
+                </tr>
+                <tr>
+                    <td>{{trans "Message."}}</td>
+                    <td>{{trans "%message." message=$message}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="display: block;padding: 20px 40px;"></td>
+    </tr>
+    <tr>
+        <td>
+            <span style="font-size: 14px;font-weight:600;text-align:center;display: block;padding: 20px 0;">If you have any questions or additional requests <a
+                href="#" style="color: #82992F;text-decoration: underline;">contact us</a> to help</span>
+        </td>
+    </tr>
+    <tr style="
+               padding: 20px 0 40px 0;
+               border-top: 1px solid #E4E4E4;
+               display: block;
+               text-align: center;
+               margin-top: 40px;
+               ">
+        <td style="
+                  display: block;
+                  ">
+            <table style="margin: 0 auto;" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr style="display: flex;padding: 20px;justify-content: center;">
+                    <td style="text-align: center;"><a href="#"><img style="margin: 0 5px;"
+                                                                     src="http://decowraps.uzerdev.com/media/email/ico-linkedin.png" width="21"
+                                                                     height="21" alt="Linkedin"></a></td>
+                    <td style="text-align: center;"><a href="#"><img style="margin: 0 5px;"
+                                                                     src="http://decowraps.uzerdev.com/media/email/ico-instagram.png" width="21"
+                                                                     height="21" alt="Instagram"></a></td>
+                    <td style="text-align: center;"><a href="#"><img style="margin: 0 5px;" src="http://decowraps.uzerdev.com/media/email//ico-youtube.png"
+                                                                     width="21" height="21" alt="Youtube"></a></td>
+                    <td style="text-align: center;"><a href="#"><img style="margin: 0 5px;"
+                                                                     src="http://decowraps.uzerdev.com/media/email//ico-facebook.png" width="21"
+                                                                     height="21" alt="Facebok"></a></td>
+                    <td style="text-align: center;"><a href="#"><img style="margin: 0 5px;"
+                                                                     src="http://decowraps.uzerdev.com/media/email//ico-pinterest.png" width="21"
+                                                                     height="21" alt="Pinterest"></a></td>
+                </tr>
+                <tr>
+                    <td colspan="5"><span style="font-size: 12px; text-align: center; display: block;">© DECOWRAPS 2021. All Rights Reserved.</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+{{template config_path="design/email/footer_template"}}

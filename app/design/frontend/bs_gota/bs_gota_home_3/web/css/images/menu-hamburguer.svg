@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="14px" viewBox="0 0 22 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Icons/menu hamburguer</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.282353 0 0 0 0 0.282353 0 0 0 0 0.282353 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home-B2B-KeyVisual---Vs-Final" transform="translate(-88.000000, -136.000000)">
+            <g id="Icons/menu-hamburguer" transform="translate(88.000000, 136.000000)" filter="url(#filter-1)">
+                <g id="align-left" fill="#505051" fill-rule="nonzero">
+                    <path d="M21.2542373,1.55555556 L0.745762712,1.55555556 C0.33559322,1.55555556 0,1.20555556 0,0.777777778 C0,0.35 0.33559322,0 0.745762712,0 L21.2542373,0 C21.6644068,0 22,0.35 22,0.777777778 C22,1.20555556 21.6644068,1.55555556 21.2542373,1.55555556 Z" id="Path"></path>
+                    <path d="M11.6949153,7.77777778 L0.779661017,7.77777778 C0.350847458,7.77777778 0,7.42777778 0,7 C0,6.57222222 0.350847458,6.22222222 0.779661017,6.22222222 L11.6949153,6.22222222 C12.1237288,6.22222222 12.4745763,6.57222222 12.4745763,7 C12.4745763,7.42777778 12.1237288,7.77777778 11.6949153,7.77777778 Z" id="Path"></path>
+                    <path d="M21.2542373,14 L0.745762712,14 C0.33559322,14 0,13.65 0,13.2222222 C0,12.7944444 0.33559322,12.4444444 0.745762712,12.4444444 L21.2542373,12.4444444 C21.6644068,12.4444444 22,12.7944444 22,13.2222222 C22,13.65 21.6644068,14 21.2542373,14 Z" id="Path"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

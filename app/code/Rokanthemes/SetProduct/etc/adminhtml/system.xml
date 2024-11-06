@@ -1,0 +1,68 @@
+﻿<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="setproduct" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Set Product</label>
+            <tab>rokanthemes</tab>
+			<resource>Rokanthemes_SetProduct::rokanbase_setproduct</resource>
+			<group id="setproduct_config" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Config</label>
+				<field id="enable" translate="label comment" type="select" sortOrder="1"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set Product</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="background_image" translate="label" type="image" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <comment>Allowed file types:PNG, JPG, JPEG.</comment>
+                    <backend_model>Rokanthemes\Themeoption\Model\Config\Setproductbackground</backend_model>
+                    <base_url type="media" scope_info="1">rokanthemes/setproduct/background</base_url>
+                </field>
+				<field id="enable_defaut" translate="label comment" type="select" sortOrder="10"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Defaut Product</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="defaut_select" translate="label comment" type="select" sortOrder="15"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set Show Defaut Product</label>
+                    <source_model>Rokanthemes\SetProduct\Model\Config\Source\ListMode</source_model>
+                </field> 
+            </group>
+            <group id="setproduct_1" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product 1</label>
+				<field id="sku" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Sku Product</label>
+				</field>	
+				<field id="custom_css" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Custom Css</label>
+					<comment>position: absolute;left: 40px;</comment>
+				</field>			
+            </group>
+			<group id="setproduct_2" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product 2</label>
+				<field id="sku" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Sku Product</label>
+				</field>	
+				<field id="custom_css" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Custom Css</label>
+					<comment>position: absolute;left: 40px;</comment>
+				</field>			
+            </group>
+			<group id="setproduct_3" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product 3</label>
+				<field id="sku" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Sku Product</label>
+				</field>	 
+				<field id="custom_css" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Custom Css</label>
+					<comment>position: absolute;left: 40px;</comment>
+				</field>			
+            </group>
+        </section>
+    </system>
+</config>

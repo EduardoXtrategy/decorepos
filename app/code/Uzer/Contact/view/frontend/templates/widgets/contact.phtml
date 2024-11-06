@@ -1,0 +1,78 @@
+<!--
+<script src="https://www.google.com/recaptcha/api.js?render=6LcfzUwcAAAAAH9oM7Q44X-qQvQ9XAVA2zonpAZD"></script>
+-->
+<?php /** @var \Uzer\Contact\Block\Widget\Contact $block */ ?>
+
+<div class="uzer-contact-form" onsubmit="return submitUserForm();">
+    <form id="form-contact-us" action="<?= $block->getUrl('contact_form/form/save') ?>" method="post">
+        <?= $block->getBlockHtml('formkey') ?>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-12 form-group">
+                        <label for="full_name"><?= __('Full Name') ?><span class="required">*</span></label>
+                        <input type="text" name="full_name" class="form-control" required id="full_name">
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-12">
+                        <label for="company"><?= __('Company Name') ?><span class="required">*</span></label>
+                        <input type="text" name="company" class="form-control" required id="company">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-12">
+                        <label for="email"><?= __('Email Address') ?><span class="required">*</span></label>
+                        <input type="email" name="email" class="form-control" required id="email">
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-12">
+                        <label for="phone"><?= __('Phone Number') ?><span class="required">*</span></label>
+                        <input type="text" name="phone" class="form-control" required id="phone">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-12">
+                        <label for="message"><?= __('Message') ?><span class="required">*</span></label>
+                        <textarea name="message" id="message"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-12">
+                <label for="terms">
+                    <input type="checkbox" name="terms" required
+                           id="terms"> <?= __('I accept <a href="%1">Terms and conditions</a> and <a href="%2">Privacy policy</a>.', $block->getData('url_terms'), $block->getData('url_privacy')) ?>
+                </label>
+            </div>
+            <div class="col-md-12 col-sm-12 col-12">
+                <div class="g-recaptcha" data-sitekey="6LdtETgeAAAAAAShEvk6W7NNI_6OTkHaDaNqIz74"
+                     data-callback="verifyCaptcha"></div>
+                <div id="g-recaptcha-error"></div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-12">
+                <input type="hidden" id="token" name="token">
+                <input type="hidden" id="action" name="action" value="procesar">
+
+                <button type="submit" class="contact-form-button">
+                    <?= __('Submit ') ?>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<script>
+    var recaptcha_response = '';
+
+    function submitUserForm() {
+        if (recaptcha_response.length == 0) {
+            document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+            return false;
+        }
+        return true;
+    }
+
+    function verifyCaptcha(token) {
+        recaptcha_response = token;
+        document.getElementById('g-recaptcha-error').innerHTML = '';
+    }
+</script>

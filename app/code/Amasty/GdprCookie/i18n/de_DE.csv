@@ -1,0 +1,146 @@
+Are you sure you want to do this? ,Sind Sie sicher, dass Sie fortfahren möchten?
+Delete,Löschen
+Save and Continue Edit,Speichern und weiter bearbeiten
+Save,Speichern
+Cookie Settings,Cookie Einstellungen
+You deleted the cookie.,Sie haben das Cookie gelöscht.
+We can't delete cookie right now. Please review the log and try again.,Wir können Cookies derzeit nicht löschen. Bitte überprüfen Sie das Protokoll und versuchen Sie es erneut.
+New Cookie,Ein neues Cookie
+Edit Cookie %1,Cookie bearbeiten %1
+Cookies,Cookies
+%1 cookie(s) has been successfully deleted,%1 Cookie(s) wurde erfolgreich gelöscht
+An error has occurred,Ein Fehler ist aufgetreten
+You saved the item.,Sie haben das Element gespeichert.
+An error has occurred.,Ein Fehler ist aufgetreten.
+Cookie Consents Log,Protokoll der Cookie-Zustimmungen
+You deleted the cookie group.,Sie haben die Cookie-Gruppe gelöscht.
+We can't delete cookie group right now. Please review the log and try again.,Wir können die Cookie-Gruppe derzeit nicht löschen. Bitte überprüfen Sie das Protokoll und versuchen Sie es erneut.
+New Cookie Group,Eine neue Cookie Gruppe
+Edit Cookie Group %1,Berbeiten Cookie Group %1
+Cookie Groups,Cookie-Gruppen
+%1 cookie group(s) has been successfully deleted,%1 Cookie-Gruppe(n) wurde erfolgreich gelöscht
+An error has occured,Ein Fehler ist aufgetreten
+You saved your cookie settings!,Sie haben Ihre Cookie-Einstellungen gespeichert!
+Footer,Fußzeile
+Top,Kopfzeile
+Classic,Klassisch
+Side Bar,Seitenleiste
+Pop Up,Popup
+All Countries,Alle Staaten
+Countries,EWR-Staaten
+Specified Countries,Bestimmte Staaten
+None,Keine
+1st Party,1st Party
+3rd Party,3rd Party
+No,Nein
+Yes,Ja
+Unable to save cookie consent with ID %1. Error: %2,Die Cookie-Zustimmung mit der ID %1 kann nicht gespeichert werden. Fehler: %2
+Unable to save new withConsent. Error: %1,Die neue Zustimmung kann nicht gespeichert werden. Fehler: %1
+Cookie Consent with specified ID %1 not found.,Die Zustimmung mit angegebener ID %1 wurde nicht gefunden.
+Unable to remove Cookie Consent with ID %1. Error: %2,Die Cookie-Zustimmung mit der ID %1 kann nicht entfernt werden. Fehler: %2
+Unable to remove Cookie Consent. Error: %1,Die Cookie-Zustimmung kann nicht entfernt werden. Fehler: %1
+Unable to save cookie group with ID %1. Error: %2,Die Cookie-Gruppe mit der ID %1 kann nicht gespeichert werden. Fehler: %2
+Unable to save new cookie group. Error: %1,Die neue Cookie-Gruppe kann nicht gespeichert werden. Fehler: %1
+Cookie group with specified ID %1 not found.,Die Cookie-Gruppe mit angegebener ID %1 wurde nicht gefunden.
+Unable to remove cookie group with ID %1. Error: %2,Die Cookie-Gruppe mit der ID %1 kann nicht entfernt werden. Fehler: %2
+Unable to remove cookie group. Error: %1,Die Cookie-Gruppe kann nicht entfernt werden. Fehler: %1
+Unable to save cookie with ID %1. Error: %2,Das Cookie mit der ID %1 kann nicht gespeichert werden. Fehler: %2
+Unable to save new cookie. Error: %1,Das neue Cookie kann nicht gespeichert werden. Fehler: %1
+Cookie with specified ID %1 not found.,Das Cookie mit angegebener ID %1 wurde nicht gefunden.
+Cookie with specified Name %1 not found.,Das Cookie mit angegebenem Namen %1 wurde nicht gefunden.
+Unable to remove cookie with ID %1. Error: %2,Das Cookie mit der ID %1 kann nicht entfernt werden. Fehler: %2
+Unable to remove cookie. Error: %1,Das Cookie kann nicht entfernt werden. Fehler: %1
+Guest,Gast
+All Allowed,Alle erlauben
+None cookies allowed,Keine Cookies erlaubt
+[STORE VIEW],[STORE VIEW]
+Amasty GDPR cookie error: cookies %1 are in different groups %2.,Amasty DSGVO cookie Fehler: cookies %1 zu verschiedenen Gruppen gehören %2.
+Allowed,Erlaubt
+Accept Cookies,Cookies akzeptieren
+Decline Cookies,Cookies ablehnen
+Allow all Cookies,Alle Cookies erlauben
+Custom Settings, Benutzereinstellungen
+More Information,Weitere Informationen
+Done,Fertig
+Cookie Name,Cookiename
+Cookie Provider,Cookie-Anbieter
+Cookie Description, Cookie Beschreibung
+Cookie Lifetime,Cookie-Lebensdauer
+Cookie Type, Cookie-Typ
+Allow all,Alle zulassen
+Please select and accept your Cookies Group,Bitte wählen und akzeptieren Sie Ihre Cookies-Gruppe
+Cookie Consent,Cookie Zustimmung
+General Settings, Allgemeine Einstellungen
+Enable Cookie Policy Bar,Cookie-Richtlinienleiste aktivieren
+Hide the Cookie Bar if No Decision Was Taken,Cookie-Leiste ausblenden, wenn keine Entscheidung getroffen wurde
+The cookie bar will not be displayed to customers on new pages if they don't accept or decline cookies on the bar. Thus the customer will less be distracted from purchasing.,Die Cookie-Leiste wird den Kunden auf neuen Seiten nicht angezeigt, wenn sie Cookies auf der Leiste nicht akzeptieren oder ablehnen. Dadurch wird der Kunde weniger vom Einkauf abgelenkt.
+Countries Restrictment,Staaten Beschränkung
+"It is possible to adjust the visibility of Cookie Policy Bar on frontend according to customer location. Enable the Cookie Policy Bar for All Countries, EEA Countries or specific Countries selected in the list below..","Es ist möglich, die Sichtbarkeit der Cookie-Richtlinienleiste im Frontend nach Kundenstandort anzupassen. Aktivieren Sie die Cookie-Richtlinienleiste für alle Länder, EWR-Länder oder bestimmte Länder, die in der nachstehenden Liste ausgewählt sind.."
+Display for Specific Countries,Für bestimmte Länder anzeigen
+Log Guest Cookie Consent,Cookie-Zustimmung für Gäste protokollieren
+"If enabled, guest users who give the consent will be logged and displayed in Consent Log.","Wenn diese Option aktiviert ist, werden Gastbenutzer, die die Zustimmung erteilen, im Einwilligungsprotokoll protokolliert und angezeigt."
+Cookie Log Auto-Cleaning Period (Days),Cookie Protokoll Auto-Reinigung Zeitraum (Tage)
+All records that been stored for the longer period will be automatically removed from the Cookie Consent Log and your database.,Alle über einen längeren Zeitraum gespeicherten Datensätze werden automatisch aus dem Cookie Einwilligungsprotokoll und Ihrer Datenbank entfernt.
+Cookie Bar Customization,Personalisierung der Cookie-Leiste
+Cookie Bar Style,Stil der Cookie-Leiste
+Classic Bar,Klassische Leiste
+Cookie Bar Location,Position der Cookie Leiste
+Notification Text,Benachrichtigungstext
+"You can use any HTML-tags in this field. Please, mind the security.","Sie können in diesem Datenfeld beliebige HTML-Tags verwenden. Bitte beachten Sie die Sicherheit."
+Background Color,Hintergrundfarbe
+Policy Text Color,Hintergrundfarbe des Regelungtextes
+Links Color, Linksfarbe
+"Accept Button","Schaltfläche “Akzeptieren”"
+Button Name,Schaltflächenname
+Sort Order,Sortierreihenfolge
+Button Color,Schaltflächenfarbe
+Button Color on Hover,Hover Schaltflächenfarbe
+Text Color,Textfarbe
+Text Color on Hover,Hover Textfarbe
+"Decline Button","Schaltfläche “Ablehnen”"
+Enable,Aktivieren
+"Custom Settings Button","Schaltfläche “Benutzereinstellungen”"
+Cookie Group Title Text Color,Textfarbe des Cookie-Gruppe Titels
+Cookie Group Description Text Color,Textfarbe der Cookie-Gruppe Beschreibung
+"Allow All Button","Schaltfläche “Alle zulassen”"
+Customer Id,Kundennummer
+Customer Name,Kundenname
+Customer Email,Kunden-E-Mail-Adresse
+Ip Address,IP-Adresse
+Website,Website
+Date,Datum
+Consent Status,Status der Zustimmung
+Back,Zurück
+Settings,Einstellungen
+Enabled,Aktiviert
+Description,Beschreibung
+Cookie Group,Cookie Gruppe
+Is Essential,Ist Essenziell
+Essential,Essenziell
+Cookie Group Name,Name der Cookie-Gruppe
+Assigned Cookies,Zugeordnete Cookies
+Sort Order of cookie groups in the cookie bar.,Sortierreihenfolge der Cookie-Gruppen in der Cookie-Leiste.
+Add New Group,Neue Gruppe hinzufügen
+Delete Cookie Groups,Cookie Gruppen löschen
+"Are you sure you want to delete selected cookie groups?","Sind Sie sicher, dass Sie die ausgewählten Cookie-Gruppen löschen möchten?"
+ID,ID
+from,von
+to,bis
+Cancel,Abbrechen
+Apply Filters,Filter anwenden
+per page,pro Seite
+Select All,Alle auswählen
+Select All on This Page,Alle auf dieser Seite auswählen
+records found,Datensätze gefunden
+Filters,Filter 
+Is Enabled,Ist Aktiviert
+Edit,Bearbeiten
+Add New Cookie,Ein neues Cookie setzen
+Select Cookie Group,Cookie-Gruppe wählen
+Delete Cookies,Cookies löschen
+"Are you sure you want to delete selected cookies?","Sind Sie sicher, dass Sie die ausgewählten Cookies löschen möchten?"
+"Click the field to choose color","Klicken Sie auf das Datenfeld, um die Farbe zu wählen"
+Configuration,Konfiguration
+"Select Cookie Group..","Wählen Sie eine Cookie-Gruppe aus"
+Accepted,Akzeptiert
+Rejected,Abgelehnt

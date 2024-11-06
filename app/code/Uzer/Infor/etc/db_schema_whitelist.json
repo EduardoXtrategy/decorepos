@@ -1,0 +1,32 @@
+{
+  "customer_address_control": {
+    "column": {
+      "entity_id": true,
+      "address_id": true,
+      "save": true,
+      "attemps": true,
+      "created_at": true,
+      "updated_at": true
+    },
+    "index": {
+      "CUSTOMER_ADDRESS_CONTROL_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  },
+    "customer_control": {
+        "column": {
+            "entity_id": true,
+            "customer_id": true,
+            "saved": true,
+            "attempts": true
+        },
+        "index": {
+            "CUSTOMER_CONTROL_ENTITY_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

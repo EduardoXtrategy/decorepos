@@ -1,0 +1,33 @@
+{
+  "catalog_product_entity": {
+    "column": {
+      "is_custom": true
+    }
+  },
+  "customer_products": {
+    "column": {
+      "sku": true,
+      "customers_id": true,
+      "entity_id": true
+    },
+    "index": {
+      "CUSTOMER_PRODUCTS_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  },
+  "category_customers": {
+    "column": {
+      "entity_id": true,
+      "customer_id": true,
+      "category_id": true
+    },
+    "index": {
+      "CATEGORY_CUSTOMERS_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

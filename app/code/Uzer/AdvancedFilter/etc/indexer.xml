@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="uzer_advanced_filter" view_id="uzer_advanced_filter"
+             class="Uzer\AdvancedFilter\Model\Indexer\ProductTypeSizesIndexer">
+        <title translate="true">Indexer product type sizes</title>
+        <description translate="true">Generate relatios for product type and sizes for apply in size filter
+        </description>
+    </indexer>
+</config>

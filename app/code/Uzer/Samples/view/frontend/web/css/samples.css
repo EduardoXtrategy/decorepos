@@ -1,0 +1,65 @@
+.samples-description {
+    text-align: center;
+    display: flex;
+    margin-left: 13rem;
+}
+
+.samples-form {
+    margin-left: 16rem;
+}
+
+.samples-button {
+    background: none;
+    font-family: "Lexend - Medium", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #607418;
+    border-radius: 3px;
+    border: 2px solid #82992f;
+}
+
+.samples-button:hover {
+    background: #82992f;
+    color: #fff;
+    border: 2px solid #82992f;
+}
+
+.samples-button-md {
+    background: none;
+    font-family: "Lexend - Medium", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;    
+    border-radius: 3px;
+    border: 2px solid #82992f;
+    background: #82992f;
+    color: #fff;
+    text-transform:capitalize;
+    width: 40%;;
+}
+
+.samples-button-md:hover {
+    background: #fff;
+    color: #607418;
+    border: 2px solid #82992f;
+    text-transform:capitalize;
+}
+
+.samples-cart-form {
+    margin-top: 54px;
+    margin-bottom: 2rem;
+}
+
+.samples-cart-empity {
+    font-size: 28px;
+    text-align: center;
+    margin-top: 3em;
+}
+
+.samples-cart-empity .description {
+    font-size: 18px;
+}
+
+.samples-cart-empity .description a {
+    color: #91a826;
+}

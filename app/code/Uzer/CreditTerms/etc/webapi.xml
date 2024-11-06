@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/customer-balance" method="GET">
+        <service class="Uzer\CreditTerms\Api\GetCustomerBalanceListInterface" method="execute"/>
+        <resources>
+            <resource ref="Uzer_CreditTerms::management"/>
+        </resources>
+    </route>
+    <route url="/V1/customer-balance" method="POST">
+        <service class="Uzer\CreditTerms\Api\SaveCustomerBalanceInterface" method="execute"/>
+        <resources>
+            <resource ref="Uzer_CreditTerms::management"/>
+        </resources>
+    </route>
+    <route url="/V1/customer-balance/:entityId" method="DELETE">
+        <service class="Uzer\CreditTerms\Api\DeleteCustomerBalanceByIdInterface" method="execute"/>
+        <resources>
+            <resource ref="Uzer_CreditTerms::management"/>
+        </resources>
+    </route>
+</routes>

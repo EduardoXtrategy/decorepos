@@ -1,0 +1,43 @@
+{
+  "uzer_contact_forms": {
+    "column": {
+      "entity_id": true,
+      "full_name": true,
+      "company": true,
+      "email": true,
+      "phone": true,
+      "message": true,
+      "ip": true,
+      "user_agent": true,
+      "created_at": true,
+      "updated_at": true
+    },
+    "index": {
+      "UZER_CONTACT_FORMS_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  },
+  "contact_form": {
+    "column": {
+      "entity_id": true,
+      "entity_id": true,
+      "full_name": true,
+      "company": true,
+      "email": true,
+      "phone": true,
+      "message": true,
+      "ip": true,
+      "user_agent": true,
+      "created_at": true,
+      "updated_at": true
+    },
+    "index": {
+      "CONTACT_FORM_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

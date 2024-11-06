@@ -1,0 +1,46 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Customer\Block\Form\Login\Info $block */
+?>
+<?php if ($block->getRegistration()->isAllowed()) : ?>
+    <div class="block login-block-new-customer block-new-customer">
+        <div class="block-title">
+            <h2 id="block-new-customer-heading" role="heading"
+                aria-level="2"><?= $block->escapeHtml(__('Create an account')) ?></h2>
+        </div>
+        <div class="block-content" aria-labelledby="block-new-customer-heading">
+            <p><?= $block->escapeHtml(__('Enjoy all that Decowraps has to offer:')) ?></p>
+            <div class="row">
+                <div class="col-md-12 col-12">
+                    <div class="content-customer">
+                        <img src="<?php echo $this->getViewFileUrl('Magento_Customer::images/wishlist.svg'); ?>"/>
+                        <strong><?= __('Custom Wishlist') ?></strong>
+                    </div>
+                </div>
+                <div class="col-md-12 col-12">
+                    <div class="content-customer">
+                        <img
+                            src="<?php echo $this->getViewFileUrl('Magento_Customer::images/customer-service.svg'); ?>"/>
+                        <strong><?= __('Personalized Customer Service') ?></strong>
+                    </div>
+                </div>
+                <div class="col-md-12 col-12">
+                    <div class="content-customer">
+                        <img src="<?php echo $this->getViewFileUrl('Magento_Customer::images/samples.svg'); ?>"/>
+                        <strong><?= __('Free Samples') ?></strong>
+                    </div>
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <a href="<?= $block->escapeUrl($block->getCreateAccountUrl()) ?>"
+                       class="action create primary"><span><?= $block->escapeHtml(__('Create an Account')) ?></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

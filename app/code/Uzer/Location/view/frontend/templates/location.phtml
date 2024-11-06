@@ -1,0 +1,40 @@
+<?php
+
+/** @var Uzer\Location\Block\Product $block */
+
+use Magento\Eav\Model\Entity\Attribute\AbstractAttribute; ?>
+<?php
+$productMaterial = $block->getProduct()->getResource()->getAttribute('location');
+$otherStoreSku = $block->getProduct()->getResource()->getAttribute('sku_other_storeview');
+$product = null;
+if ($productMaterial && $otherStoreSku) {
+    $_attributeValue = $productMaterial->getFrontend()->getValue($block->getProduct());
+    $otherStoreSkuValue = $otherStoreSku->getFrontend()->getValue($block->getProduct());
+    if ($otherStoreSkuValue) {
+        try {
+            $product = \Magento\Framework\App\ObjectManager::getInstance()->create(\Magento\Catalog\Api\ProductRepositoryInterface::class)->get($otherStoreSkuValue, false, $block->getRelatedStore());
+        } catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
+        }
+    }
+}
+?>
+<?php try { ?>
+    <?php if ($block->getHelperData()->getEnabled($block->getStoreId()) && $product) : ?>
+        <?php if (isset($_attributeValue) && $block->validate($_attributeValue)) : ?>
+            <div class="row product-location">
+                <div class="image-location">
+                    <img src="<?= $this->getViewFileUrl('Magento_Catalog::images/'.$block->getHelperData()->getPathImage($block->getStoreId())); ?>" alt="">
+                </div>
+                <div class="description-location">
+                    <div class="location-detail">
+                        <p><?= $block->getHelperData()->getMessage($block->getStoreId()) ?></p>
+                    </div>
+                    <a href="<?= $product->setStoreId($block->getRelatedStore())->getUrlModel()->getUrlInStore($product, ['_escape' => true]) ?>"><?= $block->getHelperData()->getTextLink($block->getStoreId()) ?></a>
+                </div>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
+
+<?php } catch (Exception $ex) {
+}
+?>

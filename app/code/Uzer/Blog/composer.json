@@ -1,0 +1,21 @@
+{
+  "name": "uzer/blog",
+  "version": "1.0.0",
+  "description": "Utilities blog module",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "Rokanthemes/module-blog": "2.0.*"
+  },
+  "license": [
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Uzer\\Blog\\": ""
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+$_product = $block->getProduct();
+$_className = $block->getCssClass();
+$_attributeLabel = $block->getAtLabel();
+$_attributeAddAttribute = $block->getAddAttribute();
+$_attributeValue = $_product->getSku();
+$onDemandValidator = \Magento\Framework\App\ObjectManager::getInstance()->create(\Uzer\OnDemand\Model\OnDemandValidator::class);
+$isOndemand = $onDemandValidator->isOndemand($_product);
+$session = \Magento\Framework\App\ObjectManager::getInstance()->create(\Magento\Customer\Model\Session::class);
+$allowPurchases = false;
+if (class_exists('\Uzer\Customer\Model\AllowPurchasesExecutor')) {
+    $allowPurchases = Magento\Framework\App\ObjectManager::getInstance()->create(\Uzer\Customer\Model\AllowPurchasesExecutor::class)->isAllowPurchase();
+}
+?>
+<div class="attribute-element sku" id="uzer-sku"
+     style="display: none;">
+    <div class="row uzer-product-stock">
+        <div class="attribute-element-sku">
+            <div class="product attribute <?php /* @escapeNotVerified */
+            echo $_className ?>">
+                <?php if ($_attributeLabel != 'none'): ?><strong class="type"><?php /* @escapeNotVerified */
+                    echo __('REF');
+                    ?></strong><?php endif; ?>
+                <div class="value" <?php /* @escapeNotVerified */
+                echo $_attributeAddAttribute; ?>>
+                    <?php /* @escapeNotVerified */
+                    echo str_replace("&nbsp;", " ", $_attributeValue); ?>
+                </div>
+                <?php /** @var Magento\Catalog\Block\Product\View $block */
+                $boxQuantity = $block->getProduct()->getResource()->getAttribute('box_quantity');
+                if ($boxQuantity) {
+                    $_boxQuantityValue = $boxQuantity->getFrontend()->getValue($block->getProduct());
+                }
+                ?>
+                <?php if (isset($_boxQuantityValue) && !$isOndemand): ?>
+                    <div class="box-quantity">
+                        <strong> - <?= __('Box (%1 Units)', $_boxQuantityValue) ?></strong>
+                    </div>
+                <?php endif; ?>
+
+            </div>
+        </div>
+        <?php if ($session->isLoggedIn() && !$isOndemand && $allowPurchases): ?>
+            <div class="stock-box-packing">
+                <span><?= __('Packing:') ?></span>
+                <span class="stock-box"></span>
+                <span> <?= __('units') ?></span>
+            </div>
+            <div class="stock-box-units">
+                <span class="stock-units"></span>
+                <span> <?= __('units in stock') ?></span>
+            </div>
+            <div class="stock-notification">
+                <button class="button open-stock-notification-dialog" id="open-stock-notification-dialog"
+                        style="display: none" type="button">
+                    <?= __('Notify me') ?>
+                </button>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>

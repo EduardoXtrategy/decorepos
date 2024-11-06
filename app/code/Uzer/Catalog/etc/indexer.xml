@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="uzer_update_configurable" view_id="uzer_update_configurable"
+             class="Uzer\Catalog\Model\Indexer\UpdateConfigurableStock">
+        <title translate="true">Set in stock configurable products</title>
+        <description translate="true">Update configurable products in stock status for always display products
+        </description>
+    </indexer>
+</config>

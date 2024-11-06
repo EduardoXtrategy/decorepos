@@ -1,0 +1,105 @@
+<div class="amgdprcookie-modal-template">
+    <form id="amgdprcookie-form" class="amgdprcookie-settings-form" data-amcookie-js="form-cookie">
+        <div class="amgdprcookie-groups-container" data-amcookie-js="groups">
+            <% _.each(data.groups.groupData, function(group, index) { %>
+            <div class="amgdprcookie-cookie-container -modal">
+                <div class="amgdprcookie-header">
+                    <h3 class="amgdprcookie-caption"><%= group.name %></h3>
+                    <div class="amgdprcookie-toggle-cookie">
+                        <input class="amgdprcookie-input <% if(group.isEssential){ %>disabled<% } %>"
+                               type="checkbox"
+                               data-amcookie-js="field"
+                               name="groups[]"
+                               id="<%= 'switch-box-' + index %>"
+                               value="<%= group.groupId %>"
+                        <% if(group.checked){ %>checked<% } %>
+                        <% if(group.isEssential){ %>disabled<% } %> >
+                        <label class="amgdprcookie-label" for="<%= 'switch-box-' + index %>"></label>
+                    </div>
+                </div>
+                <p class="amgdprcookie-text"><%= group.description %></p>
+                <a class="amgdprcookie-link"
+                   data-amgdprcookie-js="information"
+                   data-groupId="<%= group.groupId %>"
+                   href="#"
+                   title="<%= data.linkName %>"
+                   aria-label="<%= data.linkName %>"><%= data.linkName %></a>
+            </div>
+            <% }); %>
+        </div>
+        <div class="amgdprcookie-policy-container" data-amcookie-js="policy">
+            <div class="amgdprcookie-text-container">
+                <p class="amgdprcookie-policy"><%= data.policyText %></p>
+            </div>
+            <div class="amgdprcookie-buttons-block">
+                <% _.each(data.buttons, function(button) { %>
+                <button class="amgdprcookie-button <%= button.class %>"
+                        disabled
+                        data-amgdprcookie-js="<%= button.dataJs %>"><%= button.label %></button>
+                <% }); %>
+            </div>
+        </div>
+    </form>
+</div>
+
+<style>
+    .amgdprcookie-modal-template {
+        background-color: <%= css.backgroundColor %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-policy {
+        color: <%= css.policyTextColor %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-text {
+        color: <%= css.textColor %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-header {
+        color: <%= css.titleColor %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-link,
+    .amgdprcookie-modal-template .amgdprcookie-policy a {
+        color: <%= css.linksColor %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-button.-save {
+        order: <%= css.acceptBtnOrder %>;
+        background-color: <%= css.acceptBtnColor %>;
+        border-color: <%= css.acceptBtnColor %>;
+        color: <%= css.acceptBtnTextColor %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-button.-save:hover {
+        background-color: <%= css.acceptBtnColorHover %>;
+        border-color: <%= css.acceptBtnColorHover %>;
+        color: <%= css.acceptBtnTextColorHover %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-button.-settings {
+        order: <%= css.allowBtnOrder %>;
+        background-color: <%= css.allowBtnColor %>;
+        border-color: <%= css.allowBtnColor %>;
+        color: <%= css.allowBtnTextColor %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-button.-settings:hover {
+        background-color: <%= css.allowBtnColorHover %>;
+        border-color: <%= css.allowBtnColorHover %>;
+        color: <%= css.allowBtnTextColorHover %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-button.-decline {
+        order: <%= css.declineBtnOrder %>;
+        background-color: <%= css.declineBtnColor %>;
+        border-color: <%= css.declineBtnColor %>;
+        color: <%= css.declineBtnTextColor %>;
+    }
+
+    .amgdprcookie-modal-template .amgdprcookie-button.-decline:hover {
+        background-color: <%= css.declineBtnColorHover %>;
+        border-color: <%= css.declineBtnColorHover %>;
+        color: <%= css.declineBtnTextColorHover %>;
+    }
+</style>

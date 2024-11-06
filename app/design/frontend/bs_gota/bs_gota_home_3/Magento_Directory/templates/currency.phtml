@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Currency switcher
+ *
+ * @var \Magento\Directory\Block\Currency $block
+ */
+$texts = array(
+    'us_en' => __('US - DOLLAR'),
+    'eu_en' => __('EUROPE - EURO'),
+    'lat_en' => __('COL - DOLLAR'),
+    'ec_en'=>__('EC - DOLLAR'),
+);
+$storeCode = $block->getStoreCode();
+$text = $texts[$storeCode] ?? $texts['us_en'];
+?>
+<?php if ($block->getCurrencyCount() > 1) : ?>
+    <?php $currencies = $block->getCurrencies(); ?>
+    <?php $currentCurrencyCode = $block->getCurrentCurrencyCode(); ?>
+    <?php $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '' ?>
+    <div id="switcher-currency-popup">
+        <div class="switcher currency switcher-currency" id="switcher-currency<?= $block->escapeHtmlAttr($id) ?>">
+            <strong class="label switcher-label"><span><?= $block->escapeHtml(__('Currency')) ?></span></strong>
+            <div class="actions dropdown options switcher-options">
+                <div class="action toggle switcher-trigger"
+                     id="switcher-currency-trigger<?= $block->escapeHtmlAttr($id) ?>"
+                     data-mage-init='{"dropdown":{}}'
+                     data-toggle="dropdown"
+                     data-trigger-keypress-button="true"
+                     onclick="openPopupCurrency()">
+                    <strong class="language-<?= $storeCode ?>">
+                        <span><?= $text ?></span>
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,20 @@
+<?php /** @var \Uzer\Catalogs\Block\Widget\Catalogs $block */ ?>
+<?php $catalogs = $block->getCatalogs() ?>
+<div class="row catalogs-content">
+    <?php foreach ($catalogs as $catalog): ?>
+        <div class="col-md-3 col-sm-4 col-lg-3 col-xs-2 catalogs-item">
+            <div class="row">
+                <div class="col-md-12 col-12 catalogs-image-container">
+                    <a href="<?= $catalog->getLink() ?>" target="_blank">
+                        <img class="catalog-image" src="<?= $catalog->getImage() ?>" alt="<?= $catalog->getName() ?>">
+                    </a>
+                </div>
+                <div class="col-md-12 col-12 catalogs-title-container text-center">
+                    <a href="<?= $catalog->getLink() ?>" target="_blank">
+                        <h3 class="catalogs-title"><?= $catalog->getName() ?></h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>

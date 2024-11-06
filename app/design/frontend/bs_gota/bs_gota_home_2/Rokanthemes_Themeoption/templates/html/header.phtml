@@ -1,0 +1,87 @@
+<div class="header-container layout2">
+	<div class="topbar">
+		<div class="container-max">
+			<div class="flex-layout">
+				<div class="language-currency">
+					<div class="container-setting-language-currency">
+						<?php echo $this->getChildHtml("store_language"); ?>  
+						<?php echo $this->getChildHtml("currency"); ?>
+					</div>		
+				</div>
+				<div class="topbar-right">
+					<div class="wishlist visible-md visible-lg wishlist-custom-button-login">
+						<a href="<?php echo $this->getUrl('wishlist');?>"><?php echo __('Wishlist');?></a>
+					</div>		
+					<div class="compare visible-md visible-lg">
+						<a href="<?php echo $this->getUrl('catalog/product_compare');?>"><?php echo __('Compare');?></a>
+					</div>		
+					<div class="register-login visible-md visible-lg">
+						<?php if(!$this->helper('Rokanthemes\Themeoption\Helper\Data')->isLoggedIn()){?>
+							<a class="custom-button-login" href="<?php echo $this->getUrl('customer/account/login');?>"><?php echo __('Login');?></a>
+							<?php echo __('or');?>
+							<a href="<?php echo $this->getUrl('customer/account/create');?>">  <?php echo __('Sign up');?></a> 
+						<?php
+						}
+						else{
+						?>
+						<a href="<?php echo $this->getUrl('customer/account/index');?>"><?php echo __('My account');?></a>
+						<a href="<?php echo $this->getUrl('customer/account/logout');?>"> <?php echo __('or');?> <?php echo __('Logout');?></a>
+						<?php } ?>
+					</div>						
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header">
+		<div class="container-max">
+			<div class="for-full-withmenu flex-layout">
+				<div class="toggle-search block block-search">
+					<div class="block-content">
+						<div class="dropdown">
+							<div class="dropdown-toggle fixed-click-show-destop">
+								<div class="top-search">
+									<i class="icon-search"></i>
+									<span class="text"><?php echo __('Search'); ?></span>
+								</div>
+							</div>
+							<div class="form-search-header">
+								<div class="form-search-ajax">
+									<a href="#" class="close-search"><?php echo __('Close'); ?></a>
+									<div class="top-search">
+										<div><?php echo __('Where are you looking for?'); ?></div>
+										<?php echo $this->getChildHtml("topSearch");?>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="logo visible-sm visible-xs">
+					<?php echo $this->getChildHtml("logo"); ?>	
+				</div>
+				<?php echo $this->getChildHtml("top.navigation.sections"); ?>	
+				<?php echo $this->getChildHtml("minicart");?>		
+			</div>
+		</div>
+	</div>
+	
+</div>
+<?php if($this->helper('Rokanthemes\Themeoption\Helper\Themeconfig')->isEnableStickyHeader()){ ?>
+<script type="text/javascript">
+    require(['jquery'],function($){
+        $(document).ready(function($){
+			$(window).scroll(function() {
+				var num = $('.header-container').outerHeight();
+				var screenWidth = $(window).width();
+				
+				if ($(this).scrollTop() > num && screenWidth >= 768 ){  
+					$(".header").addClass("sticky");
+				}
+				else{
+					$(".header").removeClass("sticky");
+				}
+			});
+		});
+    });
+</script>
+<?php } ?>

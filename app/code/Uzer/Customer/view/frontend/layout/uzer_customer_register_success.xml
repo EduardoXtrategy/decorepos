@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="content">
+        <container name="register-step-success" htmlTag="div" htmlClass="row">
+            <container name="register-step-success-form" htmlTag="div" htmlClass="col-md-12 col-12">
+                <block class="Magento\Cms\Block\Block" name="success_register_2b2">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">success_register_2b2</argument>
+                    </arguments>
+                </block>
+            </container>
+        </container>
+    </referenceContainer>
+</page>

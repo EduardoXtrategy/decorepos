@@ -1,0 +1,47 @@
+{
+  "samples_cart": {
+    "column": {
+      "entity_id": true,
+      "customer_id": true,
+      "active": true,
+      "store_id": true,
+      "website_id": true,
+      "complete_at": true
+    },
+    "index": {
+      "SAMPLES_CART_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  },
+  "samples_cart_item": {
+    "column": {
+      "entity_id": true,
+      "sku": true,
+      "is_parent": true,
+      "parent": true,
+      "": true
+    },
+    "index": {
+      "SAMPLES_CART_ITEM_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  },
+  "sample_orders": {
+    "column": {
+      "entity_id": true,
+      "sample_quote_id": true,
+      "date_purchase": true,
+      "customers_id": true
+    },
+    "index": {
+      "SAMPLE_ORDERS_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

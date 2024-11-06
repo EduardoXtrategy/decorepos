@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Uzer\Catalogs\Api\Data\CatalogInterface" type="Uzer\Catalogs\Model\Catalog"/>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="catalogs_data_source" xsi:type="string">
+                    Uzer\Catalogs\Model\ResourceModel\Catalog\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Uzer\Catalogs\Model\ResourceModel\Catalog\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">uzer_catalogs</argument>
+            <argument name="resourceModel" xsi:type="string">Uzer\Catalogs\Model\ResourceModel\Catalog</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Uzer\Catalogs\ReferenceImageUpload" type="Uzer\Catalogs\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">uzer/tmp/feature</argument>
+            <argument name="basePath" xsi:type="string">uzer/feature</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="jpg" xsi:type="string">image/jpg</item>
+                <item name="jpeg" xsi:type="string">image/jpeg</item>
+                <item name="gif" xsi:type="string">image/gif</item>
+                <item name="png" xsi:type="string">image/png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Uzer\Catalogs\Controller\Adminhtml\Catalog\Upload">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Uzer\Catalogs\ReferenceImageUpload</argument>
+        </arguments>
+    </type>
+</config>

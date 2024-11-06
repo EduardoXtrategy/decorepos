@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Uzer\Infor\Api\Data\ModelItemInterface" type="Uzer\Infor\Model\Data\ModelItem"/>
+    <preference for="Uzer\Infor\Api\Data\RequestModelInterface" type="Uzer\Infor\Model\Data\RequestModel"/>
+    <preference for="Uzer\Infor\Api\Data\CustomerDocumentInterface" type="Uzer\Infor\Model\Data\CustomerDocument"/>
+    <preference for="Uzer\Infor\Api\Data\CustomerControlInterface" type="Uzer\Infor\Model\CustomerControl"/>
+    <preference for="Uzer\Infor\Api\Data\CustomerAddressControlInterface" type="Uzer\Infor\Model\CustomerAddressControl"/>
+    <type name="Uzer\Infor\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Infor\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">infor</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Uzer\Infor\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="uzer_infor_dispatch_customer_infor"
+                      xsi:type="object">Uzer\Infor\Console\Command\DispatchCustomerInfor</item>
+                <item name="uzer_infor_dispatch_order_infor"
+                      xsi:type="object">Uzer\Infor\Console\Command\DispatchOrderInfor</item>
+                <item name="uzer_infor_dispatch_order_infor_payment"
+                      xsi:type="object">Uzer\Infor\Console\Command\DispatchOrderPayment</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Infor\Logger\OrderHandler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Infor\Logger\OrderLogger">
+        <arguments>
+            <argument name="name" xsi:type="string">infor-order</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Uzer\Infor\Logger\OrderHandler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

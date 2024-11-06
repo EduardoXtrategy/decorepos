@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">samples_cart_form.samples_cart_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Samples Cart Form</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <namespace>samples_cart_form</namespace>
+        <dataScope>data.general</dataScope>
+        <deps>
+            <dep>samples_cart_form.samples_cart_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="save" class="Uzer\Samples\Block\Form\SamplesCart\Save"/>
+            <button name="back" class="Uzer\Samples\Block\Form\SamplesCart\Back"/>
+            <button name="delete" class="Uzer\Samples\Block\Form\SamplesCart\Delete"/>
+        </buttons>
+    </settings>
+    <dataSource name="samples_cart_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="samples_cart/samplescart/save"/>
+        </settings>
+        <dataProvider class="Uzer\Samples\Ui\DataProvider\SamplesCartDataProvider" name="samples_cart_form_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label translate="true">General</label>
+        </settings>
+        <field name="entity_id" sortOrder="0" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Entity ID</label>
+                <dataScope>entity_id</dataScope>
+            </settings>
+        </field>
+        <field name="customer_id" sortOrder="00" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">customer_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Customer Id</label>
+                <dataScope>customer_id</dataScope>
+            </settings>
+        </field>
+        <field name="active" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">active</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>bool</dataType>
+                <label translate="true">Active</label>
+                <dataScope>active</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="store_id" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">store_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Store Id</label>
+                <dataScope>store_id</dataScope>
+            </settings>
+        </field>
+        <field name="website_id" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">website_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>int</dataType>
+                <label translate="true">Website Id</label>
+                <dataScope>website_id</dataScope>
+            </settings>
+        </field>
+        <field name="complete_at" sortOrder="40" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">complete_at</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Complete At</label>
+                <dataScope>complete_at</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

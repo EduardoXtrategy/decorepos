@@ -1,0 +1,403 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+
+use Magento\Framework\App\ObjectManager;
+
+$session = \Magento\Framework\App\ObjectManager::getInstance()->get(Magento\Customer\Model\Session::class);
+$http = \Magento\Framework\App\ObjectManager::getInstance()->get(\Magento\Framework\App\Request\Http::class);
+$isHomePage = strtolower($http->getFullActionName());
+?>
+
+<div class="header-container layout3">
+    <div class="topbar text-center">
+        <div class="container-max">
+            <?php echo $this->getChildHtml("topbar_free_delivery"); ?>
+        </div>
+    </div>
+    <div class="header">
+        <div class="container-max">
+            <div class="for-full-withmenu flex-layout">
+                <div class="col-logo">
+                    <?php echo $this->getChildHtml("logo"); ?>
+                </div>
+                <?php echo $this->getChildHtml("topSearch"); ?>
+                <div class="header-right">
+                    <div class="language-currency">
+                        <div class="container-setting-language-currency">
+                            <?php echo $this->getChildHtml("currency"); ?>
+                            <!-- <?php echo $this->getChildHtml("store_language"); ?> -->
+                        </div>
+                    </div>
+                    <?= $this->getChildHtml('account') ?>
+                    <div class="row">
+                        <div class="col-md-12 carts-container">
+                            <?php echo $this->getChildHtml("samples_minicart"); ?>
+                            <div id="custom-mini-cart">
+                                <?php echo $this->getChildHtml("minicart"); ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-menu">
+            <div class="container-max">
+                <div class="flex-layout">
+                    <div class="sections nav-sections">
+                        <div id="close-menu" class="visible-xs visible-sm "><a href="#"><i
+                                    class="icon-x"></i></a></div>
+                        <div class="section-items nav-sections-items" role="tablist">
+                            <?php echo $this->getLayout()
+                                ->createBlock(Magento\Cms\Block\Block::class)
+                                ->setBlockId('menu')
+                                ->toHtml();
+                            ?>
+                            <div class="mobile-bottom-menu">
+                                <div class="login-logout">
+                                    <?php if (!$this->helper('Rokanthemes\Themeoption\Helper\Data')->isLoggedIn()) { ?>
+                                        <a href="<?php echo $this->getUrl('customer/account/create'); ?>"> <?php echo __('Sign Up'); ?></a>
+                                        <a class="link-button-login"
+                                           href="<?php echo $this->getUrl('customer/account/login'); ?>"><?php echo __('Login'); ?></a>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <a href="<?php echo $this->getUrl('customer/account/index'); ?>"><?php echo __('My account'); ?></a>
+                                        <a href="<?php echo $this->getUrl('customer/account/logout'); ?>"> <?php echo __('or'); ?>
+                                            &nbsp;<?php echo __('Logout'); ?></a>
+                                    <?php } ?>
+                                </div>
+                                <div class="mobile-currency">
+                                    <?php echo $this->getChildHtml("currency"); ?>
+                                </div>
+                                <div class="link-store">
+                                    <?php echo $this->getChildHtml("holine-number"); ?>
+                                </div>
+                                <div class="phone-content">
+                                    <?php echo $this->getLayout()
+                                        ->createBlock(Magento\Cms\Block\Block::class)
+                                        ->setBlockId('phone_mobile_menu')
+                                        ->toHtml();
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="holine hidden-xs hidden-sm">
+                        <?php echo $this->getChildHtml("holine-number"); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-region-selector" style="display: none">
+    <div class="callfor-popup">
+        <form action="<?= $block->getUrl('theme/select/') ?>" method="post">
+            <div class="row">
+                <div class="col-md-12 col-12">
+                    <h3><?= __('Select your options') ?></h3>
+                </div>
+                <div class="col-md-12 col-12">
+                    <p>
+                        <?= __('Please select your preferred region, language, and currency. Remember, we can only ship orders to addresses located in your selected country.') ?>
+                    </p>
+                </div>
+                <div class="col-md-12 col-12">
+                    <div class="form-group">
+                        <label for="location_region"><?= __('Choose Region') ?></label>
+                        <select name="location_region" id="location_region">
+                            <option value="us" data-icon="/media/icons/flags/ico-flag.usa.svg"><?= __('USA') ?></option>
+                            <option value="eu"
+                                    data-icon="/media/icons/flags/ico-flag-europeanunion.svg"><?= __('Europe') ?></option>
+                            <option value="co"
+                                    data-icon="/media/icons/flags/ico-flag-colombia.svg"><?= __('Colombia') ?></option>
+                            <option value="ec"
+                                    data-icon="/media/icons/flags/ico-flag-ecuador.svg"><?= __('Ecuador') ?></option>
+                        </select>
+                    </div>
+                </div>
+                <!--div class="col-md-12 col-12">
+                    <div class="form-group">
+                        <label for="language"><?= __('Choose Language') ?></label>
+                        <select name="language" id="language">
+                            <option value="us"><?= __('English') ?></option>
+                        </select>
+                    </div>
+                </div-->
+                <!--div class="col-md-12 col-12">
+                    <div class="form-group">
+                        <label for="currency"><?= __('Choose Currency') ?></label>
+                        <select name="currency" id="currency">
+                            <option value="us"><?= __('USD') ?></option>
+                        </select>
+                    </div>
+                </div-->
+                <div class="col-md-12 col-12">
+                    <button type="submit" class="btn btn-primary" id="directory-choose-region">
+                        <?= __('Continue') ?>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<?php if ($this->helper('Rokanthemes\Themeoption\Helper\Themeconfig')->isEnableStickyHeader()) { ?>
+    <script type="text/javascript">
+        require(['jquery', 'rokanthemes/verticalmenu'], function ($) {
+            $(document).ready(function ($) {
+                $(window).scroll(function () {
+                    var num = $('.header-container').outerHeight();
+                    var screenWidth = $(window).width();
+
+                    if ($(this).scrollTop() > num && screenWidth >= 768) {
+                        $(".header").addClass("sticky");
+                    } else {
+                        $(".header").removeClass("sticky");
+                    }
+                });
+                $(".verticalmenu").VerticalMenu();
+                $('.cms-index-index .navigation.verticalmenu .togge-menu').hide();
+                $('.title-category-dropdown').click(function (event) {
+                    $('.navigation.verticalmenu .togge-menu').slideToggle('slow');
+                    $(this).toggleClass('active');
+                });
+            });
+        });
+    </script>
+<?php } ?>
+<script>
+    require(['jquery', 'mage/url', 'Magento_Ui/js/modal/modal'],
+        function ($, url, modal) {
+            $(document).ready(function () {
+                $(".menu-login-customer").hover(function (event) {
+                    $('.dropdown-list').last().fadeToggle("fast", "linear");
+                });
+
+                $(".user-icon-login").click(function (event) {
+                    window.location.href = url.build('customer/account/login/');
+                });
+                //let isHomePage = '<?//=$isHomePage?>//';
+                //if (isHomePage === 'cms_index_index') {
+                //    let storageInfo = window.localStorage.getItem('magento-directory');
+                //    if (storageInfo !== 'true') {
+                //        openPopupCurrency();
+                //        window.localStorage.setItem('magento-directory', 'true');
+                //    }
+                //}
+                $('#directory-choose-region').click(function () {
+                    localStorage.setItem('magento-directory', 'true');
+                });
+            });
+            $.fn.extend({
+                IconSelectBox: function (img) {
+
+                    var defaultSelect = '#' + this.prop('id');
+                    var optionArray = [];
+                    // convert id to class if id given as selector
+                    var prefix_class = defaultSelect.replace('#', '.');
+
+                    var createElements = function () {
+                        var btn_select = extractText(defaultSelect);
+
+                        var button = document.createElement('div');
+                        button.classList = btn_select + '-select-box';
+
+                        var div = document.createElement('div');
+                        div.classList = btn_select + '-b';
+
+                        var ul = document.createElement('ul');
+                        ul.classList = btn_select + '-a';
+
+                        $(div).append(ul);
+
+                        $(button).insertAfter(defaultSelect);
+
+                        $(div).insertAfter(button);
+                    };
+
+                    var getStorage = function () {
+                        var lastSelected = localStorage.getItem(extractText(prefix_class) + '-curr');
+
+                        if (lastSelected) {
+                            //find an item with value of lastSelected
+
+                            $(prefix_class + '-select-box').html(lastSelected + ' <i data-arrow="true" class="fa fa-angle-down"></i>');
+                            var val = $(prefix_class + '-select-box').find('[data-value]').data('value');
+
+                            $(defaultSelect).val(val);
+                        } else {
+                            $(prefix_class + '-select-box').html(optionArray[0] + ' <i data-arrow="true" class="fa fa-angle-down"></i>');
+                            var val = $(optionArray[0]).find('[data-value]').data('value');
+
+                            $(defaultSelect).val(val);
+                        }
+                    };
+
+                    var extractText = function () {
+                        return defaultSelect.indexOf('#') > -1 ? defaultSelect.replace('#', '') : defaultSelect.replace('.', '');
+                    };
+
+                    var addCss = function () {
+                        const head = document.querySelector('head');
+                        const css = prefix_class + '-a {' +
+                            'padding-left: 0px;' +
+                            'background: #faf9f9;' +
+                            'margin-bottom: 0px;' +
+                            '}' +
+
+                            prefix_class + '-a img, ' + prefix_class + '-select-box img{' +
+                            'width: 25px;' +
+                            '}' +
+
+                            prefix_class + '-a li{' +
+                            'list-style: none;' +
+                            'padding: 10px;' +
+                            'text-align: left !important;' +
+                            '}' +
+
+                            prefix_class + '-a li:not(:last-child){' +
+                            'border-bottom: 1px solid #dcd6d6;' +
+                            '}' +
+
+                            prefix_class + '-a li:hover{' +
+                            'background-color: #F4F3F3;' +
+                            '}' +
+
+                            prefix_class + '-a li img {' +
+                            'margin: 5px;' +
+                            '}' +
+
+                            prefix_class + '-a li span, ' + prefix_class + '-select-box li span {' +
+                            'margin-left: 30px;' +
+                            'text-transform: capitalize;' +
+                            'font-size: 14px;' +
+                            'font-weight: 400;' +
+                            '}' +
+
+                            prefix_class + '-b {' +
+                            'position: absolute;' +
+                            'display: none;' +
+                            'width: 100%;' +
+                            'box-shadow: 0 6px 12px rgba(0,0,0,.175);' +
+                            'border: 1px solid rgba(0,0,0,.15);' +
+                            'z-index: 9999;' +
+                            '}' +
+
+                            prefix_class + '-select-box {' +
+                            'display: flex;' +
+                            'align-items: center;' +
+                            'position: relative;' +
+                            'width: 100%;' +
+                            '/*height: 34px;*/' +
+                            'background-color: #fff;' +
+                            'border: 1px solid #d8d8d8;' +
+                            'padding-left: 1rem !important;' +
+                            'padding-right: 1rem !important;' +
+                            'padding-bottom: .5rem;' +
+                            'padding-top: .5rem;' +
+                            '}' +
+
+                            prefix_class + '-select-box i {' +
+                            'top: 10%;' +
+                            'position: relative;' +
+                            '}' +
+
+                            prefix_class + '-select-box li i {' +
+                            '}' +
+
+                            prefix_class + '-select-box li {' +
+                            'display: flex;' +
+                            'align-items: center;' +
+                            'list-style: none;' +
+                            'float: left;' +
+                            'padding-bottom: 0px;' +
+                            'width: 95%;' +
+                            'text-align: left;' +
+                            '}' +
+
+                            prefix_class + '-select-box li {' +
+                            'color: #4b4b4b;' +
+                            'cursor: pointer;' +
+                            '}' +
+
+                            prefix_class + '-select-box:hover li {' +
+                            'margin-left: 0px;' +
+                            '}' +
+
+                            prefix_class + '-select-box:hover {' +
+                            'background-color: #FFFF;' +
+                            'border: 1px solid #d8d8d8 !important;' +
+                            '}' +
+
+                            prefix_class + '-select-box:active {' +
+                            'background-color: #FFFF;' +
+                            'border: 1px solid #d8d8d8 !important;' +
+                            '}' +
+
+                            prefix_class + '-select-box:focus {' +
+                            '}';
+
+
+                        $(head).append('<style> ' + css + ' </style>');
+
+                    };
+
+                    $(defaultSelect).hide();
+
+                    $(defaultSelect + ' option').each(function (item, index) {
+                        var text = this.innerText;
+                        var value = this.value;
+                        var icon = $(this).data("icon");
+
+                        var iconEl = img ? '<img src="' + icon
+                            + '" alt="icon" data-value="' + value + '"/>'
+                            : '<i class="' + icon
+                            + '" data-value="' + value + '"></i>';
+
+                        var item = '<li>' + iconEl + ' <span>' + text + '</span></li>';
+                        optionArray.push(item);
+                    })
+
+                    createElements();
+                    addCss();
+                    $(prefix_class + '-a').html(optionArray);
+
+                    getStorage();
+
+                    //change button stuff on click
+                    $(prefix_class + '-a li').click(function () {
+                        var icon = img ? $(this).find('img').attr("src") : $(this).find('i').attr("class");
+                        var value = img ? $(this).find('img').data('value') : $(this).find('i').data('value');
+                        var text = this.innerText;
+
+                        var iconEl = img ? '<img src="' + icon
+                            + '" alt="icon" data-value="' + value + '"/>'
+                            : '<i class="' + icon
+                            + '" data-value="' + value + '"></i>';
+
+                        var item = '<li>' + iconEl + ' <span> ' + text + ' </span>' + '</li>';
+
+                        $(prefix_class + '-select-box').html(item + '<i data-arrow="true" class="fa fa-angle-down"></i>');
+
+                        $(defaultSelect).val(value);
+                        $(prefix_class + '-b').toggle();
+
+                        localStorage.setItem(extractText(prefix_class) + '-curr', item);
+                    });
+
+                    $(prefix_class + '-select-box').click(function () {
+                        var cls = $(this).find('[data-arrow]').attr('class');
+                        if (cls === "fa fa-angle-up") {
+                            $(this).find('[data-arrow]').attr('class', 'fa fa-angle-down');
+                        } else {
+                            $(this).find('[data-arrow]').attr('class', 'fa fa-angle-up');
+                        }
+
+                        $(prefix_class + '-b').toggle();
+                    });
+
+                }
+            });
+            $('#location_region').IconSelectBox(true);
+        });
+</script>

@@ -1,0 +1,14 @@
+<?php /** @var Magento\Catalog\Block\Product\View $block */ ?>
+<?php $productKeywords = $block->getProduct()->getResource()->getAttribute('meta_keyword');
+if ($productKeywords) {
+    $_attributeValue = $productKeywords->getFrontend()->getValue($block->getProduct());
+}
+?>
+<?php if (isset($_attributeValue)): ?>
+    <div class="decowraps-keywords">
+        <p>
+            <span class="keywords-title"><?= __('Related Keywords') ?>:</span>
+            <span class="keywords-value"><?= $block->escapeHtml($_attributeValue) ?></span>
+        </p>
+    </div>
+<?php endif ?>

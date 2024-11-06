@@ -1,0 +1,19 @@
+.fieldset {
+    display: block !important;
+}
+
+.swatch-attribute-label, .fieldset > .field.required > label, .fieldset > .field.required > label:after {
+    margin-bottom: .5rem !important;
+}
+
+.field.password {
+    margin-top: 1.5rem !important;
+}
+
+.form-login .actions-toolbar {
+    margin-top: 1rem;
+}
+
+.login-block-new-customer .primary a {
+    margin-top: 3rem !important;
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Shopby
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Shopby\Block\Navigation\FilterRenderer"
+                type="Uzer\AdvancedFilter\Block\Navigation\FilterRenderer"/>
+    <preference for="Uzer\AdvancedFilter\Api\Data\ProductTypeSizesInterface"
+                type="Uzer\AdvancedFilter\Model\Data\ProductTypeSizes"/>
+    <preference for="Amasty\Shopby\Model\Layer\Filter\Stock"
+                type="Uzer\AdvancedFilter\Model\Layer\Filter\Stock"/>
+    <type name="Magento\Catalog\Api\ProductRepositoryInterface">
+        <plugin name="Uzer_AdvancedFilter_Plugin_ProductRepositoryPlugin"
+                type="Uzer\AdvancedFilter\Plugin\ProductRepositoryWrapper" sortOrder="10" disabled="false"/>
+    </type>
+</config>

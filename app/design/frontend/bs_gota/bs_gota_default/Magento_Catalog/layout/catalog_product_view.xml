@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+		<move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.review" destination="product.info.main" before="product.info.price"/>
+		<move element="product.info.main" destination="product-view-right"/>
+		<move element="product.info.media" destination="product-view-left"/>
+		<move element="product.info.overview" destination="product.info.price" before="product.info.stock.sku"/>
+		<move element="product.info.stock.sku" destination="product.info.price" after="product.info.overview"/>
+		<referenceContainer name="content">
+			<container name="product-view" htmlTag="div" htmlClass="product-view row" before="-">
+				<container name="product-view-left" htmlTag="div" htmlClass="col-sm-6 col-xs-12" before="-"/>
+				<container name="product-view-right" htmlTag="div" htmlClass="col-sm-6 col-xs-12" after="product-view-right"/>
+			</container>
+		</referenceContainer>
+    </body>
+</page>

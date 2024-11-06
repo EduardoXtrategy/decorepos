@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Uzer\Core\Api\MiddlewareAuthInterface"
+                type="Uzer\Middleware\Model\MiddlewareAuth"/>
+    <preference for="Uzer\Core\Api\CustomerIntegrationInterface"
+                type="Uzer\Middleware\Model\CustomerIntegration"/>
+    <preference for="Uzer\Core\Api\Data\OrderMiddlewareInterface"
+                type="Uzer\Middleware\Model\OrderMiddleware"/>
+    <preference for="Uzer\Core\Api\OrderIntegrationInterface"
+                type="Uzer\Middleware\Model\OrderIntegration"/>
+    <type name="Uzer\Middleware\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Uzer\Middleware\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">middleware</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Uzer\Middleware\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="uzer_middleware_middleware_index"
+                      xsi:type="object">Uzer\Middleware\Console\Command\MiddlewareIndex</item>
+                <item name="uzer_middleware_order_middleware_index"
+                      xsi:type="object">Uzer\Middleware\Console\Command\OrderMiddlewareIndex</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

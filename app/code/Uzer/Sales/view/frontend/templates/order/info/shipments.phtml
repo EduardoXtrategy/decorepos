@@ -1,0 +1,12 @@
+<?php /** @var \Uzer\Sales\Block\Order\Info\Shipments $block */ ?>
+<?php $shipments = $block->getShipments() ?>
+<ul class="order-comments">
+    <?php foreach ($shipments as $shipment): ?>
+        <?php if ($shipment && $shipment->getComments()): ?>
+            <?php foreach ($shipment->getComments() as $comment): ?>
+                <li><?= /** @noEscape */
+                    $comment->getComment() ?></li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</ul>

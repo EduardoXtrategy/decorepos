@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="decowraps_contact_notification" label="Contact" file="contact_notification.html" type="html"
+              module="Uzer_Contact"
+              area="frontend"/>
+</config>

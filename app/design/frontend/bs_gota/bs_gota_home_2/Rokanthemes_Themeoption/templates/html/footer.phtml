@@ -1,0 +1,33 @@
+<div id="back-top" class=""><?php /* @escapeNotVerified */ echo __('SCROLL UP'); ?><i class="fa fa-angle-double-right"></i></div>
+<div class="footer-container">
+	<div class="container">
+		<div class="footer-static-container">
+			<div class="footer_introduce">
+				<div class="grid-layout">
+					<?php echo $this->getChildHtml("footer_static"); ?>
+					<?php echo $block->getLayout()->createBlock('Rokanthemes\Blog\Block\Sidebar\Recent')->setTemplate('Rokanthemes_Blog::sidebar/recent.phtml')->toHtml();?>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="row">
+				<div class="col-md-6 col-sm-7"> 
+					<div class="copyright">
+						<?php  echo $this->getLayout()->createBlock("Rokanthemes\Themeoption\Block\Customcss")->setTemplate("html/copyright.phtml")->toHtml() ?>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-5"> 
+					<div class="menu-hozital">  
+					<?php echo $this->getChildHtml("footer_menu"); ?> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	window.onload = function () { 
+		document.body.className += " preloaded";
+	}
+</script>
+

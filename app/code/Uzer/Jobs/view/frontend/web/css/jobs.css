@@ -1,0 +1,90 @@
+.job-btn-accordion {
+    color: #191919;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.6s;
+    background: none !important;
+}
+
+.jobs-accordion .active {
+    background-color: #d8d8d840;
+}
+
+.job-btn-accordion:hover {
+    color: #191919;
+    border: #FFF !important;
+}
+
+.job-panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
+.jobs-accordion {
+    box-shadow: 0 0 11px rgba(206, 206, 206, 0.5);
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+    background-color: #ffffff;
+    /* padding: 1rem; */
+}
+
+.active-panel {
+    display: block !important;
+}
+
+.jobs-accordion .active .job-panel {
+    display: block;
+}
+
+.job-panel p {
+    color: #363636 !important;
+}
+
+.item-accordion {
+    padding: 1rem;
+}
+
+.job-btn-go {
+    border-radius: 3px;
+    background-color: #82992f;
+    padding: 1rem;
+    color: #FFF;
+}
+
+.job-btn-go span {
+    color: #FFF;
+}
+
+.job-btn-accordion .btn-normal {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.job-btn-accordion .btn-location {
+    color: #545454;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.job-section-block {
+    margin-top: 4rem;
+}
+
+.job-form-button {
+    margin-top: 2rem;
+    border-radius: 3px;
+    background-color: #82992f;
+    border-color: #82992f;
+    color: #FFF;
+}
+
+.job-form-button:hover {
+    background-color: #8aa52b;
+    border-color: #8aa52b;
+}

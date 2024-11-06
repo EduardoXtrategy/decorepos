@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="22px" height="14px" viewBox="0 0 22 14" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <rect width="22" height="14" id="artboard_1" />
+    <clipPath id="clip_1">
+      <use xlink:href="#artboard_1" clip-rule="evenodd" />
+    </clipPath>
+  </defs>
+  <g id="Icons/eye-invisible" clip-path="url(#clip_1)">
+    <use xlink:href="#artboard_1" stroke="none" fill="#FFFFFF" />
+    <path d="M19.0108 3.58829L19.8187 4.39981C21.0644 5.65506 21.0644 7.68612 19.8187 8.94136L19.0108 9.75289C14.2398 14.5373 6.51319 14.5373 1.74214 9.75289L0.93429 8.94136C-0.31143 7.68612 -0.31143 5.65506 0.93429 4.39981L1.74214 3.58829C6.51319 -1.1961 14.2398 -1.1961 19.0108 3.58829ZM17.9658 8.69567L18.7662 7.8916L18.7662 7.85437C19.4372 7.17991 19.4372 6.08682 18.7662 5.41236L17.9658 4.60828C13.7729 0.401216 6.98005 0.401216 2.78715 4.60828L1.98672 5.41236C1.31571 6.08682 1.31571 7.17991 1.98672 7.85437L2.78715 8.69567C6.98005 12.9027 13.7729 12.9027 17.9658 8.69567Z" id="Shape" fill="#717171" fill-rule="evenodd" stroke="none" />
+    <path d="M0 14L22 0" id="Line" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M0 14L22 0" id="Line" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M0 14L22 0" transform="translate(-1 -1)" id="Line" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M0 14L22 0" transform="translate(0 1)" id="Line" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M3.5 0C1.567 0 0 1.567 0 3.5C0 5.433 1.567 7 3.5 7C5.433 7 7 5.433 7 3.5C7 1.567 5.433 3.73035e-15 3.5 3.73035e-15L3.5 0Z" transform="translate(7 3)" id="Shape" fill="#717171" stroke="none" />
+    <path d="M0 14L22 0" id="Line" fill="none" stroke="#717171" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+</svg>
